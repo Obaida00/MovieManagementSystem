@@ -1,8 +1,8 @@
 package MainPackage;
-import Interfaces.LoadingScreen
-        ;
+import Interfaces.LoadingScreen;
 
 
+////////////////TESTING
 /**
  *
  * @author Obaida
