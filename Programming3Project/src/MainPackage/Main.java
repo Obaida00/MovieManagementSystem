@@ -14,3 +14,9 @@ public class Main {
 
   }
 }
+
+
+//    To Print The Date We Did:
+//    Date d = go.MDate(2024 , 4 , 12 , 07 , 30);
+//    SimpleDateFormat s = new SimpleDateFormat("EEEE yyyy / MM / dd   hh:mm ");
+//    System.out.println(s.format(d));
