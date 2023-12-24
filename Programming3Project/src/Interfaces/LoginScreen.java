@@ -123,6 +123,7 @@ public class LoginScreen extends javax.swing.JFrame {
     userIcon = new javax.swing.JLabel();
     shownpw = new javax.swing.JLabel();
     hidenpw = new javax.swing.JLabel();
+    wrongLogin = new javax.swing.JLabel();
     photoPanel = new javax.swing.JPanel();
     photo = new javax.swing.JLabel();
 
@@ -227,6 +228,10 @@ public class LoginScreen extends javax.swing.JFrame {
     });
     loginPanel.add(hidenpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 235, 25, 25));
 
+    wrongLogin.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+    wrongLogin.setForeground(new java.awt.Color(255, 102, 102));
+    loginPanel.add(wrongLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 160, 30));
+
     photoPanel.setBackground(new java.awt.Color(251, 251, 253));
 
     photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Home-cinema-01.png"))); // NOI18N
@@ -288,6 +293,14 @@ public class LoginScreen extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+    String username = txtun.getText();
+    String password = new String(txtpw.getPassword());
+    //Call checkpassword() in the if statement here
+    if(true){
+//      new LandingScreen();// login successfully going to next frame (landing)
+    }else{
+      wrongLogin.setText(wrongLoginMsg);
+    }
     
   }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -333,5 +346,7 @@ public class LoginScreen extends javax.swing.JFrame {
   private javax.swing.JLabel unLine;
   private javax.swing.JLabel usLable;
   private javax.swing.JLabel userIcon;
+  private javax.swing.JLabel wrongLogin;
   // End of variables declaration//GEN-END:variables
+  String wrongLoginMsg = "Incorrect Username Or Password!!!";
 }
