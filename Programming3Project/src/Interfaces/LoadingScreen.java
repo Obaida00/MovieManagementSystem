@@ -16,17 +16,11 @@ import java.util.logging.Logger;
  */
 public class LoadingScreen extends javax.swing.JFrame {
   
-  public static int LOADINGTIME = 5000;
+  public static int LOADINGTIME = 1000;
   /**
    * Creates new form LoadingScreen
    */
   public LoadingScreen() {
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException ex) {
-      Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
-    }
-
     setting();
     initComponents();
     this.setVisible(true);
