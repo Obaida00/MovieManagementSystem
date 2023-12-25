@@ -4,7 +4,7 @@ import Action.go;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Ticket {
+public class Ticket implements Serializable{
     private Cinema ticketCinema; //FK
     private Seat ticketSeat; //FK
     private Date ticketShowTime; //FK
