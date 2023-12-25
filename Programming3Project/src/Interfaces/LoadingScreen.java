@@ -1,6 +1,7 @@
 package Interfaces;
 
  
+import Action.go;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -137,6 +138,7 @@ public class LoadingScreen extends javax.swing.JFrame {
   private void loadingTask() {
     try {
       //Here we cn call loading tasks (preffered in threads)
+      go.loadAll();
       Thread.sleep(LOADINGTIME);
     } catch (InterruptedException ex) {
       Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
