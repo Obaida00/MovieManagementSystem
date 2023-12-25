@@ -11,7 +11,10 @@ import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import static jdk.nashorn.internal.codegen.CompilerConstants.className;
 
 public class go {
 
@@ -191,11 +194,44 @@ public class go {
     }
 
 
-
-    public static boolean checkName$Pass(){
-        //TODO
+    
+    
+    public static HashMap loadUserMap(){
+        try{
+            File file = new File("Users/userMap.txt");
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+            HashMap<String , Integer> map = (HashMap)ois.readObject();
+            ois.close();
+            return map;
+        }catch (FileNotFoundException e) {
+            System.out.println("Users/userMap.txt didn't load: File Not Found!");
+        }catch (IOException e) {
+            System.out.println("Users/userMap.txt didn't load: IOException!");
+        }catch(ClassNotFoundException e) {
+            System.out.println("Users/userMap.txt didn't load: Class Not Found!");
+        }finally {
+            System.out.println("Users/userMap.txt loaded Successfully ");
+        }
+        return null;
+    }
+    private static User loadFromUserMap(String username){
+        return (User)load("User",(int)loadUserMap().get(username));
+    }
+    public static boolean checkName$Pass(String username , String password){
+        User user = loadFromUserMap(username);
+        if(user.equals(null)){
+            return false;
+        }else{
+            if(user.getUserPassword().equals(password)){
+                return true;
+            }
+        }
         return false;
     }
+    
+    
+    
+    
     public static Date mDate(int Year , int Month, int Day, int Hour, int Minute){
         Date d;
         d = new Date(Year-1900,Month-1,Day,Hour,Minute);
