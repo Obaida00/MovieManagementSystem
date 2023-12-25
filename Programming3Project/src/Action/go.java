@@ -12,6 +12,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class go {
 
@@ -190,8 +192,10 @@ public class go {
         }
     }
 
-
-
+   
+    private static User loadFromUserMap(String userName){
+        return null;
+    }
     public static boolean checkName$Pass(){
         //TODO
         return false;
@@ -212,5 +216,39 @@ public class go {
         }
         return null;
     }
+    public static void saveCurrentUser(String userName){
+        try{
+            File file = new File("CurrentUser.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            User user = go.loadFromUserMap(userName);
+            oos.writeObject(user);
+            oos.flush();
+            oos.close();
+            System.out.println(userName + " saved Successfully ");
+        } catch (FileNotFoundException e) {
+            System.out.println( userName + " didn't save: File Not Found!");
+        } catch (IOException e) {
+            System.out.println(userName + " didn't save: IOException!");
+        }   
+    }
+    public static User getCurrentUser(String userName){
+        try{
+            File file = new File("CurrentUser.txt");
+            ObjectInputStream oos = new ObjectInputStream(new FileInputStream(file));
+            User user = (User)oos.readObject();
+            oos.close();
+            return user; 
+        } catch (FileNotFoundException e) {
+            System.out.println( userName + " didn't load: File Not Found!");
+        } catch (IOException e) {
+            System.out.println(userName + " didn't load: IOException!");
+        } catch (ClassNotFoundException ex) {
+          System.out.println(userName + " didn't load: Class Not Found!");  
+        }finally{
+               System.out.println(userName + " loaded Successfully ");
+        }
+        return null;   
+    }
+    
 
 }

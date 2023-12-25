@@ -3,6 +3,8 @@ package MainPackage;
 import Action.go;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
     private String userName;
@@ -13,7 +15,8 @@ public class User {
     private int userID;//pk
     private static int userIDInitializer;
     private static ArrayList<User> userList ;
-
+    private static Map<String, Integer> userMap;
+    
     public User(String userName, String userPassword,String userAddress){
         this.userName = userName;
         this.userPassword = userPassword;
@@ -23,7 +26,7 @@ public class User {
         go.saveInitializer("User");
 
         userBookedTickets = new ArrayList<>();
-
+        userMap = new HashMap<String, Integer>();
         this.image = go.makeImage("Default User Image .jpg");
 
         go.save("User" , this , this.userID);
@@ -46,4 +49,6 @@ public class User {
     public ArrayList<Ticket> getUserBookedTickets() {return userBookedTickets;}
     public static ArrayList<User> getUserList() {return userList;}
     public static int getUserIDInitializer() {return userIDInitializer;}
+    public static Map<String, Integer> getUserMap() {return userMap;}
+    
 }
