@@ -25,7 +25,7 @@ class Seat{
 
 
 
-public class Cinema {
+public class Cinema implements Serializable{
     private String cinemaName; //Unique
     private int cinemaSeatNumber;
     private ArrayList<Seat> cinemaSeatsList; //FK
