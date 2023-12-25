@@ -334,3 +334,4 @@ public class LoginScreen extends javax.swing.JFrame {
   private javax.swing.JLabel usLable;
   private javax.swing.JLabel userIcon;
   // End of variables declaration//GEN-END:variables
+}
