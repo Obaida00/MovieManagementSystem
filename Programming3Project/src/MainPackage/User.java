@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User implements Serializable{
     private String userName;
     private String userPassword;
     private String userAddress;
