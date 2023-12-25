@@ -1,6 +1,5 @@
 package MainPackage;
 
-=======
 import Action.go;
 import Interfaces.LoadingScreen;
 import java.io.File;
