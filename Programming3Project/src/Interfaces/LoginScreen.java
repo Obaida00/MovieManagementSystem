@@ -297,7 +297,7 @@ public class LoginScreen extends javax.swing.JFrame {
     String password = new String(txtpw.getPassword());
     //Call checkpassword() in the if statement here
     if(true){
-      new HomeScreen();
+//      new LandingScreen();// login successfully going to next frame (landing)
     }else{
       wrongLogin.setText(wrongLoginMsg);
     }

@@ -3,13 +3,6 @@ package Interfaces;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.*;
 
 
@@ -34,7 +27,13 @@ public class HomeScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
-    
+    txtun.setBackground(new java.awt.Color(0,0,0,1));
+    txtpw.setBackground(new java.awt.Color(0,0,0,1));
+    shownpw.setVisible(false);
+    shownpw.setEnabled(false);
+    hidenpw.setVisible(true);
+    hidenpw.setEnabled(true);
+
   }
 
   public void setting(){
@@ -73,26 +72,18 @@ public class HomeScreen extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    HomePanel = new javax.swing.JPanel();
-    titlebar = new javax.swing.JPanel();
+    loginPanel = new javax.swing.JPanel();
+    jPanel1 = new javax.swing.JPanel();
     exitButton = new javax.swing.JLabel();
-    homePanel = new javax.swing.JPanel();
-    homeScrollPane = new javax.swing.JScrollPane();
-    homeScrollPanel = new javax.swing.JPanel();
+    jPanel2 = new javax.swing.JPanel();
     sidebar = new javax.swing.JPanel();
-    userIcn = new javax.swing.JLabel();
-    homeIcn = new javax.swing.JLabel();
-    moviesIcn = new javax.swing.JLabel();
-    sittingsIcn = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
     setResizable(false);
 
-    HomePanel.setBackground(new java.awt.Color(4, 15, 19));
-    HomePanel.setLayout(new java.awt.BorderLayout());
-
-    titlebar.setBackground(new Color(0,0,0,1));
+    loginPanel.setBackground(new java.awt.Color(4, 15, 19));
+    loginPanel.setLayout(new java.awt.BorderLayout());
 
     exitButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
     exitButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,117 +96,58 @@ public class HomeScreen extends javax.swing.JFrame {
       }
     });
 
-    javax.swing.GroupLayout titlebarLayout = new javax.swing.GroupLayout(titlebar);
-    titlebar.setLayout(titlebarLayout);
-    titlebarLayout.setHorizontalGroup(
-      titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarLayout.createSequentialGroup()
-        .addContainerGap(946, Short.MAX_VALUE)
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
-    titlebarLayout.setVerticalGroup(
-      titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(titlebarLayout.createSequentialGroup()
+    jPanel1Layout.setVerticalGroup(
+      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(jPanel1Layout.createSequentialGroup()
         .addGap(0, 0, 0)
         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(0, 0, Short.MAX_VALUE))
     );
 
-    HomePanel.add(titlebar, java.awt.BorderLayout.PAGE_START);
+    loginPanel.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-    homePanel.setBackground(new java.awt.Color(4, 15, 22));
-
-    homeScrollPane.setBackground(new java.awt.Color(4, 15, 22));
-    homeScrollPane.getViewport().setBackground(new Color(4,15,22));
-    homeScrollPane.setBorder(null);
-    homeScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-    homeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-    homeScrollPane.setEnabled(false);
-    homeScrollPane.setWheelScrollingEnabled(false);
-
-    homeScrollPanel.setBackground(new java.awt.Color(4, 15, 22));
-
-    javax.swing.GroupLayout homeScrollPanelLayout = new javax.swing.GroupLayout(homeScrollPanel);
-    homeScrollPanel.setLayout(homeScrollPanelLayout);
-    homeScrollPanelLayout.setHorizontalGroup(
-      homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 969, Short.MAX_VALUE)
+    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+    jPanel2.setLayout(jPanel2Layout);
+    jPanel2Layout.setHorizontalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 801, Short.MAX_VALUE)
     );
-    homeScrollPanelLayout.setVerticalGroup(
-      homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 717, Short.MAX_VALUE)
+    jPanel2Layout.setVerticalGroup(
+      jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 346, Short.MAX_VALUE)
     );
 
-    homeScrollPanel.setLayout(new GridLayout(0, 1, 5, 10));
+    loginPanel.add(jPanel2, java.awt.BorderLayout.CENTER);
 
-    homeScrollPane.setViewportView(homeScrollPanel);
-    addRowScrollPanel();
-
-    javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
-    homePanel.setLayout(homePanelLayout);
-    homePanelLayout.setHorizontalGroup(
-      homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(homeScrollPane)
-    );
-    homePanelLayout.setVerticalGroup(
-      homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-        .addGap(0, 38, Short.MAX_VALUE)
-        .addComponent(homeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
-    );
-
-    HomePanel.add(homePanel, java.awt.BorderLayout.CENTER);
-
-    getContentPane().add(HomePanel, java.awt.BorderLayout.CENTER);
+    getContentPane().add(loginPanel, java.awt.BorderLayout.CENTER);
+    Layered.add(loginPanel,0);
 
     sidebar.setBackground(new java.awt.Color(251, 251, 255));
     sidebar.setPreferredSize(new java.awt.Dimension(40, 371));
-
-    userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
-    userIcn.setPreferredSize(new java.awt.Dimension(40, 60));
-
-    homeIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    homeIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
-    homeIcn.setPreferredSize(new java.awt.Dimension(40, 40));
-
-    moviesIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/moviesDefault.png"))); // NOI18N
-    moviesIcn.setPreferredSize(new java.awt.Dimension(40, 40));
-
-    sittingsIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    sittingsIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
-    sittingsIcn.setPreferredSize(new java.awt.Dimension(40, 40));
 
     javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
     sidebar.setLayout(sidebarLayout);
     sidebarLayout.setHorizontalGroup(
       sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(sidebarLayout.createSequentialGroup()
-        .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(userIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(homeIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(moviesIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(sittingsIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(0, 0, Short.MAX_VALUE))
+      .addGap(0, 40, Short.MAX_VALUE)
     );
     sidebarLayout.setVerticalGroup(
       sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(sidebarLayout.createSequentialGroup()
-        .addComponent(userIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(homeIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(moviesIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(sittingsIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 332, Short.MAX_VALUE))
+      .addGap(0, 376, Short.MAX_VALUE)
     );
 
     getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
-    setSize(new java.awt.Dimension(1026, 512));
+    setSize(new java.awt.Dimension(841, 376));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
@@ -226,81 +158,11 @@ public class HomeScreen extends javax.swing.JFrame {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JPanel HomePanel;
   private javax.swing.JLabel exitButton;
-  private javax.swing.JLabel homeIcn;
-  private javax.swing.JPanel homePanel;
-  private javax.swing.JScrollPane homeScrollPane;
-  private javax.swing.JPanel homeScrollPanel;
-  private javax.swing.JLabel moviesIcn;
+  private javax.swing.JPanel jPanel1;
+  private javax.swing.JPanel jPanel2;
+  private javax.swing.JPanel loginPanel;
   private javax.swing.JPanel sidebar;
-  private javax.swing.JLabel sittingsIcn;
-  private javax.swing.JPanel titlebar;
-  private javax.swing.JLabel userIcn;
   // End of variables declaration//GEN-END:variables
-        void addRowScrollPanel(){
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-
-          
-        }
-  }
-
-class MoviePanelObject extends JPanel {
-    private JLabel nameLabel;
-    private JLabel posterLabel;
-
-    public MoviePanelObject(String name, String posterPath) {
-        this.setLayout(new BorderLayout());
-        this.setBackground(new Color(0,0,0,1));
-
-        nameLabel = new JLabel(name, SwingConstants.CENTER);
-        posterLabel = new JLabel(new ImageIcon(posterPath), SwingConstants.CENTER);
-        nameLabel.setForeground(Color.WHITE);
-
-        this.add(nameLabel, BorderLayout.NORTH);
-        this.add(posterLabel, BorderLayout.CENTER);
-    }
-}
-
-class rowScrollPanel extends JPanel{
-  
-  String path;
-  
-  rowScrollPanel(String path){
-    this.path = path;
-    
-    this.setBackground(new java.awt.Color(0,0,0,1));
-    this.setForeground(new java.awt.Color(255, 255, 255));
-    this.setLayout(new GridLayout(1, 0, 30, 5));
-    
-    
-    Map<String, String> movies = readMovies();
-    // إنشاء لوحة لكل فيلم وإضافتها إلى الإطار
-    for (Map.Entry<String, String> entry : movies.entrySet()) {
-        MoviePanelObject panel = new MoviePanelObject(entry.getKey(), entry.getValue());
-        this.add(panel);
-    }
-  }
-// قراءة بيانات الأفلام من الملف
-      private Map<String, String> readMovies() {
-      Map<String, String> movies = new HashMap<>();
-        movies.put("LUCY", path);
-        movies.put("LUCY1", path);
-        movies.put("LUCY2", path);
-        movies.put("LUCY3", path);
-        movies.put("LUCY4", path);
-        movies.put("LUCY5", path);
-        movies.put("LUCY6", path);
-        movies.put("LUCY7", path);
-        movies.put("LUCY8", path);
-        movies.put("LUCY9", path);
-        movies.put("LUCY0", path);
-        movies.put("LUCY10", path);
-        movies.put("LUCY11", path);
-        movies.put("LUCY12", path);
-      return movies;
-    }
+  String wrongLoginMsg = "Incorrect Username Or Password!!!";
 }
