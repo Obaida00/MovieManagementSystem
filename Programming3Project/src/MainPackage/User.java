@@ -15,8 +15,13 @@ public class User implements Serializable{
     private int userID;//pk
     private static int userIDInitializer;
     private static ArrayList<User> userList ;
+<<<<<<< HEAD
     private static Map<String , Integer> userMap;
 
+=======
+    private static Map<String, Integer> userMap;
+    
+>>>>>>> JanaBranch
     public User(String userName, String userPassword,String userAddress){
         this.userName = userName;
         this.userPassword = userPassword;
@@ -26,7 +31,11 @@ public class User implements Serializable{
         go.saveInitializer("User");
 
         userBookedTickets = new ArrayList<>();
+<<<<<<< HEAD
         
+=======
+        userMap = new HashMap<String, Integer>();
+>>>>>>> JanaBranch
         this.image = go.makeImage("Default User Image .jpg");
         
         userMap = go.loadUserMap();
@@ -54,4 +63,6 @@ public class User implements Serializable{
     public static Map<String, Integer> getUserMap(){return userMap;}
     public static ArrayList<User> getUserList() {return userList;}
     public static int getUserIDInitializer() {return userIDInitializer;}
+    public static Map<String, Integer> getUserMap() {return userMap;}
+    
 }

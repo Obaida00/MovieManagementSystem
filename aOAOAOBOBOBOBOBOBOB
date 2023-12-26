@@ -1,0 +1,234 @@
+[33mcommit eaa23756df5cb861ae29bcbdc6db0d2825e55bc4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:13:34 2023 +0300
+
+    Update User.java : implements Serializable
+    
+    making classes implements Serializable so we can use the ObjectOutputStream and ObjectInputStream.
+
+[33mcommit bb72fb63cb930f1af760dd517315326791a89318[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:12:52 2023 +0300
+
+    Update Ticket.java : implements Serializable
+    
+    making classes implements Serializable so we can use the ObjectOutputStream and ObjectInputStream.
+
+[33mcommit 3e1e8d1ad6f7e8726622e5f902e6139bc622ecbf[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:12:10 2023 +0300
+
+    Update Movie.java : implements Serializable
+    
+    making classes implements Serializable so we can use the ObjectOutputStream and ObjectInputStream.
+
+[33mcommit 5797e9e989491e6cd8eb70969e44242c76cca158[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:10:08 2023 +0300
+
+    Update Cinema.java : implements Serializable
+    
+    making classes implements Serializable so we can use the ObjectOutputStream and ObjectInputStream.
+
+[33mcommit 78a0e2e43ae172641c89055561ab71df9ec4f080[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:06:50 2023 +0300
+
+    Rename userIDInitializer.txt to UserIDInitializer.txt
+
+[33mcommit 986fef2297535ef8cff8f75c5ee479d3d45dc123[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:06:35 2023 +0300
+
+    Rename movieIDInitializer.txt to MovieIDInitializer.txt
+
+[33mcommit c5c61ee256ff9b49efe309362ac2a1505c670586[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 19:06:15 2023 +0300
+
+    Rename cinemaIDInitializer.txt to CinemaIDInitializer.txt
+
+[33mcommit e1b134f5a9c57f60c412618454e20482b71258ae[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 17:20:27 2023 +0300
+
+    cleaning up after github going crazy
+
+[33mcommit fd674d4fe1604506597c321947a29ccaae4d8413[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 17:14:56 2023 +0300
+
+    final cleanup after github going crazy
+
+[33mcommit 6587e601c6c93b7fe4a250095bb26fef6c209935[m
+Merge: c4ecf88 28c67c6
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 17:05:14 2023 +0300
+
+    Merge branch 'MaroofBranch'
+
+[33mcommit 28c67c65d8bdbb3a9a39ba3bd4719cccd772849b[m[33m ([m[1;31morigin/MaroofBranch[m[33m)[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:49:24 2023 +0300
+
+    Revert "Fixing the GitHub Bug"
+    
+    This reverts commit 02288f37e78ee833006b55351a77551d6c6eb6ab.
+
+[33mcommit d1e425040b36703b03133140edbc40ed207e1bca[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:49:17 2023 +0300
+
+    Revert "Fixing The GitHub Bug 2"
+    
+    This reverts commit 85251cd5aecc17206dec09bd5d08978431162dc1.
+
+[33mcommit 760906e1be67d29d868e9c4e4203e8c57092104a[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:49:12 2023 +0300
+
+    Revert "Fixing The GitHub Bug 3"
+    
+    This reverts commit 0ea91e7a878763aeffff7c6644d6aa7e86f78004.
+
+[33mcommit c46e9fefdfe2e6324e1084043d672be3a6e62277[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:48:54 2023 +0300
+
+    Revert "Update LoginScreen.java"
+    
+    This reverts commit ec330c34455adec16acbbd1ec18d5136d3c69bec.
+
+[33mcommit ec330c34455adec16acbbd1ec18d5136d3c69bec[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:46:43 2023 +0300
+
+    Update LoginScreen.java
+
+[33mcommit 452b81237317eb16f15957033ed04a7a80e455b9[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:41:27 2023 +0300
+
+    Revert "I Don't Know"
+    
+    This reverts commit 1796a2b33b85b51e62c5d470b574b4ba957eb47d.
+
+[33mcommit f253739db5a5a6eb8457255abee175fd319fd9ec[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:41:23 2023 +0300
+
+    Revert "I Don't Know 2"
+    
+    This reverts commit 531f05dec8de3b5cb65f458def09822888b418e1.
+
+[33mcommit a85ebabc53648e23e4773ef77eb0aa389d0f985d[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:41:05 2023 +0300
+
+    Revert "I Don't Know 3"
+    
+    This reverts commit 7d5e4f6e70dd2a7b1aabcc26a7a6b2b9931edb63.
+
+[33mcommit e83474400f021aade83d4774a9b6b36aaa6ceca6[m
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Mon Dec 25 16:40:54 2023 +0300
+
+    Revert "Update LoginScreen.form test"
+    
+    This reverts commit cb1e9f677cf3edbccefd3218d0077297068d0020.
+
+[33mcommit cb1e9f677cf3edbccefd3218d0077297068d0020[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 15:54:24 2023 +0300
+
+    Update LoginScreen.form test
+
+[33mcommit 7d5e4f6e70dd2a7b1aabcc26a7a6b2b9931edb63[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:54:13 2023 +0300
+
+    I Don't Know 3
+
+[33mcommit 531f05dec8de3b5cb65f458def09822888b418e1[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:52:59 2023 +0300
+
+    I Don't Know 2
+
+[33mcommit 1796a2b33b85b51e62c5d470b574b4ba957eb47d[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:52:08 2023 +0300
+
+    I Don't Know
+
+[33mcommit 0ea91e7a878763aeffff7c6644d6aa7e86f78004[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:51:07 2023 +0300
+
+    Fixing The GitHub Bug 3
+
+[33mcommit 85251cd5aecc17206dec09bd5d08978431162dc1[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:50:03 2023 +0300
+
+    Fixing The GitHub Bug 2
+
+[33mcommit 02288f37e78ee833006b55351a77551d6c6eb6ab[m
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 14:49:04 2023 +0300
+
+    Fixing the GitHub Bug
+
+[33mcommit 63a34bfae2cb1520f1a1827d665087582e27cb19[m
+Author: MaroofAt <maroof95at@gmail.com>
+Date:   Mon Dec 25 12:24:46 2023 +0300
+
+    Added feature: checkName$Pass;
+
+[33mcommit c4ecf88f6e737e4e0941f472d3e0eafef21d68c6[m
+Merge: 5ce6c07 bd7f688
+Author: MaroofAt <154703482+MaroofAt@users.noreply.github.com>
+Date:   Mon Dec 25 09:30:41 2023 +0300
+
+    Merge pull request #2 from Obaida00/MaroofBranch
+    
+    Added The Main Logic Project ; Deleted the ProjectLogicDiagram.pdf ; …
+
+[33mcommit bd7f6886b071036abf1cf7d661fa255da0b98d74[m
+Author: MaroofAt <maroof95at@gmail.com>
+Date:   Sun Dec 24 20:39:55 2023 +0300
+
+    Added The Main Logic Project ; Deleted the ProjectLogicDiagram.pdf ; Added new neccessery Folders : Cinemas,Movies,Tickets,Users,Initializers_Ids ; Added the Image (Default User Image.jpeg);
+
+[33mcommit 5ce6c072d7b9dcbc7b8459aecb1c5ca81cc1b2cd[m
+Merge: 36d43df f6a9bad
+Author: Obaida Almelhem <111151192+Obaida00@users.noreply.github.com>
+Date:   Sun Dec 24 17:07:47 2023 +0300
+
+    Merge pull request #1 from Obaida00/Obaida
+    
+    Obaida
+
+[33mcommit f6a9badd2d7689fde69f616a0a524b1964ad5c5e[m
+Author: Obaida Almelhem <almelhemo@gmail.com>
+Date:   Sun Dec 24 17:03:58 2023 +0300
+
+    cleanup
+
+[33mcommit 21d7f78b72e7cf1255630a20d7da59504439571a[m
+Author: Obaida Almelhem <almelhemo@gmail.com>
+Date:   Sun Dec 24 16:49:51 2023 +0300
+
+    adding login screen functionaliy
+
+[33mcommit 36d43df8f193661fdca4892b3e0b8f064432a545[m
+Author: Obaida Almelhem <almelhemo@gmail.com>
+Date:   Sun Dec 24 11:35:52 2023 +0300
+
+    uploading main folder/s
+
+[33mcommit 0dcbcdd017ae71704627a8307000d49941bc241d[m
+Author: Obaida Almelhem <almelhemo@gmail.com>
+Date:   Sun Dec 24 10:59:55 2023 +0300
+
+    first commit
