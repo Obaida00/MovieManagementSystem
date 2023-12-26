@@ -19,7 +19,6 @@ public class Main {
   public static void main(String[] args) {
     if(go.loadUserMap() == null){
         mainInitialize();
-        System.out.print("If");
     }
     LoadingScreen loadingScreen = new LoadingScreen();
     

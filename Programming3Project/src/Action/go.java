@@ -219,7 +219,7 @@ public class go {
     }
     public static boolean checkName$Pass(String username , String password){
         User user = loadFromUserMap(username);
-        if(user.equals(null)){
+        if(user == null){
             return false;
         }else{
             if(user.getUserPassword().equals(password)){
@@ -229,6 +229,39 @@ public class go {
         return false;
     }
     
+    public static void saveCurrentUser(String userName){
+        try{
+            File file = new File("CurrentUser.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            User user = go.loadFromUserMap(userName);
+            oos.writeObject(user);
+            oos.flush();
+            oos.close();
+            System.out.println(userName + " saved Successfully ");
+        } catch (FileNotFoundException e) {
+            System.out.println( userName + " didn't save: File Not Found!");
+        } catch (IOException e) {
+            System.out.println(userName + " didn't save: IOException!");
+        }   
+    }
+    public static User getCurrentUser(String userName){
+        try{
+            File file = new File("CurrentUser.txt");
+            ObjectInputStream oos = new ObjectInputStream(new FileInputStream(file));
+            User user = (User)oos.readObject();
+            oos.close();
+            return user; 
+        } catch (FileNotFoundException e) {
+            System.out.println( userName + " didn't load: File Not Found!");
+        } catch (IOException e) {
+            System.out.println(userName + " didn't load: IOException!");
+        } catch (ClassNotFoundException ex) {
+          System.out.println(userName + " didn't load: Class Not Found!");  
+        }finally{
+               System.out.println(userName + " loaded Successfully ");
+        }
+        return null;   
+    }
     
     
     
