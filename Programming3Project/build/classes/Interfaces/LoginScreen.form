@@ -85,6 +85,9 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="txtun">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new Color(0,0,0,1)" type="code"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection component="usLable" name="font" type="property"/>
                 </Property>
@@ -144,6 +147,9 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtpw">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new Color(0,0,0,1)" type="code"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection component="pwLable" name="font" type="property"/>
                 </Property>

@@ -27,8 +27,6 @@ public class LoginScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
-    txtun.setBackground(new java.awt.Color(0,0,0,1));
-    txtpw.setBackground(new java.awt.Color(0,0,0,1));
     shownpw.setVisible(false);
     shownpw.setEnabled(false);
     hidenpw.setVisible(true);
@@ -134,6 +132,7 @@ public class LoginScreen extends javax.swing.JFrame {
     loginPanel.setBackground(new java.awt.Color(4, 15, 19));
     loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+    txtun.setBackground(new Color(0,0,0,1));
     txtun.setFont(usLable.getFont());
     txtun.setForeground(new java.awt.Color(255, 255, 255));
     txtun.setBorder(null);
@@ -156,6 +155,7 @@ public class LoginScreen extends javax.swing.JFrame {
     unLine.setText("__________________________");
     loginPanel.add(unLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 193, 187, 20));
 
+    txtpw.setBackground(new Color(0,0,0,1));
     txtpw.setFont(pwLable.getFont());
     txtpw.setForeground(new java.awt.Color(255, 255, 255));
     txtpw.setBorder(null);
