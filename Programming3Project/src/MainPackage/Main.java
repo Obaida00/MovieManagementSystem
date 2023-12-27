@@ -1,4 +1,5 @@
 package MainPackage;
+import Interfaces.HomeScreen;
 import Interfaces.LoadingScreen;
 
 
@@ -10,7 +11,8 @@ import Interfaces.LoadingScreen;
 public class Main {
 
   public static void main(String[] args) {
-    LoadingScreen loadingScreen = new LoadingScreen();
+//    LoadingScreen loadingScreen = new LoadingScreen();
+    new HomeScreen();
   }
 }
 

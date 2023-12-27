@@ -79,6 +79,9 @@ public class HomeScreen extends javax.swing.JFrame {
     homePanel = new javax.swing.JPanel();
     homeScrollPane = new javax.swing.JScrollPane();
     homeScrollPanel = new javax.swing.JPanel();
+    rowScrollPane3 = new javax.swing.JScrollPane();
+    rowScrollPane2 = new javax.swing.JScrollPane();
+    rowScrollPane1 = new javax.swing.JScrollPane();
     sidebar = new javax.swing.JPanel();
     userIcn = new javax.swing.JLabel();
     homeIcn = new javax.swing.JLabel();
@@ -135,34 +138,71 @@ public class HomeScreen extends javax.swing.JFrame {
     homeScrollPane.setWheelScrollingEnabled(false);
 
     homeScrollPanel.setBackground(new java.awt.Color(4, 15, 22));
+    homeScrollPanel.setPreferredSize(new java.awt.Dimension(500, 717));
+
+    rowScrollPane3.setBackground(new Color(0,0,0,1));
+    rowScrollPane3.setBorder(null);
+    rowScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    rowScrollPane3.setPreferredSize(new java.awt.Dimension(200, 100));
+    rowScrollPane3.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    rowScrollPane3.getHorizontalScrollBar().setUnitIncrement(16);
+
+    rowScrollPane2.setBackground(new Color(0,0,0,1));
+    rowScrollPane2.setBorder(null);
+    rowScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    rowScrollPane2.setPreferredSize(new java.awt.Dimension(200, 100));
+    rowScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    rowScrollPane2.getHorizontalScrollBar().setUnitIncrement(16);
+
+    rowScrollPane1.setBackground(new Color(0,0,0,1));
+    rowScrollPane1.setBorder(null);
+    rowScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    rowScrollPane1.setPreferredSize(new java.awt.Dimension(200, 100));
+    rowScrollPane1.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    rowScrollPane1.getHorizontalScrollBar().setUnitIncrement(16);
 
     javax.swing.GroupLayout homeScrollPanelLayout = new javax.swing.GroupLayout(homeScrollPanel);
     homeScrollPanel.setLayout(homeScrollPanelLayout);
     homeScrollPanelLayout.setHorizontalGroup(
       homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 969, Short.MAX_VALUE)
+      .addComponent(rowScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+      .addComponent(rowScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addComponent(rowScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     homeScrollPanelLayout.setVerticalGroup(
       homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 717, Short.MAX_VALUE)
+      .addGroup(homeScrollPanelLayout.createSequentialGroup()
+        .addGap(70, 70, 70)
+        .addComponent(rowScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(70, 70, 70)
+        .addComponent(rowScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(70, 70, 70)
+        .addComponent(rowScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    homeScrollPanel.setLayout(new GridLayout(0, 1, 5, 10));
+    addRowScrollPanel3();
+    addRowScrollPanel2();
+    addRowScrollPanel1();
+
+    homeScrollPanel.setLayout(new GridLayout(0, 1, 10, 60));
 
     homeScrollPane.setViewportView(homeScrollPanel);
-    addRowScrollPanel();
+    //addRowScrollPanel();
 
     javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
     homePanel.setLayout(homePanelLayout);
     homePanelLayout.setHorizontalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(homeScrollPane)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
+        .addGap(0, 36, Short.MAX_VALUE)
+        .addComponent(homeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
     homePanelLayout.setVerticalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-        .addGap(0, 38, Short.MAX_VALUE)
-        .addComponent(homeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(0, 25, Short.MAX_VALUE)
+        .addComponent(homeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
     HomePanel.add(homePanel, java.awt.BorderLayout.CENTER);
@@ -233,37 +273,24 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JScrollPane homeScrollPane;
   private javax.swing.JPanel homeScrollPanel;
   private javax.swing.JLabel moviesIcn;
+  private javax.swing.JScrollPane rowScrollPane1;
+  private javax.swing.JScrollPane rowScrollPane2;
+  private javax.swing.JScrollPane rowScrollPane3;
   private javax.swing.JPanel sidebar;
   private javax.swing.JLabel sittingsIcn;
   private javax.swing.JPanel titlebar;
   private javax.swing.JLabel userIcn;
   // End of variables declaration//GEN-END:variables
-        void addRowScrollPanel(){
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-          homeScrollPanel.add(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-
-          
+        void addRowScrollPanel1(){
+          rowScrollPane1.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        }
+        void addRowScrollPanel2(){
+          rowScrollPane2.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        }
+        void addRowScrollPanel3(){
+          rowScrollPane3.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
         }
   }
-
-class MoviePanelObject extends JPanel {
-    private JLabel nameLabel;
-    private JLabel posterLabel;
-
-    public MoviePanelObject(String name, String posterPath) {
-        this.setLayout(new BorderLayout());
-        this.setBackground(new Color(0,0,0,1));
-
-        nameLabel = new JLabel(name, SwingConstants.CENTER);
-        posterLabel = new JLabel(new ImageIcon(posterPath), SwingConstants.CENTER);
-        nameLabel.setForeground(Color.WHITE);
-
-        this.add(nameLabel, BorderLayout.NORTH);
-        this.add(posterLabel, BorderLayout.CENTER);
-    }
-}
 
 class rowScrollPanel extends JPanel{
   
@@ -275,6 +302,7 @@ class rowScrollPanel extends JPanel{
     this.setBackground(new java.awt.Color(0,0,0,1));
     this.setForeground(new java.awt.Color(255, 255, 255));
     this.setLayout(new GridLayout(1, 0, 30, 5));
+    this.setBorder(null);
     
     
     Map<String, String> movies = readMovies();
@@ -299,8 +327,25 @@ class rowScrollPanel extends JPanel{
         movies.put("LUCY9", path);
         movies.put("LUCY0", path);
         movies.put("LUCY10", path);
-        movies.put("LUCY11", path);
-        movies.put("LUCY12", path);
       return movies;
+    }
+}
+
+class MoviePanelObject extends JPanel {
+    private JLabel nameLabel;
+    private JLabel posterLabel;
+
+    public MoviePanelObject(String name, String posterPath) {
+        this.setLayout(new BorderLayout());
+        this.setBackground(new Color(0,0,0,1));
+        this.setBorder(null);
+
+
+        nameLabel = new JLabel(name, SwingConstants.CENTER);
+        posterLabel = new JLabel(new ImageIcon(posterPath), SwingConstants.CENTER);
+        nameLabel.setForeground(Color.WHITE);
+
+        this.add(nameLabel, BorderLayout.NORTH);
+        this.add(posterLabel, BorderLayout.CENTER);
     }
 }

@@ -1,2 +1,0 @@
-MainPackage.Seat
-MainPackage.Cinema
