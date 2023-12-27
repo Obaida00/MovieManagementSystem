@@ -123,7 +123,7 @@
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="homeScrollPane">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="homeScrollPane.getViewport().setBackground(new Color(4,15,22));">
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="homeScrollPane.getViewport ().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );">
                   <Color blue="16" green="f" red="4" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -220,7 +220,7 @@
                   <SubComponents>
                     <Container class="javax.swing.JScrollPane" name="rowScrollPane1">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="rowScrollPane1.getViewport ().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );">
                           <Connection code="new Color(0,0,0,1)" type="code"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -284,9 +284,9 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="rowScrollPane3">
+                    <Container class="javax.swing.JScrollPane" name="rowScrollPane2">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="rowScrollPane2.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );">
                           <Connection code="new Color(0,0,0,1)" type="code"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -298,9 +298,8 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addRowScrollPanel2();"/>
-                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="rowScrollPane3.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));&#xa;rowScrollPane3.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);"/>
-                        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="addRowScrollPanel2();&#xa;homeScrollPanel.add(gapPanel2);&#xa;homeScrollPanel.add(rowScrollPane3);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="rowScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));&#xa;rowScrollPane2.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);"/>
+                        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="addRowScrollPanel3();&#xa;homeScrollPanel.add(gapPanel3);&#xa;homeScrollPanel.add(rowScrollPane2);"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
@@ -351,9 +350,9 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="rowScrollPane2">
+                    <Container class="javax.swing.JScrollPane" name="rowScrollPane3">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="rowScrollPane3.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );">
                           <Connection code="new Color(0,0,0,1)" type="code"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -365,8 +364,9 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="rowScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));&#xa;rowScrollPane2.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);"/>
-                        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="addRowScrollPanel3();&#xa;homeScrollPanel.add(gapPanel3);&#xa;homeScrollPanel.add(rowScrollPane2);"/>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addRowScrollPanel2();"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="rowScrollPane3.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));&#xa;rowScrollPane3.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);"/>
+                        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="addRowScrollPanel2();&#xa;homeScrollPanel.add(gapPanel2);&#xa;homeScrollPanel.add(rowScrollPane3);"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>

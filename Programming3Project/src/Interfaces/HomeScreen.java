@@ -84,10 +84,10 @@ public class HomeScreen extends javax.swing.JFrame {
     rowScrollPane1 = new javax.swing.JScrollPane();
     gapPanel1 = new javax.swing.JPanel();
     jLabel3 = new javax.swing.JLabel();
-    rowScrollPane3 = new javax.swing.JScrollPane();
+    rowScrollPane2 = new javax.swing.JScrollPane();
     gapPanel2 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
-    rowScrollPane2 = new javax.swing.JScrollPane();
+    rowScrollPane3 = new javax.swing.JScrollPane();
     gapPanel3 = new javax.swing.JPanel();
     jLabel4 = new javax.swing.JLabel();
     arrowLeft2 = new javax.swing.JLabel();
@@ -144,7 +144,7 @@ public class HomeScreen extends javax.swing.JFrame {
     homePanel.setBackground(new java.awt.Color(4, 15, 22));
 
     homeScrollPane.setBackground(new java.awt.Color(4, 15, 22));
-    homeScrollPane.getViewport().setBackground(new Color(4,15,22));
+    homeScrollPane.getViewport ().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
     homeScrollPane.setBorder(null);
     homeScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     homeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -155,6 +155,7 @@ public class HomeScreen extends javax.swing.JFrame {
     homeScrollPanel.setPreferredSize(new java.awt.Dimension(500, 950));
 
     rowScrollPane1.setBackground(new Color(0,0,0,1));
+    rowScrollPane1.getViewport ().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
     rowScrollPane1.setBorder(null);
     rowScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
     rowScrollPane1.setPreferredSize(new java.awt.Dimension(200, 100));
@@ -186,16 +187,13 @@ public class HomeScreen extends javax.swing.JFrame {
 
     gapPanel1.setSize(300, 70);
 
-    rowScrollPane3.setBackground(new Color(0,0,0,1));
-    rowScrollPane3.setBorder(null);
-    rowScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-    rowScrollPane3.setPreferredSize(new java.awt.Dimension(200, 100));
-    rowScrollPane3.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
-    rowScrollPane3.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
-
-    addRowScrollPanel2();
-    homeScrollPanel.add(gapPanel2);
-    homeScrollPanel.add(rowScrollPane3);
+    rowScrollPane2.setBackground(new Color(0,0,0,1));
+    rowScrollPane2.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
+    rowScrollPane2.setBorder(null);
+    rowScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    rowScrollPane2.setPreferredSize(new java.awt.Dimension(200, 100));
+    rowScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    rowScrollPane2.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
 
     gapPanel2.setBackground(new Color(0,0,0,1));
 
@@ -222,12 +220,17 @@ public class HomeScreen extends javax.swing.JFrame {
 
     gapPanel1.setSize(300, 70);
 
-    rowScrollPane2.setBackground(new Color(0,0,0,1));
-    rowScrollPane2.setBorder(null);
-    rowScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-    rowScrollPane2.setPreferredSize(new java.awt.Dimension(200, 100));
-    rowScrollPane2.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
-    rowScrollPane2.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
+    rowScrollPane3.setBackground(new Color(0,0,0,1));
+    rowScrollPane3.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
+    rowScrollPane3.setBorder(null);
+    rowScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    rowScrollPane3.setPreferredSize(new java.awt.Dimension(200, 100));
+    rowScrollPane3.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    rowScrollPane3.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
+
+    addRowScrollPanel2();
+    homeScrollPanel.add(gapPanel2);
+    homeScrollPanel.add(rowScrollPane3);
 
     gapPanel3.setBackground(new Color(0,0,0,1));
 
@@ -407,10 +410,10 @@ public class HomeScreen extends javax.swing.JFrame {
     addRowScrollPanel1();
     homeScrollPanel.add(gapPanel1);
     homeScrollPanel.add(rowScrollPane1);
-    addRowScrollPanel2();
     addRowScrollPanel3();
     homeScrollPanel.add(gapPanel3);
     homeScrollPanel.add(rowScrollPane2);
+    addRowScrollPanel2();
 
     //homeScrollPanel.setLayout(new GridLayout(0, 1, 10, 0));
 
