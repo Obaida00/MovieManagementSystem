@@ -43,9 +43,6 @@ public class LoadingScreen extends javax.swing.JFrame {
       java.util.logging.Logger.getLogger(LoadingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     //</editor-fold>
-
-    
-    
   }
   /**
    * This method is called from within the constructor to initialize the form.
@@ -60,6 +57,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     jLabel1 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setAlwaysOnTop(true);
     setName("LoadingFrame"); // NOI18N
     setUndecorated(true);
     setPreferredSize(new java.awt.Dimension(700, 384));
@@ -69,6 +67,7 @@ public class LoadingScreen extends javax.swing.JFrame {
       }
     });
 
+    jPanel1.setBackground(new java.awt.Color(4, 15, 22));
     jPanel1.setPreferredSize(new java.awt.Dimension(500, 275));
 
     jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/SPLASH01.png"))); // NOI18N
@@ -101,12 +100,12 @@ public class LoadingScreen extends javax.swing.JFrame {
 
   private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
     try {
-//      for(double i=0.0; i<=1.0; i+=0.01){
-//        String val = i+"";
-//        float f = Float.valueOf(val);
-//        this.setOpacity(f);
-//        Thread.sleep(5);
-//      }
+      for(double i=0.0; i<=1.0; i+=0.1){
+        String val = i+"";
+        float f = Float.valueOf(val);
+        this.setOpacity(f);
+        Thread.sleep(5);
+      }
       Thread.sleep(0);
       System.out.println("start");
 

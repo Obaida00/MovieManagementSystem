@@ -23,11 +23,11 @@ class MovieObjectPanel extends JPanel {
   private JLabel posterLabel;
   private JButton moreButton;
   String name;
-  String posterPath;
+  ImageIcon img;
 
-  public MovieObjectPanel(String name, String posterPath) {
+  public MovieObjectPanel(String name, ImageIcon img) {
     this.name = name;
-    this.posterPath = posterPath;
+    this.img = img;
     
     this.setLayout(new BorderLayout());
     this.setBackground(new Color(0, 0, 0, 1));
@@ -35,7 +35,7 @@ class MovieObjectPanel extends JPanel {
 
     nameLabel = new JLabel(name, SwingConstants.CENTER);
     nameLabel.setForeground(Color.WHITE);
-    posterLabel = new JLabel(new ImageIcon(posterPath), SwingConstants.CENTER);
+    posterLabel = new JLabel(img, SwingConstants.CENTER);
 
     this.add(nameLabel, BorderLayout.NORTH);
     this.add(posterLabel, BorderLayout.CENTER);

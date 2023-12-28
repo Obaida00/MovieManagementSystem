@@ -1,6 +1,8 @@
 package Interfaces;
 
 
+import Action.go;
+import MainPackage.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.io.EOFException;
@@ -8,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -37,6 +41,7 @@ public class HomeScreen extends javax.swing.JFrame {
     initComponents();
     this.setVisible(true);
     
+    this.setIcons(true, false, false);
   }
 
   public void setting(){
@@ -78,6 +83,7 @@ public class HomeScreen extends javax.swing.JFrame {
     HomePanel = new javax.swing.JPanel();
     titlebar = new javax.swing.JPanel();
     exitButton = new javax.swing.JLabel();
+    seperator3 = new javax.swing.JPanel();
     homePanel = new javax.swing.JPanel();
     homeScrollPane = new javax.swing.JScrollPane();
     homeScrollPanel = new javax.swing.JPanel();
@@ -85,34 +91,38 @@ public class HomeScreen extends javax.swing.JFrame {
     gapPanel1 = new javax.swing.JPanel();
     jLabel3 = new javax.swing.JLabel();
     seperator1 = new javax.swing.JPanel();
+    arrowLeft1 = new javax.swing.JLabel();
+    arrowRight1 = new javax.swing.JLabel();
     romanceScrollPane = new javax.swing.JScrollPane();
     gapPanel2 = new javax.swing.JPanel();
     jLabel2 = new javax.swing.JLabel();
     seperator2 = new javax.swing.JPanel();
+    arrowLeft2 = new javax.swing.JLabel();
+    arrowRight2 = new javax.swing.JLabel();
     dramaScrollPane = new javax.swing.JScrollPane();
     gapPanel3 = new javax.swing.JPanel();
     jLabel4 = new javax.swing.JLabel();
     seperator4 = new javax.swing.JPanel();
-    arrowLeft2 = new javax.swing.JLabel();
-    arrowRight2 = new javax.swing.JLabel();
-    arrowLeft1 = new javax.swing.JLabel();
-    arrowRight1 = new javax.swing.JLabel();
     arrowLeft3 = new javax.swing.JLabel();
     arrowRight3 = new javax.swing.JLabel();
     sidebar = new javax.swing.JPanel();
     userIcn = new javax.swing.JLabel();
-    homeIcn = new javax.swing.JLabel();
-    moviesIcn = new javax.swing.JLabel();
-    sittingsIcn = new javax.swing.JLabel();
+    homeIcnDefault = new javax.swing.JLabel();
+    moviesIcnDefault = new javax.swing.JLabel();
+    settingsIcnDefault = new javax.swing.JLabel();
+    homeIcnSelected = new javax.swing.JLabel();
+    moviesIcnSelected = new javax.swing.JLabel();
+    settingsIcnSelected = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setAlwaysOnTop(true);
     setUndecorated(true);
     setResizable(false);
 
     HomePanel.setBackground(new java.awt.Color(4, 15, 19));
     HomePanel.setLayout(new java.awt.BorderLayout());
 
-    titlebar.setBackground(new Color(0,0,0,1));
+    titlebar.setBackground(new java.awt.Color(4, 15, 19));
 
     exitButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
     exitButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,22 +133,44 @@ public class HomeScreen extends javax.swing.JFrame {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
         exitButtonMouseClicked(evt);
       }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        exitButtonMouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        exitButtonMouseExited(evt);
+      }
     });
+
+    seperator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(4, 20, 30)));
+
+    javax.swing.GroupLayout seperator3Layout = new javax.swing.GroupLayout(seperator3);
+    seperator3.setLayout(seperator3Layout);
+    seperator3Layout.setHorizontalGroup(
+      seperator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 814, Short.MAX_VALUE)
+    );
+    seperator3Layout.setVerticalGroup(
+      seperator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
 
     javax.swing.GroupLayout titlebarLayout = new javax.swing.GroupLayout(titlebar);
     titlebar.setLayout(titlebarLayout);
     titlebarLayout.setHorizontalGroup(
       titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarLayout.createSequentialGroup()
-        .addContainerGap(946, Short.MAX_VALUE)
+        .addContainerGap(79, Short.MAX_VALUE)
+        .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(31, 31, 31)
         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
     titlebarLayout.setVerticalGroup(
       titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(titlebarLayout.createSequentialGroup()
-        .addGap(0, 0, 0)
-        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(0, 0, Short.MAX_VALUE))
     );
 
@@ -209,6 +241,37 @@ public class HomeScreen extends javax.swing.JFrame {
 
     gapPanel1.setSize(300, 70);
 
+    arrowLeft1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowLeft1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
+    arrowLeft1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowLeft1MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowLeft1MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowLeft1MouseExited(evt);
+      }
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        arrowLeft1MousePressed(evt);
+      }
+    });
+
+    arrowRight1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowRight1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
+    arrowRight1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowRight1MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowRight1MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowRight1MouseExited(evt);
+      }
+    });
+
     romanceScrollPane.setBackground(new Color(0,0,0,1));
     romanceScrollPane.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
     romanceScrollPane.setBorder(null);
@@ -259,6 +322,37 @@ public class HomeScreen extends javax.swing.JFrame {
     );
 
     gapPanel1.setSize(300, 70);
+
+    arrowLeft2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowLeft2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
+    arrowLeft2.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowLeft2MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowLeft2MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowLeft2MouseExited(evt);
+      }
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        arrowLeft2MousePressed(evt);
+      }
+    });
+
+    arrowRight2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowRight2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
+    arrowRight2.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowRight2MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowRight2MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowRight2MouseExited(evt);
+      }
+    });
 
     dramaScrollPane.setBackground(new Color(0,0,0,1));
     dramaScrollPane.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
@@ -318,68 +412,6 @@ public class HomeScreen extends javax.swing.JFrame {
     );
 
     gapPanel1.setSize(300, 70);
-
-    arrowLeft2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    arrowLeft2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
-    arrowLeft2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        arrowLeft2MouseClicked(evt);
-      }
-      public void mouseEntered(java.awt.event.MouseEvent evt) {
-        arrowLeft2MouseEntered(evt);
-      }
-      public void mouseExited(java.awt.event.MouseEvent evt) {
-        arrowLeft2MouseExited(evt);
-      }
-      public void mousePressed(java.awt.event.MouseEvent evt) {
-        arrowLeft2MousePressed(evt);
-      }
-    });
-
-    arrowRight2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    arrowRight2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
-    arrowRight2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        arrowRight2MouseClicked(evt);
-      }
-      public void mouseEntered(java.awt.event.MouseEvent evt) {
-        arrowRight2MouseEntered(evt);
-      }
-      public void mouseExited(java.awt.event.MouseEvent evt) {
-        arrowRight2MouseExited(evt);
-      }
-    });
-
-    arrowLeft1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    arrowLeft1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
-    arrowLeft1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        arrowLeft1MouseClicked(evt);
-      }
-      public void mouseEntered(java.awt.event.MouseEvent evt) {
-        arrowLeft1MouseEntered(evt);
-      }
-      public void mouseExited(java.awt.event.MouseEvent evt) {
-        arrowLeft1MouseExited(evt);
-      }
-      public void mousePressed(java.awt.event.MouseEvent evt) {
-        arrowLeft1MousePressed(evt);
-      }
-    });
-
-    arrowRight1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    arrowRight1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
-    arrowRight1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        arrowRight1MouseClicked(evt);
-      }
-      public void mouseEntered(java.awt.event.MouseEvent evt) {
-        arrowRight1MouseEntered(evt);
-      }
-      public void mouseExited(java.awt.event.MouseEvent evt) {
-        arrowRight1MouseExited(evt);
-      }
-    });
 
     arrowLeft3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     arrowLeft3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
@@ -453,10 +485,9 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
           .addComponent(actionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(36, 36, 36))
-          .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowRight1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(arrowLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(arrowRight1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(36, 36, 36)))
         .addGap(37, 37, 37)
         .addComponent(gapPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -464,10 +495,9 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
           .addComponent(romanceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(36, 36, 36))
-          .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(36, 36, 36)))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
         .addComponent(gapPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -500,7 +530,7 @@ public class HomeScreen extends javax.swing.JFrame {
     homePanel.setLayout(homePanelLayout);
     homePanelLayout.setHorizontalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(homeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
+      .addComponent(homeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
     );
     homePanelLayout.setVerticalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,48 +542,63 @@ public class HomeScreen extends javax.swing.JFrame {
     getContentPane().add(HomePanel, java.awt.BorderLayout.CENTER);
 
     sidebar.setBackground(new java.awt.Color(251, 251, 255));
-    sidebar.setPreferredSize(new java.awt.Dimension(40, 371));
+    sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
+    sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
-    userIcn.setPreferredSize(new java.awt.Dimension(40, 60));
+    userIcn.setPreferredSize(new java.awt.Dimension(60, 60));
+    userIcn.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        userIcnMouseClicked(evt);
+      }
+    });
+    sidebar.add(userIcn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
 
-    homeIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    homeIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
-    homeIcn.setPreferredSize(new java.awt.Dimension(40, 40));
+    homeIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    homeIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
+    homeIcnDefault.setEnabled(false);
+    homeIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+    homeIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        homeIcnDefaultMouseClicked(evt);
+      }
+    });
+    sidebar.add(homeIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 89, -1, -1));
 
-    moviesIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/moviesDefault.png"))); // NOI18N
-    moviesIcn.setPreferredSize(new java.awt.Dimension(40, 40));
+    moviesIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    moviesIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieDefault.png"))); // NOI18N
+    moviesIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+    moviesIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        moviesIcnDefaultMouseClicked(evt);
+      }
+    });
+    sidebar.add(moviesIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
 
-    sittingsIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    sittingsIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
-    sittingsIcn.setPreferredSize(new java.awt.Dimension(40, 40));
+    settingsIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    settingsIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
+    settingsIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+    settingsIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        settingsIcnDefaultMouseClicked(evt);
+      }
+    });
+    sidebar.add(settingsIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 60, -1));
 
-    javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
-    sidebar.setLayout(sidebarLayout);
-    sidebarLayout.setHorizontalGroup(
-      sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(sidebarLayout.createSequentialGroup()
-        .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(userIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(homeIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(moviesIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(sittingsIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(0, 0, Short.MAX_VALUE))
-    );
-    sidebarLayout.setVerticalGroup(
-      sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(sidebarLayout.createSequentialGroup()
-        .addComponent(userIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(homeIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(moviesIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0)
-        .addComponent(sittingsIcn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 332, Short.MAX_VALUE))
-    );
+    homeIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    homeIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeSelected.png"))); // NOI18N
+    homeIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
+    sidebar.add(homeIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
+
+    moviesIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    moviesIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieSelected.png"))); // NOI18N
+    sidebar.add(moviesIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
+
+    settingsIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    settingsIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsSelected.png"))); // NOI18N
+    settingsIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
+    sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, -1, -1));
 
     getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
@@ -660,6 +705,34 @@ public class HomeScreen extends javax.swing.JFrame {
     horizontalScrollBar.setValue(horizontalScrollBar.getValue() + SCROLL_INCREMENT_SPEED*5);
   }//GEN-LAST:event_arrowRight1MouseClicked
 
+  private void homeIcnDefaultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeIcnDefaultMouseClicked
+    setIcons(true, false, false);
+    //open home panel
+  }//GEN-LAST:event_homeIcnDefaultMouseClicked
+
+  private void moviesIcnDefaultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moviesIcnDefaultMouseClicked
+    setIcons(false, true, false);
+    //open movie panel
+  }//GEN-LAST:event_moviesIcnDefaultMouseClicked
+
+  private void settingsIcnDefaultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsIcnDefaultMouseClicked
+    setIcons(false, false, true);
+    //open settings panel
+  }//GEN-LAST:event_settingsIcnDefaultMouseClicked
+
+  private void userIcnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userIcnMouseClicked
+    setIcons(false, false, false);
+    //open user panel
+  }//GEN-LAST:event_userIcnMouseClicked
+
+  private void exitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseEntered
+    exitButton.setForeground(new Color(162,0,255));
+  }//GEN-LAST:event_exitButtonMouseEntered
+
+  private void exitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseExited
+    exitButton.setForeground(new Color(251,251,255));
+  }//GEN-LAST:event_exitButtonMouseExited
+
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -676,20 +749,24 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JPanel gapPanel1;
   private javax.swing.JPanel gapPanel2;
   private javax.swing.JPanel gapPanel3;
-  private javax.swing.JLabel homeIcn;
+  private javax.swing.JLabel homeIcnDefault;
+  private javax.swing.JLabel homeIcnSelected;
   private javax.swing.JPanel homePanel;
   private javax.swing.JScrollPane homeScrollPane;
   private javax.swing.JPanel homeScrollPanel;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel moviesIcn;
+  private javax.swing.JLabel moviesIcnDefault;
+  private javax.swing.JLabel moviesIcnSelected;
   private javax.swing.JScrollPane romanceScrollPane;
   private javax.swing.JPanel seperator1;
   private javax.swing.JPanel seperator2;
+  private javax.swing.JPanel seperator3;
   private javax.swing.JPanel seperator4;
+  private javax.swing.JLabel settingsIcnDefault;
+  private javax.swing.JLabel settingsIcnSelected;
   private javax.swing.JPanel sidebar;
-  private javax.swing.JLabel sittingsIcn;
   private javax.swing.JPanel titlebar;
   private javax.swing.JLabel userIcn;
   // End of variables declaration//GEN-END:variables
@@ -697,22 +774,39 @@ public class HomeScreen extends javax.swing.JFrame {
   
   
   void addRowScrollPanel1(){
-    actionScrollPane.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+    actionScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Action));
   }
   void addRowScrollPanel2(){
-    dramaScrollPane.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+    dramaScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Drama));
   }
   void addRowScrollPanel3(){
-    romanceScrollPane.setViewportView(new rowScrollPanel("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+    romanceScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Romance));
   }
+
+  private void setIcons(boolean home, boolean movies, boolean settings) {
+    homeIcnDefault.setVisible(!home);
+    homeIcnDefault.setEnabled(!home);
+    homeIcnSelected.setVisible(home);
+    homeIcnSelected.setEnabled(home);
+    
+    moviesIcnDefault.setVisible(!movies);
+    moviesIcnDefault.setEnabled(!movies);
+    moviesIcnSelected.setVisible(movies);
+    moviesIcnSelected.setEnabled(movies);
+    
+    settingsIcnDefault.setVisible(!settings);
+    settingsIcnDefault.setEnabled(!settings);
+    settingsIcnSelected.setVisible(settings);
+    settingsIcnSelected.setEnabled(settings);  
   }
+}
 
 class rowScrollPanel extends JPanel{
   
-  String path;
+  Type type;
   
-  rowScrollPanel(String path){
-    this.path = path;
+  rowScrollPanel(Type type){
+    this.type = type;
     
     this.setBackground(new java.awt.Color(0,0,0,1));
     this.setForeground(new java.awt.Color(255, 255, 255));
@@ -720,29 +814,51 @@ class rowScrollPanel extends JPanel{
     this.setBorder(null);
     
     
-    Map<String, String> movies = readMovies();
+    Map<String, ImageIcon> movies = getMovies();
     // إنشاء لوحة لكل فيلم وإضافتها إلى الإطار
-    for (Map.Entry<String, String> entry : movies.entrySet()) {
+    for (Map.Entry<String, ImageIcon> entry : movies.entrySet()) {
         MovieObjectPanel panel = new MovieObjectPanel(entry.getKey(), entry.getValue());
         this.add(panel);
         
     }
   }
-// قراءة بيانات الأفلام من الملف
-      private Map<String, String> readMovies() {
-      Map<String, String> movies = new HashMap<>();
-        movies.put("LUCY", path);
-        movies.put("LUCY1", path);
-        movies.put("LUCY2", path);
-        movies.put("LUCY3", path);
-        movies.put("LUCY4", path);
-        movies.put("LUCY5", path);
-        movies.put("LUCY6", path);
-        movies.put("LUCY7", path);
-        movies.put("LUCY8", path);
-        movies.put("LUCY9", path);
-        movies.put("LUCY0", path);
-        movies.put("LUCY10", path);
-      return movies;
+// قراءة بيانات الأفلام من القائمة
+      private Map<String, ImageIcon> getMovies() {
+      
+        Map<String, ImageIcon> movies = new HashMap<>();
+        ArrayList <Movie> total = Movie.getMovieList();
+        
+        //test code remove and uncomment the next commented block 
+        movies.put("What Men Want", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
+        movies.put("Five Feet Apart", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
+        movies.put("Emancepation", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        movies.put("LUCY", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Wan", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
+        movies.put("Five Feet Apar", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
+        movies.put("Emancepatio", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        movies.put("LUC", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Wa", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
+        movies.put("Five Feet Apa", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
+        movies.put("Emancepati", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        movies.put("LU", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men W", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
+        movies.put("Five Feet Ap", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
+        movies.put("Emancepat", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        movies.put("L", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Want5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
+        movies.put("Five Feet Apart5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
+        movies.put("Emancepation5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
+        movies.put("LUCY5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        
+//        int i=0;
+//        while(movies.size()<20 && i < total.size()){
+//          Movie movie = total.get(i);
+//          if(movie.getMovieType() == type){
+//            movies.put(movie.getMovieTitle(), movie.getMovieImage());
+//          }
+//          i++;
+//        }
+//        
+        return movies;
     }
 }

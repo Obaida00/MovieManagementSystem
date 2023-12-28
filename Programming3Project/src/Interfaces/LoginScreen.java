@@ -126,6 +126,7 @@ public class LoginScreen extends javax.swing.JFrame {
     photo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setAlwaysOnTop(true);
     setUndecorated(true);
     setResizable(false);
 
@@ -197,6 +198,12 @@ public class LoginScreen extends javax.swing.JFrame {
     exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
         exitButtonMouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        exitButtonMouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        exitButtonMouseExited(evt);
       }
     });
     loginPanel.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 30, 30));
@@ -327,6 +334,14 @@ public class LoginScreen extends javax.swing.JFrame {
   private void txtunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtunActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_txtunActionPerformed
+
+  private void exitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseEntered
+    exitButton.setForeground(new Color(162,0,255));
+  }//GEN-LAST:event_exitButtonMouseEntered
+
+  private void exitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseExited
+    exitButton.setForeground(new Color(251,251,255));
+  }//GEN-LAST:event_exitButtonMouseExited
 
 
 

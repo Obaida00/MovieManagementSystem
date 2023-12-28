@@ -1,6 +1,8 @@
 package MainPackage;
 import Interfaces.HomeScreen;
 import Interfaces.LoadingScreen;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 ////////////////TESTING
@@ -11,8 +13,13 @@ import Interfaces.LoadingScreen;
 public class Main {
 
   public static void main(String[] args) {
-//    LoadingScreen loadingScreen = new LoadingScreen();
-    new HomeScreen();
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException ex) {
+      Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    LoadingScreen loadingScreen = new LoadingScreen();
+//    new HomeScreen();
   }
 }
 
