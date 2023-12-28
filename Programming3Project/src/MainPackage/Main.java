@@ -1,17 +1,18 @@
 package MainPackage;
 import Interfaces.HomeScreen;
 import Interfaces.LoadingScreen;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import Action.go;
 import Interfaces.LoadingScreen;
 import Interfaces.my_tickets_form;
-import Action.go;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
@@ -21,12 +22,10 @@ import java.util.logging.Logger;
 public class Main {
 
   public static void main(String[] args) {
-   new HomeScreen();//Starting the Interfaces and UI (Should be done with Threading)
-
-
     if(go.loadUserMap() == null){
         mainInitialize();
     }
+   LoadingScreen loadingScreen = new LoadingScreen();
    my_tickets_form n = new my_tickets_form();
     
   }
