@@ -57,7 +57,6 @@ public class LoadingScreen extends javax.swing.JFrame {
     jLabel1 = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setAlwaysOnTop(true);
     setName("LoadingFrame"); // NOI18N
     setUndecorated(true);
     setPreferredSize(new java.awt.Dimension(700, 384));
