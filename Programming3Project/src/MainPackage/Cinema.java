@@ -2,6 +2,7 @@ package MainPackage;
 
 import Action.go;
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,7 +26,7 @@ class Seat{
 
 
 
-public class Cinema {
+public class Cinema implements Serializable{
     private String cinemaName; //Unique
     private int cinemaSeatNumber;
     private ArrayList<Seat> cinemaSeatsList; //FK

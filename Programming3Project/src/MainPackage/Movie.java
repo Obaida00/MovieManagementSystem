@@ -1,11 +1,12 @@
 package MainPackage;
 
 import Action.go;
+import java.io.Serializable;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Movie {
+public class Movie implements Serializable{
     private String movieTitle;
     private Cinema movieCinema;
     private Type movieType; //Enum

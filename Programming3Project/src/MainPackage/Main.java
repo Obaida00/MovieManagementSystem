@@ -4,8 +4,17 @@ import Interfaces.LoadingScreen;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import Action.go;
+import Interfaces.LoadingScreen;
+import Interfaces.my_tickets_form;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-////////////////TESTING
+
 /**
  *
  * @author Obaida
@@ -13,15 +22,69 @@ import java.util.logging.Logger;
 public class Main {
 
   public static void main(String[] args) {
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException ex) {
-      Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+    if(go.loadUserMap() == null){
+        mainInitialize();
     }
-    LoadingScreen loadingScreen = new LoadingScreen();
-//    new HomeScreen();
+   LoadingScreen loadingScreen = new LoadingScreen();
+   my_tickets_form n = new my_tickets_form();
+    
   }
+
+
+
+   private static void mainInitialize(){
+        try{
+            File file = new File("Users/UserList.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(new ArrayList<User>());
+            oos.flush();
+            oos.close();
+        }catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+        try{
+            File file = new File("Movies/MovieList.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(new ArrayList<User>());
+            oos.flush();
+            oos.close();
+        }catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+        try{
+            File file = new File("Cinemas/CinemaList.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(new ArrayList<User>());
+            oos.flush();
+            oos.close();
+        }catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+        try{
+            File file = new File("Tickets/TicketList.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(new ArrayList<User>());
+            oos.flush();
+            oos.close();
+        }catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+        //    To Initializing the userMap File By Filling it with empty new HashMap<String , Integer> :
+        try{
+            File file = new File("Users/userMap.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(new HashMap<String , Integer>());
+            oos.flush();
+            oos.close();
+        }catch(IOException e){
+            System.out.print(e.getMessage());
+        }
+    }
+
 }
+
+
+
 
 
 //    To Print The Date We Did:
