@@ -1,10 +1,12 @@
 package MainPackage;
 
 import Action.go;
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Ticket {
+public class Ticket implements Serializable{
     private Cinema ticketCinema; //FK
     private Seat ticketSeat; //FK
     private Date ticketShowTime; //FK
@@ -35,6 +37,14 @@ public class Ticket {
         go.save("Ticket" , ticketList);
     }
 
+    public String toText(){
+        SimpleDateFormat s = new SimpleDateFormat("EEEE yyyy / MM / dd   hh:mm ");
+        String showtime = s.format(ticketShowTime);
+        return ticketMovie.getMovieTitle() +"  "+ ticketCinema.getCinemaName() +"  "+ showtime
+                +"  "+ ticketSeat.getSeatID()+"  "+ ticketSeat.getSeatPrice() +"  | ID: "+ ticketID;
+    }
+    
+    
     public void setTicketSeatStatus(boolean booked) {
         this.ticketSeat.setBooked(booked);
         generateTicketID();

@@ -18,7 +18,7 @@ public class Ticketing {
 
     public static void cancelTicket(String ticketID){
         Ticket ticket = (Ticket)go.load("Ticket" , ticketID);
-        if(ticket.equals(null)){
+        if(ticket == null){
             System.out.println("ticketID Not Found!");
         }else{
             if(ticket.getTicketSeatStatus()){
