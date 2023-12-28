@@ -244,7 +244,7 @@ public class go {
             System.out.println(userName + " didn't save: IOException!");
         }   
     }
-    public static User getCurrentUser(String userName){
+    public static User getCurrentUser(){
         try{
             File file = new File("CurrentUser.txt");
             ObjectInputStream oos = new ObjectInputStream(new FileInputStream(file));
@@ -252,13 +252,13 @@ public class go {
             oos.close();
             return user; 
         } catch (FileNotFoundException e) {
-            System.out.println( userName + " didn't load: File Not Found!");
+            System.out.println("Current User didn't load: File Not Found!");
         } catch (IOException e) {
-            System.out.println(userName + " didn't load: IOException!");
+            System.out.println("Current User didn't load: IOException!");
         } catch (ClassNotFoundException ex) {
-          System.out.println(userName + " didn't load: Class Not Found!");  
+          System.out.println("Current User didn't load: Class Not Found!");  
         }finally{
-               System.out.println(userName + " loaded Successfully ");
+               System.out.println("Current User loaded Successfully ");
         }
         return null;   
     }

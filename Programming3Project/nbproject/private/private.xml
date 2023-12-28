@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Downloads/My_GitHub/oldMovieManagementSystem/Programming3Project/src/MainPackage/Main.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/user_account_form.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Action/Ticketing.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Action/go.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/MainPackage/Movie.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/LoginScreen.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/MainPackage/Main.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/my_tickets_form.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/sign_up_form.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/cancel_ticket_form.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/MainPackage/User.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/MainPackage/Ticket.java</file>
+            <file>file:/C:/Users/gtx/Downloads/Ali_GitHub/MovieManagementSystem/Programming3Project/src/Interfaces/LoadingScreen.java</file>
         </group>
     </open-files>
 </project-private>
