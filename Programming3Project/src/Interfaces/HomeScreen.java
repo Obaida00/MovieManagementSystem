@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
+import MainPackage.User;
 
 
 
@@ -37,6 +38,7 @@ public class HomeScreen extends javax.swing.JFrame {
     
     this.setIcons(true, false, false);
     cardLayout = (CardLayout)(pageCardPanel.getLayout());
+    this.setUserData();
   }
 
   public void setting(){
@@ -108,10 +110,10 @@ public class HomeScreen extends javax.swing.JFrame {
     jLabel7 = new javax.swing.JLabel();
     panClick = new javax.swing.JPanel();
     lblClick = new javax.swing.JLabel();
-    jLabel8 = new javax.swing.JLabel();
-    jLabel9 = new javax.swing.JLabel();
-    lblUserNAme = new javax.swing.JLabel();
-    jLabel10 = new javax.swing.JLabel();
+    userTicketCount = new javax.swing.JLabel();
+    userAddressLabel = new javax.swing.JLabel();
+    userNameLabel = new javax.swing.JLabel();
+    userIdLabel = new javax.swing.JLabel();
     panClick1 = new javax.swing.JPanel();
     lblClick1 = new javax.swing.JLabel();
     jLabel11 = new javax.swing.JLabel();
@@ -183,6 +185,46 @@ public class HomeScreen extends javax.swing.JFrame {
     };
     ;
     changetxt = new javax.swing.JLabel();
+    changepwBtn1 = new JButton() {
+      @Override
+      protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+
+        // هاد رح يكون اوبجيكت من كلاس جاهز فيو الشكل يلي بيعطي حواف مدورة ويلي رح نمررو لتابع بعد كم سطر
+        int arcDiameter = getHeight();
+        RoundRectangle2D roundRect = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arcDiameter, arcDiameter);
+
+        // هي التريك المسؤولة عن تغير اللون
+        if (getModel().isArmed()) {
+          g2.setColor(new Color(255,30,30)); // لون عند الضغط
+        } else if (getModel().isRollover()) {
+          g2.setColor(new Color(255, 75, 75)); // لون عند التحويل
+        } else {
+          g2.setColor(new Color(255,100,140)); // اللون الافتراضي
+        }
+        // هون حددنا الشكل يلي بدنا ياه يكون للزر
+        g2.fill(roundRect);
+
+        // الخط والالوان
+        g2.setColor(Color.BLACK);
+        g2.setFont(new Font("Trebuchet MS", 0, 16));
+
+        // خوارزمية جاهزة لهتى تكون الجملة بمنتصف الزر
+        FontMetrics fm = g.getFontMetrics();
+        String text = getText();
+        int textWidth = fm.stringWidth(text);
+        int textHeight = fm.getHeight();
+
+        int x = (getWidth() - textWidth) / 2;
+        int y = (getHeight() - textHeight) / 2 + fm.getAscent();
+
+        // اذا ع التجربة ما حسيناها كتير راكزة ممكن نضيف او نطرح ع ال y  و ال x  يلي هون
+        g2.drawString(text, x, y);
+
+        g2.dispose();
+      }
+    };
+    ;
     sidebar = new javax.swing.JPanel();
     userIcn = new javax.swing.JLabel();
     homeIcnDefault = new javax.swing.JLabel();
@@ -682,21 +724,19 @@ public class HomeScreen extends javax.swing.JFrame {
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    jLabel8.setFont(new java.awt.Font("Stencil", 1, 100)); // NOI18N
-    jLabel8.setForeground(new java.awt.Color(251, 251, 255));
-    jLabel8.setText("5");
+    userTicketCount.setFont(new java.awt.Font("Stencil", 1, 100)); // NOI18N
+    userTicketCount.setForeground(new java.awt.Color(251, 251, 255));
+    userTicketCount.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 
-    jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-    jLabel9.setForeground(new java.awt.Color(251, 251, 255));
-    jLabel9.setText("Jaramana");
+    userAddressLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+    userAddressLabel.setForeground(new java.awt.Color(251, 251, 255));
 
-    lblUserNAme.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-    lblUserNAme.setForeground(new java.awt.Color(251, 251, 255));
-    lblUserNAme.setText("Ali Almusfi");
+    userNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+    userNameLabel.setForeground(new java.awt.Color(251, 251, 255));
+    userNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-    jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-    jLabel10.setForeground(new java.awt.Color(251, 251, 255));
-    jLabel10.setText("192.175.3");
+    userIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+    userIdLabel.setForeground(new java.awt.Color(251, 251, 255));
 
     panClick1.setBackground(new java.awt.Color(251, 251, 255));
     panClick1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
@@ -785,36 +825,33 @@ public class HomeScreen extends javax.swing.JFrame {
               .addComponent(jLabel1))
             .addGap(52, 52, 52)
             .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel9)
-              .addComponent(jLabel10)))
+              .addGroup(userPanelLayout.createSequentialGroup()
+                .addComponent(userAddressLabel)
+                .addGap(105, 105, 105)
+                .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addComponent(userIdLabel)))
           .addGroup(userPanelLayout.createSequentialGroup()
             .addGap(4, 4, 4)
             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(891, 891, Short.MAX_VALUE))
+        .addGap(640, 640, Short.MAX_VALUE))
       .addGroup(userPanelLayout.createSequentialGroup()
         .addGap(196, 196, 196)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addGroup(userPanelLayout.createSequentialGroup()
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
-              .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                  .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(40, 40, 40)))
-            .addComponent(jLabel7)
-            .addGap(71, 71, 71))
+            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(124, 124, 124))
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-            .addComponent(lblUserNAme)
-            .addGap(134, 134, 134)))
+            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addGap(40, 40, 40)))
+        .addComponent(jLabel7)
         .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
           .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 245, Short.MAX_VALUE)
             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(89, 89, 89)
             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -822,14 +859,13 @@ public class HomeScreen extends javax.swing.JFrame {
           .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
             .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104)
+                .addComponent(jLabel19))
               .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(72, 72, 72)
                 .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addGroup(userPanelLayout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userTicketCount, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                       .addGroup(userPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -837,31 +873,30 @@ public class HomeScreen extends javax.swing.JFrame {
                       .addGroup(userPanelLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(panClick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                  .addComponent(jLabel19))))
+                  .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(0, 143, Short.MAX_VALUE))
           .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(53, 53, 53)
+            .addGap(124, 124, 124)
             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(55, 55, 55))
           .addGroup(userPanelLayout.createSequentialGroup()
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(122, 122, 122)
+            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(82, 82, 82))))
       .addGroup(userPanelLayout.createSequentialGroup()
         .addGap(23, 23, 23)
         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(0, 0, Short.MAX_VALUE))
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(201, 201, 201))
     );
     userPanelLayout.setVerticalGroup(
       userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,10 +908,10 @@ public class HomeScreen extends javax.swing.JFrame {
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
             .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
               .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addComponent(userAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(50, 50, 50)
             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(userIdLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(223, 223, 223))
       .addGroup(userPanelLayout.createSequentialGroup()
         .addGap(63, 63, 63)
@@ -898,20 +933,16 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(22, 22, 22)
             .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(userTicketCount, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addGroup(userPanelLayout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panClick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                  .addComponent(panClick1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                .addComponent(panClick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
           .addGroup(userPanelLayout.createSequentialGroup()
             .addGap(39, 39, 39)
             .addComponent(jLabel7)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(lblUserNAme, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(userPanelLayout.createSequentialGroup()
               .addGap(198, 198, 198)
@@ -934,6 +965,10 @@ public class HomeScreen extends javax.swing.JFrame {
                   .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(39, 39, 39)
                   .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        .addGap(18, 18, 18)
+        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -1033,6 +1068,19 @@ public class HomeScreen extends javax.swing.JFrame {
       }
     });
 
+    changepwBtn1.setBackground(new java.awt.Color(255, 102, 102));
+    changepwBtn1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+    changepwBtn1.setText("Log out");
+    changepwBtn1.setBorder(null);
+    changepwBtn1.setBorderPainted(false);
+    changepwBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    changepwBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    changepwBtn1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        changepwBtn1ActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
     settingsPanel.setLayout(settingsPanelLayout);
     settingsPanelLayout.setHorizontalGroup(
@@ -1077,6 +1125,10 @@ public class HomeScreen extends javax.swing.JFrame {
               .addGap(448, 448, 448)
               .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
         .addContainerGap(631, Short.MAX_VALUE))
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
+        .addGap(0, 0, Short.MAX_VALUE)
+        .addComponent(changepwBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(60, 60, 60))
     );
     settingsPanelLayout.setVerticalGroup(
       settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1107,7 +1159,9 @@ public class HomeScreen extends javax.swing.JFrame {
         .addComponent(changetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(238, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+        .addComponent(changepwBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(53, 53, 53))
     );
 
     pageCardPanel.add(settingsPanel, "CardSettings");
@@ -1381,14 +1435,12 @@ public class HomeScreen extends javax.swing.JFrame {
 
   private void changepwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtnActionPerformed
     String password = new String(txtpw1.getPassword());
-    //Call setPassword()
-    //here we creat an account
     if(!password.equals(new String(txtpw2.getPassword()))){
       changetxt.setForeground(new Color(255, 102, 102));
       changetxt.setText("Your Password Confirm is incurrect");
       return;
     }
-    //createAccount();
+    //Call setPassword()
     changetxt.setForeground(new Color(51, 204, 0));
     changetxt.setText("Your password is successfuly changed");
   }//GEN-LAST:event_changepwBtnActionPerformed
@@ -1405,6 +1457,11 @@ public class HomeScreen extends javax.swing.JFrame {
     new cancel_ticket_form();
   }//GEN-LAST:event_lblClick1MouseClicked
 
+  private void changepwBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtn1ActionPerformed
+    new LoginScreen();
+    this.dispose();
+  }//GEN-LAST:event_changepwBtn1ActionPerformed
+
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1417,6 +1474,7 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel arrowRight3;
   private javax.swing.JLabel changePasswordLabel;
   private javax.swing.JButton changepwBtn;
+  private javax.swing.JButton changepwBtn1;
   private javax.swing.JLabel changetxt;
   private javax.swing.JScrollPane dramaScrollPane;
   private javax.swing.JLabel exitButton;
@@ -1431,7 +1489,6 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JScrollPane homeScrollPane;
   private javax.swing.JPanel homeScrollPanel;
   private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel11;
   private javax.swing.JLabel jLabel12;
   private javax.swing.JLabel jLabel13;
@@ -1454,11 +1511,8 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel5;
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
   private javax.swing.JLabel lblClick;
   private javax.swing.JLabel lblClick1;
-  public static javax.swing.JLabel lblUserNAme;
   private javax.swing.JPanel mainPanel;
   private javax.swing.JLabel moviesIcnDefault;
   private javax.swing.JLabel moviesIcnSelected;
@@ -1483,8 +1537,12 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JPanel titlebar;
   private javax.swing.JPasswordField txtpw1;
   private javax.swing.JPasswordField txtpw2;
+  private javax.swing.JLabel userAddressLabel;
   private javax.swing.JLabel userIcn;
+  private javax.swing.JLabel userIdLabel;
+  public static javax.swing.JLabel userNameLabel;
   private javax.swing.JPanel userPanel;
+  private javax.swing.JLabel userTicketCount;
   // End of variables declaration//GEN-END:variables
 
   
@@ -1514,6 +1572,16 @@ public class HomeScreen extends javax.swing.JFrame {
     settingsIcnDefault.setEnabled(!settings);
     settingsIcnSelected.setVisible(settings);
     settingsIcnSelected.setEnabled(settings);  
+  }
+
+  private void setUserData() {
+    // here we need to get the active user so we can display his info
+    //User user = getActiveUser();
+    
+//    userNameLabel.setText(user.getUserName());
+//    userAddressLabel.setText(user.getUserAddress());
+//    userIdLabel.setText(Integer.toString(user.getUserID()));
+//    userTicketCount.setText(Integer.toString(user.getUserBookedTickets().size()));
   }
 }
 

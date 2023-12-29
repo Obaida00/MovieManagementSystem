@@ -24,7 +24,11 @@ class MovieObjectPanel extends JPanel {
   private JButton moreButton;
   String name;
   ImageIcon img;
-
+  
+  
+//public MovieObjectPanel(Movie m){
+  //  this.name = m.getMovieTitle();
+  //  this.img = m.getMovieImage();
   public MovieObjectPanel(String name, ImageIcon img) {
     this.name = name;
     this.img = img;
@@ -54,7 +58,14 @@ class MovieObjectPanel extends JPanel {
   }
 
   private void movieMouseClicked(java.awt.event.MouseEvent evt) {
-    System.out.println("movie entered   " + name);//here we get the name of the movie we selected then we pass the object to the next frame
+    System.out.println("movie entered   " + name);//here we get the name of the movie we selected then we pass 
+                                                  //the object to the next frame
     //new MovieFrame(Movie)  this will be a pop up
   }
 }
+
+/*
+NOTE TO MYSELF BY OBAIDA
+in this class it might be more eff if you pass
+the whole Movie object as the commented code line 29
+*/
