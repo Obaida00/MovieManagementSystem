@@ -1,6 +1,7 @@
 package MainPackage;
 
 import Action.go;
+import java.io.Serializable;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;

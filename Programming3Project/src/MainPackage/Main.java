@@ -2,6 +2,7 @@ package MainPackage;
 
 import Action.go;
 import Interfaces.LoadingScreen;
+import Interfaces.my_tickets_form;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,9 +20,9 @@ public class Main {
   public static void main(String[] args) {
     if(go.loadUserMap() == null){
         mainInitialize();
-        System.out.print("If");
     }
-    LoadingScreen loadingScreen = new LoadingScreen();
+   // LoadingScreen loadingScreen = new LoadingScreen();
+   my_tickets_form n = new my_tickets_form();
     
   }
 
