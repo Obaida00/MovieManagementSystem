@@ -253,10 +253,10 @@ public class sign_up_form extends javax.swing.JFrame {
     });
 
     lblExite.setBackground(new java.awt.Color(255, 255, 255));
-    lblExite.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+    lblExite.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
     lblExite.setForeground(new java.awt.Color(255, 255, 255));
     lblExite.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    lblExite.setText("x");
+    lblExite.setText("X");
     lblExite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     lblExite.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {

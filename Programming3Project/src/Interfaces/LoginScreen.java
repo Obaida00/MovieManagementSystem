@@ -146,7 +146,7 @@ public class LoginScreen extends javax.swing.JFrame {
         txtunActionPerformed(evt);
       }
     });
-    loginPanel.add(txtun, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 270, 20));
+    loginPanel.add(txtun, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 270, 30));
 
     usLable.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
     usLable.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +164,7 @@ public class LoginScreen extends javax.swing.JFrame {
     txtpw.setBorder(null);
     txtpw.setCaretColor(new java.awt.Color(255, 255, 255));
     txtpw.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-    loginPanel.add(txtpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 200, 20));
+    loginPanel.add(txtpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 200, 30));
 
     pwLable.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
     pwLable.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,10 +192,10 @@ public class LoginScreen extends javax.swing.JFrame {
     });
     loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 123, 25));
 
-    exitButton.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+    exitButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
     exitButton.setForeground(new java.awt.Color(255, 255, 255));
     exitButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    exitButton.setText("x");
+    exitButton.setText("X");
     exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {

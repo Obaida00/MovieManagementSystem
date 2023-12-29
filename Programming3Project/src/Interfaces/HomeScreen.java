@@ -82,10 +82,11 @@ public class HomeScreen extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    HomePanel = new javax.swing.JPanel();
+    mainPanel = new javax.swing.JPanel();
     titlebar = new javax.swing.JPanel();
     exitButton = new javax.swing.JLabel();
     seperator3 = new javax.swing.JPanel();
+    pageCardPanel = new javax.swing.JPanel();
     homePanel = new javax.swing.JPanel();
     homeScrollPane = new javax.swing.JScrollPane();
     homeScrollPanel = new javax.swing.JPanel();
@@ -118,14 +119,15 @@ public class HomeScreen extends javax.swing.JFrame {
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
+    setPreferredSize(new java.awt.Dimension(1301, 638));
     setResizable(false);
 
-    HomePanel.setBackground(new java.awt.Color(4, 15, 19));
-    HomePanel.setLayout(new java.awt.BorderLayout());
+    mainPanel.setBackground(new java.awt.Color(4, 15, 19));
+    mainPanel.setLayout(new java.awt.BorderLayout());
 
     titlebar.setBackground(new java.awt.Color(4, 15, 19));
 
-    exitButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+    exitButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
     exitButton.setForeground(new java.awt.Color(255, 255, 255));
     exitButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     exitButton.setText("X");
@@ -160,7 +162,7 @@ public class HomeScreen extends javax.swing.JFrame {
     titlebarLayout.setHorizontalGroup(
       titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarLayout.createSequentialGroup()
-        .addContainerGap(79, Short.MAX_VALUE)
+        .addContainerGap(354, Short.MAX_VALUE)
         .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(31, 31, 31)
         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,7 +177,9 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGap(0, 0, Short.MAX_VALUE))
     );
 
-    HomePanel.add(titlebar, java.awt.BorderLayout.PAGE_START);
+    mainPanel.add(titlebar, java.awt.BorderLayout.PAGE_START);
+
+    pageCardPanel.setLayout(new java.awt.CardLayout());
 
     homePanel.setBackground(new java.awt.Color(4, 15, 22));
 
@@ -454,26 +458,26 @@ public class HomeScreen extends javax.swing.JFrame {
       .addComponent(gapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(homeScrollPanelLayout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
             .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(romanceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(16, 16, 16)
+            .addGap(18, 18, 18)
+            .addComponent(romanceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(18, 18, 18)
             .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
             .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(arrowLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(arrowLeft3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
-            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(homeScrollPanelLayout.createSequentialGroup()
-                .addComponent(dramaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
+                .addComponent(dramaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(arrowRight3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
               .addGroup(homeScrollPanelLayout.createSequentialGroup()
-                .addComponent(actionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(actionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(arrowRight1)))))
         .addContainerGap())
     );
@@ -502,17 +506,19 @@ public class HomeScreen extends javax.swing.JFrame {
             .addGap(36, 36, 36)))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
         .addComponent(gapPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dramaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
-              .addComponent(arrowRight3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addGap(42, 42, 42)))
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowLeft3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(36, 36, 36)))
-        .addGap(41, 41, 41))
+            .addGap(134, 134, 134)
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                .addComponent(arrowRight3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
+              .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                .addComponent(arrowLeft3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))))
+          .addGroup(homeScrollPanelLayout.createSequentialGroup()
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(dramaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
     );
 
     addRowScrollPanel1();
@@ -531,16 +537,20 @@ public class HomeScreen extends javax.swing.JFrame {
     homePanel.setLayout(homePanelLayout);
     homePanelLayout.setHorizontalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(homeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+      .addComponent(homeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1241, Short.MAX_VALUE)
     );
     homePanelLayout.setVerticalGroup(
       homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(homeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
+        .addGap(0, 0, Short.MAX_VALUE)
+        .addComponent(homeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
 
-    HomePanel.add(homePanel, java.awt.BorderLayout.CENTER);
+    pageCardPanel.add(homePanel, "CardHome");
 
-    getContentPane().add(HomePanel, java.awt.BorderLayout.CENTER);
+    mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
+
+    getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
     sidebar.setBackground(new java.awt.Color(251, 251, 255));
     sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
@@ -603,7 +613,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
     getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
-    setSize(new java.awt.Dimension(1026, 512));
+    setSize(new java.awt.Dimension(1301, 638));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
@@ -737,7 +747,6 @@ public class HomeScreen extends javax.swing.JFrame {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JPanel HomePanel;
   private javax.swing.JScrollPane actionScrollPane;
   private javax.swing.JLabel arrowLeft1;
   private javax.swing.JLabel arrowLeft2;
@@ -758,8 +767,10 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
+  private javax.swing.JPanel mainPanel;
   private javax.swing.JLabel moviesIcnDefault;
   private javax.swing.JLabel moviesIcnSelected;
+  private javax.swing.JPanel pageCardPanel;
   private javax.swing.JScrollPane romanceScrollPane;
   private javax.swing.JPanel seperator1;
   private javax.swing.JPanel seperator2;
