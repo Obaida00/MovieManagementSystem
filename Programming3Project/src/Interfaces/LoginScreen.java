@@ -122,11 +122,14 @@ public class LoginScreen extends javax.swing.JFrame {
     shownpw = new javax.swing.JLabel();
     hidenpw = new javax.swing.JLabel();
     wrongLogin = new javax.swing.JLabel();
+    signupLabel = new javax.swing.JLabel();
+    dhaccount = new javax.swing.JLabel();
     photoPanel = new javax.swing.JPanel();
     photo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
+    setPreferredSize(new java.awt.Dimension(1289, 638));
     setResizable(false);
 
     loginPanel.setBackground(new java.awt.Color(4, 15, 19));
@@ -143,17 +146,17 @@ public class LoginScreen extends javax.swing.JFrame {
         txtunActionPerformed(evt);
       }
     });
-    loginPanel.add(txtun, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 190, 170, 20));
+    loginPanel.add(txtun, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 270, 20));
 
     usLable.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
     usLable.setForeground(new java.awt.Color(255, 255, 255));
     usLable.setText("Username");
-    loginPanel.add(usLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 172, -1, -1));
+    loginPanel.add(usLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
     unLine.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
     unLine.setForeground(new java.awt.Color(255, 255, 255));
-    unLine.setText("__________________________");
-    loginPanel.add(unLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 193, 187, 20));
+    unLine.setText("_______________________________________");
+    loginPanel.add(unLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 280, 20));
 
     txtpw.setBackground(new Color(0,0,0,1));
     txtpw.setFont(pwLable.getFont());
@@ -161,17 +164,17 @@ public class LoginScreen extends javax.swing.JFrame {
     txtpw.setBorder(null);
     txtpw.setCaretColor(new java.awt.Color(255, 255, 255));
     txtpw.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-    loginPanel.add(txtpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 240, 170, 20));
+    loginPanel.add(txtpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 200, 20));
 
     pwLable.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
     pwLable.setForeground(new java.awt.Color(255, 255, 255));
     pwLable.setText("Password");
-    loginPanel.add(pwLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 222, -1, -1));
+    loginPanel.add(pwLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
     pwLine.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
     pwLine.setForeground(new java.awt.Color(255, 255, 255));
-    pwLine.setText("__________________________");
-    loginPanel.add(pwLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 243, 187, 20));
+    pwLine.setText("______________________________");
+    loginPanel.add(pwLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 220, 20));
 
     loginButton.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
     loginButton.setText("LOGIN");
@@ -187,12 +190,12 @@ public class LoginScreen extends javax.swing.JFrame {
         loginButtonActionPerformed(evt);
       }
     });
-    loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 123, 25));
+    loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 123, 25));
 
-    exitButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+    exitButton.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
     exitButton.setForeground(new java.awt.Color(255, 255, 255));
     exitButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    exitButton.setText("X");
+    exitButton.setText("x");
     exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -205,12 +208,13 @@ public class LoginScreen extends javax.swing.JFrame {
         exitButtonMouseExited(evt);
       }
     });
-    loginPanel.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 30, 30));
+    loginPanel.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 40, 30));
 
+    userIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/user white-01.png"))); // NOI18N
     userIcon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     userIcon.setIconTextGap(0);
-    loginPanel.add(userIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, 83));
+    loginPanel.add(userIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 410, 140));
 
     shownpw.setBackground(new Color(0,0,0,0));
     shownpw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
@@ -221,7 +225,7 @@ public class LoginScreen extends javax.swing.JFrame {
         shownpwMouseClicked(evt);
       }
     });
-    loginPanel.add(shownpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 233, 25, 25));
+    loginPanel.add(shownpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 25, 30));
 
     hidenpw.setBackground(new Color(0,0,0,0));
     hidenpw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
@@ -232,14 +236,37 @@ public class LoginScreen extends javax.swing.JFrame {
         hidenpwMouseClicked(evt);
       }
     });
-    loginPanel.add(hidenpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 235, 25, 25));
+    loginPanel.add(hidenpw, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 25, 30));
 
     wrongLogin.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
     wrongLogin.setForeground(new java.awt.Color(255, 102, 102));
-    loginPanel.add(wrongLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 160, 30));
+    loginPanel.add(wrongLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, 30));
+
+    signupLabel.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+    signupLabel.setForeground(new java.awt.Color(251, 251, 255));
+    signupLabel.setText("SIGN UP");
+    signupLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        signupLabelMouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        signupLabelMouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        signupLabelMouseExited(evt);
+      }
+    });
+    loginPanel.add(signupLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 50, 40));
+
+    dhaccount.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+    dhaccount.setForeground(new java.awt.Color(251, 251, 255));
+    dhaccount.setText("Don't have an account ?");
+    loginPanel.add(dhaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 130, 20));
 
     photoPanel.setBackground(new java.awt.Color(251, 251, 253));
 
+    photo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Home-cinema-01.png"))); // NOI18N
     photo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -247,11 +274,15 @@ public class LoginScreen extends javax.swing.JFrame {
     photoPanel.setLayout(photoPanelLayout);
     photoPanelLayout.setHorizontalGroup(
       photoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(photo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 541, Short.MAX_VALUE)
+      .addGroup(photoPanelLayout.createSequentialGroup()
+        .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(0, 0, Short.MAX_VALUE))
     );
     photoPanelLayout.setVerticalGroup(
       photoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(photo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addGroup(photoPanelLayout.createSequentialGroup()
+        .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(0, 0, Short.MAX_VALUE))
     );
 
     Layered.setLayer(loginPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -265,8 +296,7 @@ public class LoginScreen extends javax.swing.JFrame {
         .addGap(0, 0, 0)
         .addComponent(photoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGap(0, 0, 0)
-        .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, 0))
+        .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
     LayeredLayout.setVerticalGroup(
       LayeredLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,8 +304,8 @@ public class LoginScreen extends javax.swing.JFrame {
         .addGap(0, 0, 0)
         .addGroup(LayeredLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(photoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(0, 0, 0))
+          .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     Layered.add(loginPanel,0);
@@ -294,7 +324,7 @@ public class LoginScreen extends javax.swing.JFrame {
         .addComponent(Layered))
     );
 
-    setSize(new java.awt.Dimension(841, 371));
+    setSize(new java.awt.Dimension(1289, 638));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
@@ -304,15 +334,12 @@ public class LoginScreen extends javax.swing.JFrame {
     //Call checkpassword() in the if statement here
     if(true){
       new HomeScreen();
+      this.dispose();
     }else{
       wrongLogin.setText(wrongLoginMsg);
     }
     
   }//GEN-LAST:event_loginButtonActionPerformed
-
-  private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-    System.exit(0);
-  }//GEN-LAST:event_exitButtonMouseClicked
 
   private void shownpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shownpwMouseClicked
     txtpw.setEchoChar((char)8226);
@@ -334,18 +361,36 @@ public class LoginScreen extends javax.swing.JFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txtunActionPerformed
 
+  private void exitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseExited
+    exitButton.setForeground(new Color(251,251,255));
+  }//GEN-LAST:event_exitButtonMouseExited
+
   private void exitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseEntered
     exitButton.setForeground(new Color(162,0,255));
   }//GEN-LAST:event_exitButtonMouseEntered
 
-  private void exitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseExited
-    exitButton.setForeground(new Color(251,251,255));
-  }//GEN-LAST:event_exitButtonMouseExited
+  private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+    System.exit(0);
+  }//GEN-LAST:event_exitButtonMouseClicked
+
+  private void signupLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseEntered
+    signupLabel.setForeground(new Color(162,0,255));
+  }//GEN-LAST:event_signupLabelMouseEntered
+
+  private void signupLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseExited
+    signupLabel.setForeground(new Color(251,251,255));
+  }//GEN-LAST:event_signupLabelMouseExited
+
+  private void signupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseClicked
+    new sign_up_form();
+    this.dispose();
+  }//GEN-LAST:event_signupLabelMouseClicked
 
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLayeredPane Layered;
+  private javax.swing.JLabel dhaccount;
   private javax.swing.JLabel exitButton;
   private javax.swing.JLabel hidenpw;
   private javax.swing.JButton loginButton;
@@ -355,6 +400,7 @@ public class LoginScreen extends javax.swing.JFrame {
   private javax.swing.JLabel pwLable;
   private javax.swing.JLabel pwLine;
   private javax.swing.JLabel shownpw;
+  private javax.swing.JLabel signupLabel;
   private javax.swing.JPasswordField txtpw;
   private javax.swing.JTextField txtun;
   private javax.swing.JLabel unLine;
