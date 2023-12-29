@@ -828,26 +828,29 @@ class rowScrollPanel extends JPanel{
         ArrayList <Movie> total = Movie.getMovieList();
         
         //test code remove and uncomment the next commented block 
-        movies.put("What Men Want", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
-        movies.put("Five Feet Apart", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
-        movies.put("Emancepation", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-        movies.put("LUCY", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-        movies.put("What Men Wan", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
-        movies.put("Five Feet Apar", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
-        movies.put("Emancepatio", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-        movies.put("LUC", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-        movies.put("What Men Wa", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
-        movies.put("Five Feet Apa", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
-        movies.put("Emancepati", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-        movies.put("LU", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-        movies.put("What Men W", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
-        movies.put("Five Feet Ap", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
-        movies.put("Emancepat", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-        movies.put("L", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
-        movies.put("What Men Want5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255413651_353803.jpg"));
-        movies.put("Five Feet Apart5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\255412197_391223.jpg"));
-        movies.put("Emancepation5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\Emancipation.jpg"));
-        movies.put("LUCY5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        String whatMenWant = "temp posters/What men want.jpg";
+        String Emanc = "temp posters/Emancipation.jpg";
+        String FFA = "temp posters/Five feet apart.jpg";
+        movies.put("What Men Want", new ImageIcon(whatMenWant));
+        movies.put("Five Feet Apart", new ImageIcon(FFA));
+        movies.put("Emancepation", new ImageIcon(Emanc));
+//        movies.put("LUCY", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Wan", new ImageIcon(whatMenWant));
+        movies.put("Five Feet Apar", new ImageIcon(FFA));
+        movies.put("Emancepatio", new ImageIcon(Emanc));
+//        movies.put("LUC", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Wa", new ImageIcon(whatMenWant));
+        movies.put("Five Feet Apa", new ImageIcon(FFA));
+        movies.put("Emancepati", new ImageIcon(Emanc));
+//        movies.put("LU", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men W", new ImageIcon(whatMenWant));
+        movies.put("Five Feet Ap", new ImageIcon(FFA));
+        movies.put("Emancepat", new ImageIcon(Emanc));
+//        movies.put("L", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
+        movies.put("What Men Want5", new ImageIcon(whatMenWant));
+        movies.put("Five Feet Apart5", new ImageIcon(FFA));
+        movies.put("Emancepation5", new ImageIcon(Emanc));
+//        movies.put("LUCY5", new ImageIcon("C:\\Users\\Obaida\\Desktop\\246209256_321915.jpg"));
         
 //        int i=0;
 //        while(movies.size()<20 && i < total.size()){
