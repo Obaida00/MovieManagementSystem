@@ -1,21 +1,12 @@
 package Interfaces;
 
 
-import Action.go;
 import MainPackage.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -33,7 +24,8 @@ import javax.swing.*;
  */
 public class HomeScreen extends javax.swing.JFrame {
   public static int SCROLL_INCREMENT_SPEED =16;
-  public static int CATAGORY_LENGTH =20;
+  public static int CATAGORY_LENGTH = 1;
+  public static int MOVIE_SAPERATOR =30;
   public CardLayout cardLayout;
   /**
    * Creates new form LoginScreen
@@ -138,6 +130,59 @@ public class HomeScreen extends javax.swing.JFrame {
     jLabel26 = new javax.swing.JLabel();
     jLabel27 = new javax.swing.JLabel();
     jLabel28 = new javax.swing.JLabel();
+    settingsPanel = new javax.swing.JPanel();
+    changePasswordLabel = new javax.swing.JLabel();
+    hidenpw1 = new javax.swing.JLabel();
+    pwLable1 = new javax.swing.JLabel();
+    pwLine1 = new javax.swing.JLabel();
+    txtpw1 = new javax.swing.JPasswordField();
+    shownpw1 = new javax.swing.JLabel();
+    txtpw2 = new javax.swing.JPasswordField();
+    hidenpw2 = new javax.swing.JLabel();
+    pwLine2 = new javax.swing.JLabel();
+    shownpw2 = new javax.swing.JLabel();
+    pwLable2 = new javax.swing.JLabel();
+    changepwBtn = new JButton() {
+      @Override
+      protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+
+        // هاد رح يكون اوبجيكت من كلاس جاهز فيو الشكل يلي بيعطي حواف مدورة ويلي رح نمررو لتابع بعد كم سطر
+        int arcDiameter = getHeight();
+        RoundRectangle2D roundRect = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arcDiameter, arcDiameter);
+
+        // هي التريك المسؤولة عن تغير اللون
+        if (getModel().isArmed()) {
+          g2.setColor(new Color(107, 73, 117)); // لون عند الضغط
+        } else if (getModel().isRollover()) {
+          g2.setColor(new Color(157, 121, 168)); // لون عند التحويل
+        } else {
+          g2.setColor(new Color(251,251,253)); // اللون الافتراضي
+        }
+        // هون حددنا الشكل يلي بدنا ياه يكون للزر
+        g2.fill(roundRect);
+
+        // الخط والالوان
+        g2.setColor(Color.BLACK);
+        g2.setFont(new Font("Trebuchet MS", 0, 16));
+
+        // خوارزمية جاهزة لهتى تكون الجملة بمنتصف الزر
+        FontMetrics fm = g.getFontMetrics();
+        String text = getText();
+        int textWidth = fm.stringWidth(text);
+        int textHeight = fm.getHeight();
+
+        int x = (getWidth() - textWidth) / 2;
+        int y = (getHeight() - textHeight) / 2 + fm.getAscent();
+
+        // اذا ع التجربة ما حسيناها كتير راكزة ممكن نضيف او نطرح ع ال y  و ال x  يلي هون
+        g2.drawString(text, x, y);
+
+        g2.dispose();
+      }
+    };
+    ;
+    changetxt = new javax.swing.JLabel();
     sidebar = new javax.swing.JPanel();
     userIcn = new javax.swing.JLabel();
     homeIcnDefault = new javax.swing.JLabel();
@@ -179,7 +224,7 @@ public class HomeScreen extends javax.swing.JFrame {
     seperator3.setLayout(seperator3Layout);
     seperator3Layout.setHorizontalGroup(
       seperator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 814, Short.MAX_VALUE)
+      .addGap(0, 1126, Short.MAX_VALUE)
     );
     seperator3Layout.setVerticalGroup(
       seperator3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +236,7 @@ public class HomeScreen extends javax.swing.JFrame {
     titlebarLayout.setHorizontalGroup(
       titlebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlebarLayout.createSequentialGroup()
-        .addContainerGap(358, Short.MAX_VALUE)
+        .addContainerGap(42, Short.MAX_VALUE)
         .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(31, 31, 31)
         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +290,7 @@ public class HomeScreen extends javax.swing.JFrame {
     seperator1.setLayout(seperator1Layout);
     seperator1Layout.setHorizontalGroup(
       seperator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 754, Short.MAX_VALUE)
+      .addGap(0, 998, Short.MAX_VALUE)
     );
     seperator1Layout.setVerticalGroup(
       seperator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +372,7 @@ public class HomeScreen extends javax.swing.JFrame {
     seperator2.setLayout(seperator2Layout);
     seperator2Layout.setHorizontalGroup(
       seperator2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 754, Short.MAX_VALUE)
+      .addGap(0, 998, Short.MAX_VALUE)
     );
     seperator2Layout.setVerticalGroup(
       seperator2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,7 +458,7 @@ public class HomeScreen extends javax.swing.JFrame {
     seperator4.setLayout(seperator4Layout);
     seperator4Layout.setHorizontalGroup(
       seperator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 754, Short.MAX_VALUE)
+      .addGap(0, 998, Short.MAX_VALUE)
     );
     seperator4Layout.setVerticalGroup(
       seperator4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +477,7 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGroup(gapPanel3Layout.createSequentialGroup()
           .addGap(115, 115, 115)
           .addComponent(seperator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addContainerGap(115, Short.MAX_VALUE)))
+          .addContainerGap(109, Short.MAX_VALUE)))
     );
     gapPanel3Layout.setVerticalGroup(
       gapPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,6 +643,9 @@ public class HomeScreen extends javax.swing.JFrame {
     panClick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
     panClick.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     panClick.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        panClickMouseClicked(evt);
+      }
       public void mouseEntered(java.awt.event.MouseEvent evt) {
         panClickMouseEntered(evt);
       }
@@ -654,6 +702,9 @@ public class HomeScreen extends javax.swing.JFrame {
     panClick1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
     panClick1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     panClick1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        panClick1MouseClicked(evt);
+      }
       public void mouseEntered(java.awt.event.MouseEvent evt) {
         panClick1MouseEntered(evt);
       }
@@ -665,6 +716,9 @@ public class HomeScreen extends javax.swing.JFrame {
     lblClick1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
     lblClick1.setText("Cancel Ticket");
     lblClick1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        lblClick1MouseClicked(evt);
+      }
       public void mouseEntered(java.awt.event.MouseEvent evt) {
         lblClick1MouseEntered(evt);
       }
@@ -677,17 +731,11 @@ public class HomeScreen extends javax.swing.JFrame {
     panClick1.setLayout(panClick1Layout);
     panClick1Layout.setHorizontalGroup(
       panClick1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(panClick1Layout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(lblClick1)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      .addComponent(lblClick1, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
     );
     panClick1Layout.setVerticalGroup(
       panClick1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(panClick1Layout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(lblClick1)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      .addComponent(lblClick1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
     );
 
     jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape1.png"))); // NOI18N
@@ -891,6 +939,179 @@ public class HomeScreen extends javax.swing.JFrame {
 
     pageCardPanel.add(userPanel, "CardUser");
 
+    settingsPanel.setBackground(new java.awt.Color(4, 15, 19));
+
+    changePasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+    changePasswordLabel.setForeground(new java.awt.Color(251, 251, 255));
+    changePasswordLabel.setText("Change Password...");
+
+    hidenpw1.setBackground(new Color(0,0,0,0));
+    hidenpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+    hidenpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    hidenpw1.setOpaque(true);
+    hidenpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        hidenpw1MouseClicked(evt);
+      }
+    });
+
+    pwLable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+    pwLable1.setForeground(new java.awt.Color(255, 255, 255));
+    pwLable1.setText("New Password");
+
+    pwLine1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+    pwLine1.setForeground(new java.awt.Color(255, 255, 255));
+    pwLine1.setText("______________________________");
+
+    txtpw1.setBackground(new Color(0,0,0,1));
+    txtpw1.setForeground(new java.awt.Color(255, 255, 255));
+    txtpw1.setBorder(null);
+    txtpw1.setCaretColor(new java.awt.Color(255, 255, 255));
+    txtpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+    shownpw1.setVisible(false);
+    shownpw1.setEnabled(false);
+    hidenpw1.setVisible(true);
+    hidenpw1.setEnabled(true);
+    shownpw1.setBackground(new Color(0,0,0,0));
+    shownpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+    shownpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    shownpw1.setOpaque(true);
+    shownpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        shownpw1MouseClicked(evt);
+      }
+    });
+
+    txtpw2.setBackground(new Color(0,0,0,1));
+    txtpw2.setForeground(new java.awt.Color(255, 255, 255));
+    txtpw2.setBorder(null);
+    txtpw2.setCaretColor(new java.awt.Color(255, 255, 255));
+    txtpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+    shownpw2.setVisible(false);
+    shownpw2.setEnabled(false);
+    hidenpw2.setVisible(true);
+    hidenpw2.setEnabled(true);
+    hidenpw2.setBackground(new Color(0,0,0,0));
+    hidenpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+    hidenpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    hidenpw2.setOpaque(true);
+    hidenpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        hidenpw2MouseClicked(evt);
+      }
+    });
+
+    pwLine2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+    pwLine2.setForeground(new java.awt.Color(255, 255, 255));
+    pwLine2.setText("______________________________");
+
+    shownpw2.setBackground(new Color(0,0,0,0));
+    shownpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+    shownpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    shownpw2.setOpaque(true);
+    shownpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        shownpw2MouseClicked(evt);
+      }
+    });
+
+    pwLable2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+    pwLable2.setForeground(new java.awt.Color(255, 255, 255));
+    pwLable2.setText("Confirm Password");
+
+    changepwBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+    changepwBtn.setText(" Change Password");
+    changepwBtn.setBorder(null);
+    changepwBtn.setBorderPainted(false);
+    changepwBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    changepwBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    changepwBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        changepwBtnActionPerformed(evt);
+      }
+    });
+
+    javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
+    settingsPanel.setLayout(settingsPanelLayout);
+    settingsPanelLayout.setHorizontalGroup(
+      settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(settingsPanelLayout.createSequentialGroup()
+        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(changetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+              .addGap(110, 110, 110)
+              .addComponent(changePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+              .addGap(222, 222, 222)
+              .addComponent(pwLable1))
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+              .addGap(222, 222, 222)
+              .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addGroup(settingsPanelLayout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(pwLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                      .addGroup(settingsPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(30, 30, 30)
+                    .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addComponent(hidenpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                      .addComponent(shownpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                  .addComponent(pwLable2))
+                .addGroup(settingsPanelLayout.createSequentialGroup()
+                  .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pwLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(settingsPanelLayout.createSequentialGroup()
+                      .addGap(10, 10, 10)
+                      .addComponent(txtpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                  .addGap(30, 30, 30)
+                  .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hidenpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shownpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+              .addGap(448, 448, 448)
+              .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        .addContainerGap(631, Short.MAX_VALUE))
+    );
+    settingsPanelLayout.setVerticalGroup(
+      settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(settingsPanelLayout.createSequentialGroup()
+        .addGap(86, 86, 86)
+        .addComponent(changePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(26, 26, 26)
+        .addComponent(pwLable1)
+        .addGap(2, 2, 2)
+        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(settingsPanelLayout.createSequentialGroup()
+            .addGap(10, 10, 10)
+            .addComponent(pwLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(txtpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(hidenpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(shownpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addComponent(pwLable2)
+        .addGap(2, 2, 2)
+        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(settingsPanelLayout.createSequentialGroup()
+            .addGap(10, 10, 10)
+            .addComponent(pwLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(txtpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(hidenpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(shownpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(changetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(238, Short.MAX_VALUE))
+    );
+
+    pageCardPanel.add(settingsPanel, "CardSettings");
+
     mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
 
     getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
@@ -1071,7 +1292,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
   private void settingsIcnDefaultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsIcnDefaultMouseClicked
     setIcons(false, false, true);
-    //open settings panel
+    cardLayout.show(pageCardPanel, "CardSettings");
   }//GEN-LAST:event_settingsIcnDefaultMouseClicked
 
   private void userIcnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userIcnMouseClicked
@@ -1126,6 +1347,64 @@ public class HomeScreen extends javax.swing.JFrame {
     lblClick1.setForeground(Color.BLACK);
   }//GEN-LAST:event_panClick1MouseExited
 
+  private void hidenpw1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hidenpw1MouseClicked
+    txtpw1.setEchoChar((char)0);
+    shownpw1.setVisible(true);
+    shownpw1.setEnabled(true);
+    hidenpw1.setVisible(false);
+    hidenpw1.setEnabled(false);
+  }//GEN-LAST:event_hidenpw1MouseClicked
+
+  private void shownpw1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shownpw1MouseClicked
+    txtpw1.setEchoChar((char)8226);
+    shownpw1.setVisible(false);
+    shownpw1.setEnabled(false);
+    hidenpw1.setVisible(true);
+    hidenpw1.setEnabled(true);
+  }//GEN-LAST:event_shownpw1MouseClicked
+
+  private void hidenpw2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hidenpw2MouseClicked
+    txtpw2.setEchoChar((char)0);
+    shownpw2.setVisible(true);
+    shownpw2.setEnabled(true);
+    hidenpw2.setVisible(false);
+    hidenpw2.setEnabled(false);
+  }//GEN-LAST:event_hidenpw2MouseClicked
+
+  private void shownpw2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shownpw2MouseClicked
+    txtpw2.setEchoChar((char)8226);
+    shownpw2.setVisible(false);
+    shownpw2.setEnabled(false);
+    hidenpw2.setVisible(true);
+    hidenpw2.setEnabled(true);
+  }//GEN-LAST:event_shownpw2MouseClicked
+
+  private void changepwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtnActionPerformed
+    String password = new String(txtpw1.getPassword());
+    //Call setPassword()
+    //here we creat an account
+    if(!password.equals(new String(txtpw2.getPassword()))){
+      changetxt.setForeground(new Color(255, 102, 102));
+      changetxt.setText("Your Password Confirm is incurrect");
+      return;
+    }
+    //createAccount();
+    changetxt.setForeground(new Color(51, 204, 0));
+    changetxt.setText("Your password is successfuly changed");
+  }//GEN-LAST:event_changepwBtnActionPerformed
+
+  private void panClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClickMouseClicked
+    new my_tickets_form();
+  }//GEN-LAST:event_panClickMouseClicked
+
+  private void panClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClick1MouseClicked
+
+  }//GEN-LAST:event_panClick1MouseClicked
+
+  private void lblClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClick1MouseClicked
+    new cancel_ticket_form();
+  }//GEN-LAST:event_lblClick1MouseClicked
+
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1136,11 +1415,16 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel arrowRight1;
   private javax.swing.JLabel arrowRight2;
   private javax.swing.JLabel arrowRight3;
+  private javax.swing.JLabel changePasswordLabel;
+  private javax.swing.JButton changepwBtn;
+  private javax.swing.JLabel changetxt;
   private javax.swing.JScrollPane dramaScrollPane;
   private javax.swing.JLabel exitButton;
   private javax.swing.JPanel gapPanel1;
   private javax.swing.JPanel gapPanel2;
   private javax.swing.JPanel gapPanel3;
+  private javax.swing.JLabel hidenpw1;
+  private javax.swing.JLabel hidenpw2;
   private javax.swing.JLabel homeIcnDefault;
   private javax.swing.JLabel homeIcnSelected;
   private javax.swing.JPanel homePanel;
@@ -1174,13 +1458,17 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel9;
   private javax.swing.JLabel lblClick;
   private javax.swing.JLabel lblClick1;
-  private javax.swing.JLabel lblUserNAme;
+  public static javax.swing.JLabel lblUserNAme;
   private javax.swing.JPanel mainPanel;
   private javax.swing.JLabel moviesIcnDefault;
   private javax.swing.JLabel moviesIcnSelected;
   private javax.swing.JPanel pageCardPanel;
   private javax.swing.JPanel panClick;
   private javax.swing.JPanel panClick1;
+  private javax.swing.JLabel pwLable1;
+  private javax.swing.JLabel pwLable2;
+  private javax.swing.JLabel pwLine1;
+  private javax.swing.JLabel pwLine2;
   private javax.swing.JScrollPane romanceScrollPane;
   private javax.swing.JPanel seperator1;
   private javax.swing.JPanel seperator2;
@@ -1188,8 +1476,13 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JPanel seperator4;
   private javax.swing.JLabel settingsIcnDefault;
   private javax.swing.JLabel settingsIcnSelected;
+  private javax.swing.JPanel settingsPanel;
+  private javax.swing.JLabel shownpw1;
+  private javax.swing.JLabel shownpw2;
   private javax.swing.JPanel sidebar;
   private javax.swing.JPanel titlebar;
+  private javax.swing.JPasswordField txtpw1;
+  private javax.swing.JPasswordField txtpw2;
   private javax.swing.JLabel userIcn;
   private javax.swing.JPanel userPanel;
   // End of variables declaration//GEN-END:variables
@@ -1233,7 +1526,7 @@ class rowScrollPanel extends JPanel{
     
     this.setBackground(new java.awt.Color(0,0,0,1));
     this.setForeground(new java.awt.Color(255, 255, 255));
-    this.setLayout(new GridLayout(1, 0, 30, 5));
+    this.setLayout(new GridLayout(1, 0, HomeScreen.MOVIE_SAPERATOR, 0));
     this.setBorder(null);
     
     
@@ -1242,9 +1535,9 @@ class rowScrollPanel extends JPanel{
     for (Map.Entry<String, ImageIcon> entry : movies.entrySet()) {
         MovieObjectPanel panel = new MovieObjectPanel(entry.getKey(), entry.getValue());
         this.add(panel);
-        
     }
   }
+  
 // قراءة بيانات الأفلام من القائمة
       private Map<String, ImageIcon> getMovies() {
       
@@ -1256,23 +1549,41 @@ class rowScrollPanel extends JPanel{
         ImageIcon Emanc = new ImageIcon(getClass().getResource("/res/temp posters/Emancipation.jpg"));
         ImageIcon FFA = new ImageIcon(getClass().getResource("/res/temp posters/Five feet apart.jpg"));
         ImageIcon lucy = new ImageIcon(getClass().getResource("/res/temp posters/LUCY.jpg"));
+        ImageIcon ad = new ImageIcon(getClass().getResource("/res/temp posters/AD astra.jpg"));
+        ImageIcon tnbc = new ImageIcon(getClass().getResource("/res/temp posters/The Nightmare Before Cristmass.jpg"));
+        ImageIcon ER = new ImageIcon(getClass().getResource("/res/temp posters/Escape room.jpg"));
+        ImageIcon ninja = new ImageIcon(getClass().getResource("/res/temp posters/Ternet Ninja.jpg"));
+        ImageIcon hell = new ImageIcon(getClass().getResource("/res/temp posters/HellBoy.jpg"));
+        ImageIcon am = new ImageIcon(getClass().getResource("/res/temp posters/AboMinable.jpg"));
+        ImageIcon pool = new ImageIcon(getClass().getResource("/res/temp posters/The Pool.jpg"));
+        ImageIcon tpoh = new ImageIcon(getClass().getResource("/res/temp posters/The Pursuite of happyness.jpg"));
         for (int i = 0; i < HomeScreen.CATAGORY_LENGTH; i++) {
-          movies.put("What Men Want" + i, whatMenWant);
-          movies.put("Five Feet Apart" + i, FFA);
-          movies.put("Emancepation" + i, Emanc);
-          movies.put("LUCY" + i, lucy);
+          movies.put("What Men Want" , whatMenWant);
+          movies.put("Five Feet Apart" , FFA);
+          movies.put("Emancepation" , Emanc);
+          movies.put("The  happyness" , tpoh);
+          movies.put("LUCY" , lucy);
+          movies.put("The   Cristmass" , tnbc);
+          movies.put("Escape room" , ER);
+          movies.put("AD astra" , ad);
+          movies.put("Ternet Ninja" , ninja);
+          movies.put("The happyness" , tpoh);
+          movies.put("HellBoy" , hell);
+          movies.put("AboMinable" , am);
+          movies.put("The Pool" , pool);
+          movies.put("The   happyness" , tpoh);
         }
         
         
 //        int i=0;
-//        while(movies.size()<CATAGORY_LENGTH && i < total.size()){
+//        while(movies.size()<HomeScreen.CATAGORY_LENGTH && i < total.size()){
 //          Movie movie = total.get(i);
 //          if(movie.getMovieType() == type){
 //            movies.put(movie.getMovieTitle(), movie.getMovieImage());
 //          }
 //          i++;
 //        }
-//        
+        
         return movies;
     }
 }

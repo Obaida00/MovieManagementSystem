@@ -59,7 +59,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="358" max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                       <Component id="seperator3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="exitButton" min="-2" pref="30" max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="seperator3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="seperator3" min="-2" max="-2" attributes="0"/>
                           <Component id="exitButton" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -114,7 +114,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="814" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1126" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -371,7 +371,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="754" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="998" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -446,11 +446,11 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
                                               <Component id="seperator2" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" pref="266" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -495,7 +495,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="754" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="998" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -577,7 +577,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                           <Component id="seperator4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="115" max="32767" attributes="0"/>
+                                          <EmptySpace pref="109" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -626,7 +626,7 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="754" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="998" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -961,6 +961,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClickMouseClicked"/>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClickMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClickMouseExited"/>
                   </Events>
@@ -1064,6 +1065,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClick1MouseClicked"/>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClick1MouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panClick1MouseExited"/>
                   </Events>
@@ -1071,20 +1073,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblClick1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="lblClick1" alignment="0" pref="117" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblClick1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="lblClick1" alignment="0" pref="37" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -1097,6 +1091,7 @@
                         <Property name="text" type="java.lang.String" value="Cancel Ticket"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblClick1MouseClicked"/>
                         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblClick1MouseEntered"/>
                         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblClick1MouseExited"/>
                       </Events>
@@ -1216,6 +1211,310 @@
                       <Image iconType="3" name="/res/tape2.png"/>
                     </Property>
                   </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="settingsPanel">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="13" green="f" red="4" type="rgb"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="CardSettings"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="changetxt" min="-2" pref="280" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="changePasswordLabel" min="-2" pref="356" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                                      <Component id="pwLable1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="pwLine2" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                                          <Component id="txtpw2" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="hidenpw2" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                                      <Component id="shownpw2" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="pwLable2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="pwLine1" min="-2" pref="220" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                                      <Component id="txtpw1" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="hidenpw1" min="-2" pref="25" max="-2" attributes="0"/>
+                                                  <Component id="shownpw1" min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="448" max="-2" attributes="0"/>
+                                      <Component id="changepwBtn" min="-2" pref="162" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="631" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="changePasswordLabel" min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="pwLable1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="pwLine1" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtpw1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="hidenpw1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="shownpw1" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="pwLable2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="pwLine2" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtpw2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="hidenpw2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="shownpw2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="changetxt" min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="changepwBtn" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace pref="238" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="changePasswordLabel">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="fb" red="fb" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Change Password..."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="hidenpw1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new Color(0,0,0,0)" type="code"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/res/EyeHide.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hidenpw1MouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="pwLable1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Trebuchet MS" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="New Password"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="pwLine1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="14" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="______________________________"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="txtpw1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new Color(0,0,0,1)" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="shownpw1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="shownpw1.setVisible(false);&#xa;shownpw1.setEnabled(false);&#xa;hidenpw1.setVisible(true);&#xa;hidenpw1.setEnabled(true);">
+                      <Connection code="new Color(0,0,0,0)" type="code"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/res/EyeShow.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shownpw1MouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="txtpw2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new Color(0,0,0,1)" type="code"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="hidenpw2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="shownpw2.setVisible(false);&#xa;shownpw2.setEnabled(false);&#xa;hidenpw2.setVisible(true);&#xa;hidenpw2.setEnabled(true);">
+                      <Connection code="new Color(0,0,0,0)" type="code"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/res/EyeHide.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hidenpw2MouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="pwLine2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="14" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="______________________________"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="shownpw2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new Color(0,0,0,0)" type="code"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/res/EyeShow.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shownpw2MouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="pwLable2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Trebuchet MS" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Confirm Password"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="changepwBtn">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Trebuchet MS" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="&quot; Change Password&quot;" type="code"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="false" type="code"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changepwBtnActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JButton() {&#xa;  @Override&#xa;  protected void paintComponent(Graphics g) {&#xa;    Graphics2D g2 = (Graphics2D) g.create();&#xa;&#xa;    // &#x647;&#x627;&#x62f; &#x631;&#x62d; &#x64a;&#x643;&#x648;&#x646; &#x627;&#x648;&#x628;&#x62c;&#x64a;&#x643;&#x62a; &#x645;&#x646; &#x643;&#x644;&#x627;&#x633; &#x62c;&#x627;&#x647;&#x632; &#x641;&#x64a;&#x648; &#x627;&#x644;&#x634;&#x643;&#x644; &#x64a;&#x644;&#x64a; &#x628;&#x64a;&#x639;&#x637;&#x64a; &#x62d;&#x648;&#x627;&#x641; &#x645;&#x62f;&#x648;&#x631;&#x629; &#x648;&#x64a;&#x644;&#x64a; &#x631;&#x62d; &#x646;&#x645;&#x631;&#x631;&#x648; &#x644;&#x62a;&#x627;&#x628;&#x639; &#x628;&#x639;&#x62f; &#x643;&#x645; &#x633;&#x637;&#x631;&#xa;    int arcDiameter = getHeight();&#xa;    RoundRectangle2D roundRect = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arcDiameter, arcDiameter);&#xa;&#xa;    // &#x647;&#x64a; &#x627;&#x644;&#x62a;&#x631;&#x64a;&#x643; &#x627;&#x644;&#x645;&#x633;&#x624;&#x648;&#x644;&#x629; &#x639;&#x646; &#x62a;&#x63a;&#x64a;&#x631; &#x627;&#x644;&#x644;&#x648;&#x646;&#xa;    if (getModel().isArmed()) {&#xa;      g2.setColor(new Color(107, 73, 117)); // &#x644;&#x648;&#x646; &#x639;&#x646;&#x62f; &#x627;&#x644;&#x636;&#x63a;&#x637;&#xa;    } else if (getModel().isRollover()) {&#xa;      g2.setColor(new Color(157, 121, 168)); // &#x644;&#x648;&#x646; &#x639;&#x646;&#x62f; &#x627;&#x644;&#x62a;&#x62d;&#x648;&#x64a;&#x644;&#xa;    } else {&#xa;      g2.setColor(new Color(251,251,253)); // &#x627;&#x644;&#x644;&#x648;&#x646; &#x627;&#x644;&#x627;&#x641;&#x62a;&#x631;&#x627;&#x636;&#x64a;&#xa;    }&#xa;    // &#x647;&#x648;&#x646; &#x62d;&#x62f;&#x62f;&#x646;&#x627; &#x627;&#x644;&#x634;&#x643;&#x644; &#x64a;&#x644;&#x64a; &#x628;&#x62f;&#x646;&#x627; &#x64a;&#x627;&#x647; &#x64a;&#x643;&#x648;&#x646; &#x644;&#x644;&#x632;&#x631;&#xa;    g2.fill(roundRect);&#xa;&#xa;    // &#x627;&#x644;&#x62e;&#x637; &#x648;&#x627;&#x644;&#x627;&#x644;&#x648;&#x627;&#x646;&#xa;    g2.setColor(Color.BLACK);&#xa;    g2.setFont(new Font(&quot;Trebuchet MS&quot;, 0, 16));&#xa;    &#xa;&#xa;    // &#x62e;&#x648;&#x627;&#x631;&#x632;&#x645;&#x64a;&#x629; &#x62c;&#x627;&#x647;&#x632;&#x629; &#x644;&#x647;&#x62a;&#x649; &#x62a;&#x643;&#x648;&#x646; &#x627;&#x644;&#x62c;&#x645;&#x644;&#x629; &#x628;&#x645;&#x646;&#x62a;&#x635;&#x641; &#x627;&#x644;&#x632;&#x631;&#xa;    FontMetrics fm = g.getFontMetrics();&#xa;    String text = getText();&#xa;    int textWidth = fm.stringWidth(text);&#xa;    int textHeight = fm.getHeight();&#xa;&#xa;    int x = (getWidth() - textWidth) / 2;&#xa;    int y = (getHeight() - textHeight) / 2 + fm.getAscent();&#xa;&#xa;    // &#x627;&#x630;&#x627; &#x639; &#x627;&#x644;&#x62a;&#x62c;&#x631;&#x628;&#x629; &#x645;&#x627; &#x62d;&#x633;&#x64a;&#x646;&#x627;&#x647;&#x627; &#x643;&#x62a;&#x64a;&#x631; &#x631;&#x627;&#x643;&#x632;&#x629; &#x645;&#x645;&#x643;&#x646; &#x646;&#x636;&#x64a;&#x641; &#x627;&#x648; &#x646;&#x637;&#x631;&#x62d; &#x639; &#x627;&#x644; y  &#x648; &#x627;&#x644; x  &#x64a;&#x644;&#x64a; &#x647;&#x648;&#x646;&#xa;    g2.drawString(text, x, y);&#xa;&#xa;    g2.dispose();&#xa;  }&#xa;};&#xa;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="changetxt">
                 </Component>
               </SubComponents>
             </Container>

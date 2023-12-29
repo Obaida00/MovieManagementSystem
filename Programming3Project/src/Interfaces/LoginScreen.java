@@ -1,19 +1,14 @@
 package Interfaces;
 
-
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
-
-
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Obaida
@@ -34,7 +29,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
   }
 
-  public void setting(){
+  public void setting() {
     /* Set the Nimbus look and feel */
     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -58,8 +53,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }
     //</editor-fold>
   }
-  
-  
+
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -332,17 +326,17 @@ public class LoginScreen extends javax.swing.JFrame {
     String username = txtun.getText();
     String password = new String(txtpw.getPassword());
     //Call checkpassword() in the if statement here
-    if(true){
+    if (true) {
       new HomeScreen();
       this.dispose();
-    }else{
+    } else {
       wrongLogin.setText(wrongLoginMsg);
     }
-    
+
   }//GEN-LAST:event_loginButtonActionPerformed
 
   private void shownpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shownpwMouseClicked
-    txtpw.setEchoChar((char)8226);
+    txtpw.setEchoChar((char) 8226);
     shownpw.setVisible(false);
     shownpw.setEnabled(false);
     hidenpw.setVisible(true);
@@ -350,7 +344,7 @@ public class LoginScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_shownpwMouseClicked
 
   private void hidenpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hidenpwMouseClicked
-    txtpw.setEchoChar((char)0);
+    txtpw.setEchoChar((char) 0);
     shownpw.setVisible(true);
     shownpw.setEnabled(true);
     hidenpw.setVisible(false);
@@ -362,11 +356,11 @@ public class LoginScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_txtunActionPerformed
 
   private void exitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseExited
-    exitButton.setForeground(new Color(251,251,255));
+    exitButton.setForeground(new Color(251, 251, 255));
   }//GEN-LAST:event_exitButtonMouseExited
 
   private void exitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseEntered
-    exitButton.setForeground(new Color(162,0,255));
+    exitButton.setForeground(new Color(162, 0, 255));
   }//GEN-LAST:event_exitButtonMouseEntered
 
   private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
@@ -374,18 +368,17 @@ public class LoginScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_exitButtonMouseClicked
 
   private void signupLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseEntered
-    signupLabel.setForeground(new Color(162,0,255));
+    signupLabel.setForeground(new Color(162, 0, 255));
   }//GEN-LAST:event_signupLabelMouseEntered
 
   private void signupLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseExited
-    signupLabel.setForeground(new Color(251,251,255));
+    signupLabel.setForeground(new Color(251, 251, 255));
   }//GEN-LAST:event_signupLabelMouseExited
 
   private void signupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseClicked
     new sign_up_form();
     this.dispose();
   }//GEN-LAST:event_signupLabelMouseClicked
-
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

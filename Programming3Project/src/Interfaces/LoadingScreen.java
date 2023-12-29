@@ -1,6 +1,5 @@
 package Interfaces;
 
- 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,14 +8,14 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Obaida
  */
 public class LoadingScreen extends javax.swing.JFrame {
-  
+
   public static int LOADINGTIME = 1000;
+
   /**
    * Creates new form LoadingScreen
    */
@@ -25,9 +24,9 @@ public class LoadingScreen extends javax.swing.JFrame {
     initComponents();
     this.setVisible(true);
   }
-  
-  public void setting(){
-      /* Set the Nimbus look and feel */
+
+  public void setting() {
+    /* Set the Nimbus look and feel */
     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
     /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -44,6 +43,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     }
     //</editor-fold>
   }
+
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,8 +99,8 @@ public class LoadingScreen extends javax.swing.JFrame {
 
   private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
     try {
-      for(double i=0.0; i<=1.0; i+=0.1){
-        String val = i+"";
+      for (double i = 0.0; i <= 1.0; i += 0.1) {
+        String val = i + "";
         float f = Float.valueOf(val);
         this.setOpacity(f);
         Thread.sleep(5);
@@ -112,19 +112,17 @@ public class LoadingScreen extends javax.swing.JFrame {
       //open login window
       new LoginScreen();
       this.dispose();
-      
-      
+
     } catch (InterruptedException ex) {
       Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
     }
   }//GEN-LAST:event_formWindowActivated
 
-  
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables
-
 
   private void loadingTask() {
     try {

@@ -28,7 +28,7 @@ class MovieObjectPanel extends JPanel {
   public MovieObjectPanel(String name, ImageIcon img) {
     this.name = name;
     this.img = img;
-    
+
     this.setLayout(new BorderLayout());
     this.setBackground(new Color(0, 0, 0, 1));
     this.setBorder(null);
@@ -52,9 +52,9 @@ class MovieObjectPanel extends JPanel {
     });
 
   }
-  
-  private void movieMouseClicked(java.awt.event.MouseEvent evt) {                                     
+
+  private void movieMouseClicked(java.awt.event.MouseEvent evt) {
     System.out.println("movie entered   " + name);//here we get the name of the movie we selected then we pass the object to the next frame
     //new MovieFrame(Movie)  this will be a pop up
-  }                       
+  }
 }

@@ -5,12 +5,11 @@ package Interfaces;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.awt.Color;
 
 /**
  *
- * @author gtx
+ * @author Ali
  */
 public class sign_up_form extends javax.swing.JFrame {
 
@@ -24,29 +23,29 @@ public class sign_up_form extends javax.swing.JFrame {
   }
 
   private void sittings() {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     */
+    try {
+      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+          javax.swing.UIManager.setLookAndFeel(info.getClassName());
+          break;
         }
-        //</editor-fold>
+      }
+    } catch (ClassNotFoundException ex) {
+      java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+      java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+      java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+      java.util.logging.Logger.getLogger(sign_up_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+  }
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -452,91 +451,91 @@ public class sign_up_form extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
     private void untxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_untxtActionPerformed
-        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_untxtActionPerformed
 
     private void confirmpwtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpwtxtActionPerformed
-        
+
     }//GEN-LAST:event_confirmpwtxtActionPerformed
 
     private void adrtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adrtxtActionPerformed
-        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_adrtxtActionPerformed
 
     private void lblExiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExiteMouseClicked
-        System.exit(0);
+      System.exit(0);
     }//GEN-LAST:event_lblExiteMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        
+
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void confirmpwtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmpwtxtMouseClicked
-        lblConfirmPassword.setText(" ");
-        lblUsername.setText("Username");
-        lblAddress.setText("Address");
-        lblPassword.setText("Password");        
+      lblConfirmPassword.setText(" ");
+      lblUsername.setText("Username");
+      lblAddress.setText("Address");
+      lblPassword.setText("Password");
     }//GEN-LAST:event_confirmpwtxtMouseClicked
 
     private void lblUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUsernameMouseClicked
-        
+
     }//GEN-LAST:event_lblUsernameMouseClicked
 
     private void untxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_untxtMouseClicked
-        lblUsername.setText(" ");
-        lblAddress.setText("Address");
-        lblPassword.setText("Password");
-        lblConfirmPassword.setText("Confirm Password");
+      lblUsername.setText(" ");
+      lblAddress.setText("Address");
+      lblPassword.setText("Password");
+      lblConfirmPassword.setText("Confirm Password");
     }//GEN-LAST:event_untxtMouseClicked
 
     private void adrtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adrtxtMouseClicked
-        lblAddress.setText(" ");
-        lblUsername.setText("Username");
-        lblPassword.setText("Password");
-        lblConfirmPassword.setText("Confirm Password");
+      lblAddress.setText(" ");
+      lblUsername.setText("Username");
+      lblPassword.setText("Password");
+      lblConfirmPassword.setText("Confirm Password");
     }//GEN-LAST:event_adrtxtMouseClicked
 
     private void lblExiteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExiteMouseEntered
-       lblExite.setForeground(new Color(153,0,255));
+      lblExite.setForeground(new Color(153, 0, 255));
     }//GEN-LAST:event_lblExiteMouseEntered
 
     private void lblExiteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExiteMouseExited
-      lblExite.setForeground(new Color(251,251,255));
+      lblExite.setForeground(new Color(251, 251, 255));
     }//GEN-LAST:event_lblExiteMouseExited
 
     private void panExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseEntered
-        panExit.setForeground(new Color(153,0,255));
+      panExit.setForeground(new Color(153, 0, 255));
     }//GEN-LAST:event_panExitMouseEntered
 
     private void panExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseExited
-        panExit.setForeground(new Color(4,15,22));
+      panExit.setForeground(new Color(4, 15, 22));
     }//GEN-LAST:event_panExitMouseExited
 
     private void panExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseClicked
-        System.exit(0);
+      System.exit(0);
     }//GEN-LAST:event_panExitMouseClicked
 
     private void panButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panButtonMouseEntered
-        panButton.setBackground(new Color(153,0,255));
+      panButton.setBackground(new Color(153, 0, 255));
     }//GEN-LAST:event_panButtonMouseEntered
 
     private void panButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panButtonMouseExited
-        panButton.setBackground(new Color(4,15,22));
+      panButton.setBackground(new Color(4, 15, 22));
     }//GEN-LAST:event_panButtonMouseExited
 
     private void pwtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pwtxtMouseClicked
-        lblPassword.setText(" ");
-        lblConfirmPassword.setText("Confirm Password");
-        lblUsername.setText("Username");
-        lblAddress.setText("Address");
+      lblPassword.setText(" ");
+      lblConfirmPassword.setText("Confirm Password");
+      lblUsername.setText("Username");
+      lblAddress.setText("Address");
     }//GEN-LAST:event_pwtxtMouseClicked
 
     private void lblClickHereMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClickHereMouseEntered
-        lblClickHere.setForeground(new Color(153,0,255));
+      lblClickHere.setForeground(new Color(153, 0, 255));
     }//GEN-LAST:event_lblClickHereMouseEntered
 
     private void lblClickHereMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClickHereMouseExited
-        lblClickHere.setForeground(Color.WHITE);
+      lblClickHere.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblClickHereMouseExited
 
   private void panButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panButtonMouseClicked
@@ -544,8 +543,8 @@ public class sign_up_form extends javax.swing.JFrame {
     String username = untxt.getText();
     String password = new String(pwtxt.getPassword());
     String address = adrtxt.getText();
-    System.out.println(new String(confirmpwtxt.getPassword()));
-    if(!password.equals(new String(confirmpwtxt.getPassword()))){
+
+    if (!password.equals(new String(confirmpwtxt.getPassword()))) {
       signintxt.setForeground(new Color(255, 102, 102));
       signintxt.setText("Your Password Confirm is incurrect");
       return;
@@ -560,7 +559,6 @@ public class sign_up_form extends javax.swing.JFrame {
     this.dispose();
   }//GEN-LAST:event_lblClickHereMouseClicked
 
-    
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JTextField adrtxt;
@@ -593,5 +591,4 @@ public class sign_up_form extends javax.swing.JFrame {
   private javax.swing.JTextField untxt;
   // End of variables declaration//GEN-END:variables
 
-  
 }
