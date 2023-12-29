@@ -1,4 +1,8 @@
 package MainPackage;
+import Interfaces.HomeScreen;
+import Interfaces.LoadingScreen;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import Action.go;
 import Interfaces.LoadingScreen;
@@ -21,7 +25,7 @@ public class Main {
     if(go.loadUserMap() == null){
         mainInitialize();
     }
-   // LoadingScreen loadingScreen = new LoadingScreen();
+   LoadingScreen loadingScreen = new LoadingScreen();
    my_tickets_form n = new my_tickets_form();
     
   }
