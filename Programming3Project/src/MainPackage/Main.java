@@ -1,12 +1,7 @@
 package MainPackage;
-import Interfaces.HomeScreen;
-import Interfaces.LoadingScreen;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import Action.go;
 import Interfaces.LoadingScreen;
-import Interfaces.my_tickets_form;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,25 +9,16 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-/**
- *
- * @author Obaida
- */
 public class Main {
-
-  public static void main(String[] args) {
-    if(go.loadUserMap() == null){
-        mainInitialize();
+    public static void main(String[] args) {
+//        if(go.loadUserMap() == null){
+//            mainInitialize();
+//        }
+        LoadingScreen loadingScreen = new LoadingScreen();
     }
-   LoadingScreen loadingScreen = new LoadingScreen();
-   my_tickets_form n = new my_tickets_form();
-    
-  }
 
 
-
-   private static void mainInitialize(){
+    private static void mainInitialize(){
         try{
             File file = new File("Users/UserList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
@@ -45,7 +31,7 @@ public class Main {
         try{
             File file = new File("Movies/MovieList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Movie>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -54,7 +40,7 @@ public class Main {
         try{
             File file = new File("Cinemas/CinemaList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Cinema>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -63,7 +49,7 @@ public class Main {
         try{
             File file = new File("Tickets/TicketList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Ticket>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -81,7 +67,13 @@ public class Main {
         }
     }
 
+
+
+
+
 }
+
+
 
 
 

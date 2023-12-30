@@ -170,7 +170,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="140" y="300" width="200" height="20"/>
+                  <AbsoluteConstraints x="140" y="300" width="270" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -198,64 +198,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="______________________________"/>
+                <Property name="text" type="java.lang.String" value="_______________________________________"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="130" y="300" width="220" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="loginButton">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Trebuchet MS" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="LOGIN"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="// &#x648;&#x627;&#x644; 3 &#x62a;&#x639;&#x644;&#x64a;&#x645;&#x627;&#x62a; &#x627;&#x644; &#x62a;&#x627;&#x644;&#x64a;&#x64a;&#x646; &#x636;&#x631;&#x648;&#x631;&#x64a;&#x64a;&#x646; &#x645;&#x634;&#x627;&#x646; &#x645;&#x627; &#x62a;&#x638;&#x647;&#x631; &#x627;&#x64a; &#x62d;&#x648;&#x627;&#x641; &#x627;&#x648; &#x634;&#x64a; &#x645;&#x632;&#x639;&#x62c; &#x639; &#x627;&#x644;&#x632;&#x631;&#xa;loginButton.setFocusPainted(false);&#xa;loginButton.setContentAreaFilled(false);&#xa;loginButton.setBounds(100, 50, 200, 40);">
-                  <Connection code="false" type="code"/>
-                </Property>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JButton(&quot;Log In&quot;) {&#xa;  @Override&#xa;  protected void paintComponent(Graphics g) {&#xa;    Graphics2D g2 = (Graphics2D) g.create();&#xa;&#xa;    // &#x647;&#x627;&#x62f; &#x631;&#x62d; &#x64a;&#x643;&#x648;&#x646; &#x627;&#x648;&#x628;&#x62c;&#x64a;&#x643;&#x62a; &#x645;&#x646; &#x643;&#x644;&#x627;&#x633; &#x62c;&#x627;&#x647;&#x632; &#x641;&#x64a;&#x648; &#x627;&#x644;&#x634;&#x643;&#x644; &#x64a;&#x644;&#x64a; &#x628;&#x64a;&#x639;&#x637;&#x64a; &#x62d;&#x648;&#x627;&#x641; &#x645;&#x62f;&#x648;&#x631;&#x629; &#x648;&#x64a;&#x644;&#x64a; &#x631;&#x62d; &#x646;&#x645;&#x631;&#x631;&#x648; &#x644;&#x62a;&#x627;&#x628;&#x639; &#x628;&#x639;&#x62f; &#x643;&#x645; &#x633;&#x637;&#x631;&#xa;    int arcDiameter = getHeight();&#xa;    RoundRectangle2D roundRect = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arcDiameter, arcDiameter);&#xa;&#xa;    // &#x647;&#x64a; &#x627;&#x644;&#x62a;&#x631;&#x64a;&#x643; &#x627;&#x644;&#x645;&#x633;&#x624;&#x648;&#x644;&#x629; &#x639;&#x646; &#x62a;&#x63a;&#x64a;&#x631; &#x627;&#x644;&#x644;&#x648;&#x646;&#xa;    if (getModel().isArmed()) {&#xa;      g2.setColor(new Color(107, 73, 117)); // &#x644;&#x648;&#x646; &#x639;&#x646;&#x62f; &#x627;&#x644;&#x636;&#x63a;&#x637;&#xa;    } else if (getModel().isRollover()) {&#xa;      g2.setColor(new Color(157, 121, 168)); // &#x644;&#x648;&#x646; &#x639;&#x646;&#x62f; &#x627;&#x644;&#x62a;&#x62d;&#x648;&#x64a;&#x644;&#xa;    } else {&#xa;      g2.setColor(new Color(251,251,253)); // &#x627;&#x644;&#x644;&#x648;&#x646; &#x627;&#x644;&#x627;&#x641;&#x62a;&#x631;&#x627;&#x636;&#x64a;&#xa;    }&#xa;    // &#x647;&#x648;&#x646; &#x62d;&#x62f;&#x62f;&#x646;&#x627; &#x627;&#x644;&#x634;&#x643;&#x644; &#x64a;&#x644;&#x64a; &#x628;&#x62f;&#x646;&#x627; &#x64a;&#x627;&#x647; &#x64a;&#x643;&#x648;&#x646; &#x644;&#x644;&#x632;&#x631;&#xa;    g2.fill(roundRect);&#xa;&#xa;    // &#x627;&#x644;&#x62e;&#x637; &#x648;&#x627;&#x644;&#x627;&#x644;&#x648;&#x627;&#x646;&#xa;    g2.setColor(Color.BLACK);&#xa;    g2.setFont(new Font(&quot;Trebuchet MS&quot;, 0, 11));&#xa;&#xa;    // &#x62e;&#x648;&#x627;&#x631;&#x632;&#x645;&#x64a;&#x629; &#x62c;&#x627;&#x647;&#x632;&#x629; &#x644;&#x647;&#x62a;&#x649; &#x62a;&#x643;&#x648;&#x646; &#x627;&#x644;&#x62c;&#x645;&#x644;&#x629; &#x628;&#x645;&#x646;&#x62a;&#x635;&#x641; &#x627;&#x644;&#x632;&#x631;&#xa;    FontMetrics fm = g.getFontMetrics();&#xa;    String text = getText();&#xa;    int textWidth = fm.stringWidth(text);&#xa;    int textHeight = fm.getHeight();&#xa;&#xa;    int x = (getWidth() - textWidth) / 2;&#xa;    int y = (getHeight() - textHeight) / 2 + fm.getAscent();&#xa;&#xa;    // &#x627;&#x630;&#x627; &#x639; &#x627;&#x644;&#x62a;&#x62c;&#x631;&#x628;&#x629; &#x645;&#x627; &#x62d;&#x633;&#x64a;&#x646;&#x627;&#x647;&#x627; &#x643;&#x62a;&#x64a;&#x631; &#x631;&#x627;&#x643;&#x632;&#x629; &#x645;&#x645;&#x643;&#x646; &#x646;&#x636;&#x64a;&#x641; &#x627;&#x648; &#x646;&#x637;&#x631;&#x62d; &#x639; &#x627;&#x644; y  &#x648; &#x627;&#x644; x  &#x64a;&#x644;&#x64a; &#x647;&#x648;&#x646;&#xa;    g2.drawString(text, x, y);&#xa;&#xa;    g2.dispose();&#xa;  }&#xa;};&#xa;"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="420" width="123" height="25"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="exitButton">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="25" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="x"/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseExited"/>
-              </Events>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="490" y="0" width="40" height="30"/>
+                  <AbsoluteConstraints x="130" y="300" width="280" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -292,7 +239,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="380" y="290" width="25" height="30"/>
+                  <AbsoluteConstraints x="440" y="290" width="25" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -314,7 +261,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="380" y="290" width="25" height="30"/>
+                  <AbsoluteConstraints x="440" y="290" width="25" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -373,6 +320,128 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Container class="javax.swing.JPanel" name="panButton">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="16" green="f" red="4" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="fb" red="fb" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panButtonMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panButtonMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panButtonMouseExited"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="190" y="430" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <Component id="lblButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblButton" min="-2" pref="39" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="fb" red="fb" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Login"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="panExit">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="16" green="f" red="4" type="rgb"/>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panExitMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panExitMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panExitMouseExited"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="490" y="0" width="50" height="40"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="exitButton" pref="26" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="exitButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="25" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="x"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseExited"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="photoPanel">

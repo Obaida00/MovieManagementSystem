@@ -1,8 +1,8 @@
 package MainPackage;
 
 import Action.go;
-import java.io.Serializable;
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,6 +13,7 @@ public class Movie implements Serializable{
     private ArrayList<Date> movieShowTimesList; //FK
     private int movieRating;
     private ImageIcon movieImage;
+    private ArrayList<Ticket> movieTicketsList;
     private int movieID; //PK
     private static int movieIDInitializer;
     private static ArrayList<Movie> movieList;
@@ -32,6 +33,8 @@ public class Movie implements Serializable{
         for(int i = 1 ; i <= 3 ; i++ ) {
             movieShowTimesList.add(movieCinema.getShowTime(year , month , day , i , this.movieID));
         }
+
+        movieTicketsList = new ArrayList<>();
         movieCinema.makeSeatsTicketedTo(this);
 
 
@@ -55,8 +58,10 @@ public class Movie implements Serializable{
     public Type getMovieType() {return movieType;}
     public int getMovieRating() {return movieRating;}
     public ImageIcon getMovieImage() {return movieImage;}
+    public ArrayList<Ticket> getMovieTicketsList() {return movieTicketsList;}
     public int getMovieID() {return movieID;}
     public static ArrayList<Movie> getMovieList() {return movieList;}
+
 
     public ArrayList<Date> getMovieShowTimesList() {return movieShowTimesList;}
     public static int getMovieIDInitializer() {return movieIDInitializer;}

@@ -12,9 +12,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
-import static jdk.nashorn.internal.codegen.CompilerConstants.className;
 
 public class go {
 
@@ -144,17 +142,17 @@ public class go {
             PrintWriter pw = new PrintWriter(file);
             switch(className){
                 case "Cinema":
-                    pw.write(Cinema.getCinemaIDInitializer());
+                    pw.print(Cinema.getCinemaIDInitializer());
                     pw.flush();
                     pw.close();
                     break;
                 case "Movie":
-                    pw.write(Movie.getMovieIDInitializer());
+                    pw.print(Movie.getMovieIDInitializer());
                     pw.flush();
                     pw.close();
                     break;
                 case "User":
-                    pw.write(User.getUserIDInitializer());
+                    pw.print(User.getUserIDInitializer());
                     pw.flush();
                     pw.close();
                     break;
@@ -194,8 +192,7 @@ public class go {
     }
 
 
-    
-    
+
     public static HashMap loadUserMap(){
         try{
             File file = new File("Users/userMap.txt");
@@ -228,7 +225,7 @@ public class go {
         }
         return false;
     }
-    
+
     public static void saveCurrentUser(String userName){
         try{
             File file = new File("CurrentUser.txt");
@@ -242,7 +239,7 @@ public class go {
             System.out.println( userName + " didn't save: File Not Found!");
         } catch (IOException e) {
             System.out.println(userName + " didn't save: IOException!");
-        }   
+        }
     }
     public static User getCurrentUser(){
         try{
@@ -250,21 +247,19 @@ public class go {
             ObjectInputStream oos = new ObjectInputStream(new FileInputStream(file));
             User user = (User)oos.readObject();
             oos.close();
-            return user; 
+            return user;
         } catch (FileNotFoundException e) {
             System.out.println("Current User didn't load: File Not Found!");
         } catch (IOException e) {
             System.out.println("Current User didn't load: IOException!");
         } catch (ClassNotFoundException ex) {
-          System.out.println("Current User didn't load: Class Not Found!");  
+            System.out.println("Current User didn't load: Class Not Found!");
         }finally{
-               System.out.println("Current User loaded Successfully ");
+            System.out.println("Current User loaded Successfully ");
         }
-        return null;   
+        return null;
     }
-    
-    
-    
+
     public static Date mDate(int Year , int Month, int Day, int Hour, int Minute){
         Date d;
         d = new Date(Year-1900,Month-1,Day,Hour,Minute);
