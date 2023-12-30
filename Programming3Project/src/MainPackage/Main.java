@@ -2,12 +2,14 @@ package MainPackage;
 
 import Action.go;
 import Interfaces.LoadingScreen;
+import Interfaces.movie_form;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 
 public class Main {
     public static void main(String[] args) {
@@ -68,18 +70,7 @@ public class Main {
             System.out.print(e.getMessage());
         }
     }
-
-
-
-
-
 }
-
-
-
-
-
-
 
 //    To Print The Date We Did:
 //    Date d = go.MDate(2024 , 4 , 12 , 07 , 30);

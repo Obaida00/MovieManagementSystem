@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import MainPackage.Movie;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -21,22 +22,19 @@ class MovieObjectPanel extends JPanel {
 
   private JLabel nameLabel;
   private JLabel posterLabel;
-  private JButton moreButton;
-  String name;
-  ImageIcon img;
+  Movie movie;
   
   
-//public MovieObjectPanel(Movie m){
-  //  this.name = m.getMovieTitle();
-  //  this.img = m.getMovieImage();
-  public MovieObjectPanel(String name, ImageIcon img) {
-    this.name = name;
-    this.img = img;
+public MovieObjectPanel(Movie movie){
+  this.movie = movie;
 
     this.setLayout(new BorderLayout());
     this.setBackground(new Color(0, 0, 0, 1));
     this.setBorder(null);
 
+    String name = movie.getMovieTitle();
+    ImageIcon img = movie.getMovieImage();
+    
     nameLabel = new JLabel(name, SwingConstants.CENTER);
     nameLabel.setForeground(Color.WHITE);
     posterLabel = new JLabel(img, SwingConstants.CENTER);
@@ -58,9 +56,9 @@ class MovieObjectPanel extends JPanel {
   }
 
   private void movieMouseClicked(java.awt.event.MouseEvent evt) {
-    System.out.println("movie entered   " + name);//here we get the name of the movie we selected then we pass 
-                                                  //the object to the next frame
-    //new MovieFrame(Movie)  this will be a pop up
+    //this will be a pop up
+    new movie_form(movie);
+    
   }
 }
 

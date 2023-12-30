@@ -18,7 +18,6 @@ public class Movie implements Serializable{
     private static int movieIDInitializer;
     private static ArrayList<Movie> movieList;
 
-
     public Movie(String movieTitle, Type movieType, int movieRating, ImageIcon movieImage, Cinema movieCinema
                 ,int year , int month , int day) {
         this.movieTitle = movieTitle;
