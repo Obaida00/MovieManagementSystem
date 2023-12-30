@@ -1,10 +1,9 @@
 package MainPackage;
 
 import Action.go;
-import java.io.Serializable;
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class User implements Serializable{
@@ -27,9 +26,9 @@ public class User implements Serializable{
         go.saveInitializer("User");
 
         userBookedTickets = new ArrayList<>();
-        
+
         this.image = go.makeImage("Default User Image .jpg");
-        
+
         userMap = go.loadUserMap();
         userMap.put(this.userName , this.userID);
         go.save("User" , userMap , "userMap");
@@ -42,7 +41,14 @@ public class User implements Serializable{
     public void addBookedTicket(Ticket ticket) {
         userBookedTickets.add(ticket);}
 
-    public void setImage(ImageIcon image) {this.image = image;}
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+        go.save("User" , this , this.userID);
+    }
+    public void setImage(ImageIcon image) {
+        this.image = image;
+        go.save("User" , this , this.userID);
+    }
     public static void setUserList(ArrayList<User> userList) {User.userList = userList;}
     public static void setUserIDInitializer(int userIDInitializer) {User.userIDInitializer = userIDInitializer;}
 
@@ -52,7 +58,7 @@ public class User implements Serializable{
     public ImageIcon getImage() {return image;}
     public int getUserID() {return userID;}
     public ArrayList<Ticket> getUserBookedTickets() {return userBookedTickets;}
-    public static Map<String, Integer> getUserMap(){return userMap;}
+    public static Map<String, Integer> getUserMap() {return userMap;}
     public static ArrayList<User> getUserList() {return userList;}
     public static int getUserIDInitializer() {return userIDInitializer;}
 }

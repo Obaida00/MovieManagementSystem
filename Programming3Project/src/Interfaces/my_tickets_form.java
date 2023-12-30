@@ -5,7 +5,7 @@ import Action.go;
 import static Action.go.getCurrentUser;
 import MainPackage.User;
 
-public class my_tickets_form{
+public class my_tickets_form extends JFrame {
     JFrame jf;
     JScrollPane js;
     JTable jt;

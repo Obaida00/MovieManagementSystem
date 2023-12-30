@@ -1,29 +1,11 @@
 package MainPackage;
 
 import Action.go;
+
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-
-class Seat{
-    private String seatID;
-    private double seatPrice;
-    private boolean Booked;
-
-
-    public void setSeatID(String seatID) {this.seatID = seatID;}
-    public void setSeatPrice(double seatPrice) {this.seatPrice = seatPrice;}
-    public void setBooked(boolean booked) {Booked = booked;}
-
-
-    public String getSeatID() {return seatID;}
-    public double getSeatPrice() {return seatPrice;}
-    public boolean isBooked() {return Booked;}
-}
-
-
-
 
 
 public class Cinema implements Serializable{
@@ -36,7 +18,7 @@ public class Cinema implements Serializable{
     private static ArrayList<Cinema> cinemaList;
 
     public Cinema(String cinemaName, ArrayList<String> cinemaDailyShowTimesList , int cinemaSeatNumber , double theSeatAPrice)throws CustomException {
-        if((theSeatAPrice/cinemaSeatNumber) <= 25){
+        if((theSeatAPrice/cinemaSeatNumber) > 25){
             this.cinemaName = cinemaName;
             this.cinemaDailyShowTimesList = cinemaDailyShowTimesList;
             this.cinemaSeatNumber = cinemaSeatNumber;
@@ -48,8 +30,8 @@ public class Cinema implements Serializable{
             cinemaSeatsList = new ArrayList<>();
             double price = theSeatAPrice;
             int character = 65 ;
-            for(int j = 0 ; j < (100/20) ; j++){
-                for (int i = 0; i < 100; i++){
+            for(int j = 0 ; j < (cinemaSeatNumber/10) ; j++){
+                for (int i = 0; i < cinemaSeatNumber; i++){
                     this.cinemaSeatsList.get(i).setSeatID(String.valueOf(i + 1) + (char) character);
                     this.cinemaSeatsList.get(i).setSeatPrice(price);
                     this.cinemaSeatsList.get(i).setBooked(false);
@@ -90,6 +72,7 @@ public class Cinema implements Serializable{
         for(int i = 0 ; i < movie.getMovieShowTimesList().size() ; i++){
             for(int j = 0 ; j < this.cinemaSeatsList.size() ; j++){
                 Ticket ticket = new Ticket(this, this.cinemaSeatsList.get(j) , movie.getMovieShowTimesList().get(i) , movie);
+                movie.getMovieTicketsList().add(ticket);
             }
         }
     }

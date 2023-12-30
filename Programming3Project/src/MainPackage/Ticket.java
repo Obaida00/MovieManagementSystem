@@ -1,6 +1,7 @@
 package MainPackage;
 
 import Action.go;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,17 +38,19 @@ public class Ticket implements Serializable{
         go.save("Ticket" , ticketList);
     }
 
+
     public String toText(){
         SimpleDateFormat s = new SimpleDateFormat("EEEE yyyy / MM / dd   hh:mm ");
         String showtime = s.format(ticketShowTime);
         return ticketMovie.getMovieTitle() +"  "+ ticketCinema.getCinemaName() +"  "+ showtime
                 +"  "+ ticketSeat.getSeatID()+"  "+ ticketSeat.getSeatPrice() +"  | ID: "+ ticketID;
     }
-    
-    
+
+
     public void setTicketSeatStatus(boolean booked) {
         this.ticketSeat.setBooked(booked);
         generateTicketID();
+        go.save("Ticket" , this , this.ticketID);
     }
     public boolean getTicketSeatStatus(){return ticketSeat.isBooked();}
 

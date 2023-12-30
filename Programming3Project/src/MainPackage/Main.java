@@ -9,24 +9,18 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-/**
- *
- * @author Obaida
- */
 public class Main {
-
-  public static void main(String[] args) {
-    if(go.loadUserMap() == null){
-        mainInitialize();
+    public static void main(String[] args) {
+//        if(go.loadUserMap() == null){
+//            mainInitialize();
+//        }
+        LoadingScreen loadingScreen = new LoadingScreen();
     }
 
-   LoadingScreen loadingScreen = new LoadingScreen();    
   }
 
 
-
-   private static void mainInitialize(){
+    private static void mainInitialize(){
         try{
             File file = new File("Users/UserList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
@@ -39,7 +33,7 @@ public class Main {
         try{
             File file = new File("Movies/MovieList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Movie>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -48,7 +42,7 @@ public class Main {
         try{
             File file = new File("Cinemas/CinemaList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Cinema>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -57,7 +51,7 @@ public class Main {
         try{
             File file = new File("Tickets/TicketList.txt");
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(new ArrayList<User>());
+            oos.writeObject(new ArrayList<Ticket>());
             oos.flush();
             oos.close();
         }catch(IOException e){
@@ -75,7 +69,13 @@ public class Main {
         }
     }
 
+
+
+
+
 }
+
+
 
 
 
