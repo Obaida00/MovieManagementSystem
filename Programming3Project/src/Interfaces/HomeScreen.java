@@ -73,6 +73,8 @@ public class HomeScreen extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    moviesIcnSelected = new javax.swing.JLabel();
+    moviesIcnDefault = new javax.swing.JLabel();
     mainPanel = new javax.swing.JPanel();
     titlebar = new javax.swing.JPanel();
     exitButton = new javax.swing.JLabel();
@@ -99,6 +101,24 @@ public class HomeScreen extends javax.swing.JFrame {
     seperator4 = new javax.swing.JPanel();
     arrowLeft3 = new javax.swing.JLabel();
     arrowRight3 = new javax.swing.JLabel();
+    comedyScrollPane = new javax.swing.JScrollPane();
+    gapPanel4 = new javax.swing.JPanel();
+    jLabel8 = new javax.swing.JLabel();
+    seperator5 = new javax.swing.JPanel();
+    arrowLeft4 = new javax.swing.JLabel();
+    arrowRight4 = new javax.swing.JLabel();
+    horrorScrollPane = new javax.swing.JScrollPane();
+    gapPanel5 = new javax.swing.JPanel();
+    jLabel9 = new javax.swing.JLabel();
+    seperator6 = new javax.swing.JPanel();
+    arrowLeft5 = new javax.swing.JLabel();
+    arrowRight5 = new javax.swing.JLabel();
+    fantasyScrollPane = new javax.swing.JScrollPane();
+    gapPanel6 = new javax.swing.JPanel();
+    jLabel10 = new javax.swing.JLabel();
+    seperator7 = new javax.swing.JPanel();
+    arrowLeft6 = new javax.swing.JLabel();
+    arrowRight6 = new javax.swing.JLabel();
     userPanel = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel5 = new javax.swing.JLabel();
@@ -224,11 +244,21 @@ public class HomeScreen extends javax.swing.JFrame {
     sidebar = new javax.swing.JPanel();
     userIcn = new javax.swing.JLabel();
     homeIcnDefault = new javax.swing.JLabel();
-    moviesIcnDefault = new javax.swing.JLabel();
-    settingsIcnDefault = new javax.swing.JLabel();
     homeIcnSelected = new javax.swing.JLabel();
-    moviesIcnSelected = new javax.swing.JLabel();
+    settingsIcnDefault = new javax.swing.JLabel();
     settingsIcnSelected = new javax.swing.JLabel();
+
+    moviesIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    moviesIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieSelected.png"))); // NOI18N
+
+    moviesIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    moviesIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieDefault.png"))); // NOI18N
+    moviesIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+    moviesIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        moviesIcnDefaultMouseClicked(evt);
+      }
+    });
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setUndecorated(true);
@@ -305,7 +335,7 @@ public class HomeScreen extends javax.swing.JFrame {
     homeScrollPane.setEnabled(false);
 
     homeScrollPanel.setBackground(new java.awt.Color(4, 15, 22));
-    homeScrollPanel.setPreferredSize(new java.awt.Dimension(500, 950));
+    homeScrollPanel.setPreferredSize(new java.awt.Dimension(500, 2000));
 
     actionScrollPane.setBackground(new Color(0,0,0,1));
     actionScrollPane.getViewport ().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
@@ -561,6 +591,260 @@ public class HomeScreen extends javax.swing.JFrame {
       }
     });
 
+    comedyScrollPane.setBackground(new Color(0,0,0,1));
+    comedyScrollPane.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
+    comedyScrollPane.setBorder(null);
+    comedyScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    comedyScrollPane.setPreferredSize(new java.awt.Dimension(200, 100));
+    comedyScrollPane.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    comedyScrollPane.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
+
+    gapPanel4.setBackground(new Color(0,0,0,1));
+
+    jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+    jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+    jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel8.setText("TOP Comedy");
+
+    seperator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(4, 20, 30)));
+
+    javax.swing.GroupLayout seperator5Layout = new javax.swing.GroupLayout(seperator5);
+    seperator5.setLayout(seperator5Layout);
+    seperator5Layout.setHorizontalGroup(
+      seperator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 998, Short.MAX_VALUE)
+    );
+    seperator5Layout.setVerticalGroup(
+      seperator5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+
+    javax.swing.GroupLayout gapPanel4Layout = new javax.swing.GroupLayout(gapPanel4);
+    gapPanel4.setLayout(gapPanel4Layout);
+    gapPanel4Layout.setHorizontalGroup(
+      gapPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(gapPanel4Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(gapPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(gapPanel4Layout.createSequentialGroup()
+            .addGap(100, 100, 100)
+            .addComponent(seperator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    gapPanel4Layout.setVerticalGroup(
+      gapPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gapPanel4Layout.createSequentialGroup()
+        .addComponent(seperator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+    );
+
+    gapPanel1.setSize(300, 70);
+
+    arrowLeft4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowLeft4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
+    arrowLeft4.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowLeft4MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowLeft4MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowLeft4MouseExited(evt);
+      }
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        arrowLeft4MousePressed(evt);
+      }
+    });
+
+    arrowRight4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowRight4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
+    arrowRight4.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowRight4MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowRight4MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowRight4MouseExited(evt);
+      }
+    });
+
+    horrorScrollPane.setBackground(new Color(0,0,0,1));
+    horrorScrollPane.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
+    horrorScrollPane.setBorder(null);
+    horrorScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    horrorScrollPane.setPreferredSize(new java.awt.Dimension(200, 100));
+    horrorScrollPane.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    horrorScrollPane.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
+
+    gapPanel5.setBackground(new Color(0,0,0,1));
+
+    jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+    jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+    jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel9.setText("TOP Horror");
+
+    seperator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(4, 20, 30)));
+
+    javax.swing.GroupLayout seperator6Layout = new javax.swing.GroupLayout(seperator6);
+    seperator6.setLayout(seperator6Layout);
+    seperator6Layout.setHorizontalGroup(
+      seperator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 998, Short.MAX_VALUE)
+    );
+    seperator6Layout.setVerticalGroup(
+      seperator6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+
+    javax.swing.GroupLayout gapPanel5Layout = new javax.swing.GroupLayout(gapPanel5);
+    gapPanel5.setLayout(gapPanel5Layout);
+    gapPanel5Layout.setHorizontalGroup(
+      gapPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(gapPanel5Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(gapPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(gapPanel5Layout.createSequentialGroup()
+            .addGap(100, 100, 100)
+            .addComponent(seperator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    gapPanel5Layout.setVerticalGroup(
+      gapPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gapPanel5Layout.createSequentialGroup()
+        .addComponent(seperator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+    );
+
+    gapPanel1.setSize(300, 70);
+
+    arrowLeft5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowLeft5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
+    arrowLeft5.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowLeft5MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowLeft5MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowLeft5MouseExited(evt);
+      }
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        arrowLeft5MousePressed(evt);
+      }
+    });
+
+    arrowRight5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowRight5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
+    arrowRight5.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowRight5MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowRight5MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowRight5MouseExited(evt);
+      }
+    });
+
+    fantasyScrollPane.setBackground(new Color(0,0,0,1));
+    fantasyScrollPane.getViewport().setScrollMode ( JViewport.SIMPLE_SCROLL_MODE );
+    fantasyScrollPane.setBorder(null);
+    fantasyScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+    fantasyScrollPane.setPreferredSize(new java.awt.Dimension(200, 100));
+    fantasyScrollPane.getHorizontalScrollBar().setPreferredSize(new Dimension(0, 0));
+    fantasyScrollPane.getHorizontalScrollBar().setUnitIncrement(SCROLL_INCREMENT_SPEED);
+
+    addRowScrollPanel6();
+    homeScrollPanel.add(gapPanel6);
+    homeScrollPanel.add(fantasyScrollPane);
+
+    gapPanel6.setBackground(new Color(0,0,0,1));
+
+    jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+    jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
+    jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel10.setText("TOP Fantasy");
+
+    seperator7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(4, 20, 30)));
+
+    javax.swing.GroupLayout seperator7Layout = new javax.swing.GroupLayout(seperator7);
+    seperator7.setLayout(seperator7Layout);
+    seperator7Layout.setHorizontalGroup(
+      seperator7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 998, Short.MAX_VALUE)
+    );
+    seperator7Layout.setVerticalGroup(
+      seperator7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 0, Short.MAX_VALUE)
+    );
+
+    javax.swing.GroupLayout gapPanel6Layout = new javax.swing.GroupLayout(gapPanel6);
+    gapPanel6.setLayout(gapPanel6Layout);
+    gapPanel6Layout.setHorizontalGroup(
+      gapPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(gapPanel6Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+      .addGroup(gapPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(gapPanel6Layout.createSequentialGroup()
+          .addGap(115, 115, 115)
+          .addComponent(seperator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addContainerGap(109, Short.MAX_VALUE)))
+    );
+    gapPanel6Layout.setVerticalGroup(
+      gapPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gapPanel6Layout.createSequentialGroup()
+        .addContainerGap(51, Short.MAX_VALUE)
+        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGroup(gapPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(gapPanel6Layout.createSequentialGroup()
+          .addComponent(seperator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGap(0, 82, Short.MAX_VALUE)))
+    );
+
+    gapPanel1.setSize(300, 70);
+
+    arrowLeft6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowLeft6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowLeftDefault-01.png"))); // NOI18N
+    arrowLeft6.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowLeft6MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowLeft6MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowLeft6MouseExited(evt);
+      }
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        arrowLeft6MousePressed(evt);
+      }
+    });
+
+    arrowRight6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    arrowRight6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/ArrowRightDefault-01.png"))); // NOI18N
+    arrowRight6.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        arrowRight6MouseClicked(evt);
+      }
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        arrowRight6MouseEntered(evt);
+      }
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        arrowRight6MouseExited(evt);
+      }
+    });
+
     javax.swing.GroupLayout homeScrollPanelLayout = new javax.swing.GroupLayout(homeScrollPanel);
     homeScrollPanel.setLayout(homeScrollPanelLayout);
     homeScrollPanelLayout.setHorizontalGroup(
@@ -570,27 +854,52 @@ public class HomeScreen extends javax.swing.JFrame {
       .addComponent(gapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(homeScrollPanelLayout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
-            .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(romanceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(18, 18, 18)
-            .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(homeScrollPanelLayout.createSequentialGroup()
-            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(arrowLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(arrowLeft3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
-                .addComponent(dramaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(arrowRight3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-              .addGroup(homeScrollPanelLayout.createSequentialGroup()
-                .addComponent(actionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(arrowRight1)))))
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
+              .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addGap(18, 18, 18)
+              .addComponent(romanceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addGap(18, 18, 18)
+              .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(homeScrollPanelLayout.createSequentialGroup()
+              .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(arrowLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(arrowLeft3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGap(18, 18, 18)
+              .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
+                  .addComponent(dramaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addGap(18, 18, 18)
+                  .addComponent(arrowRight3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                  .addComponent(actionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addGap(18, 18, 18)
+                  .addComponent(arrowRight1)))))
+          .addComponent(gapPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(gapPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(gapPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
+              .addComponent(arrowLeft5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addGap(18, 18, 18)
+              .addComponent(horrorScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addGap(18, 18, 18)
+              .addComponent(arrowRight5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(homeScrollPanelLayout.createSequentialGroup()
+              .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(arrowLeft4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(arrowLeft6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGap(18, 18, 18)
+              .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeScrollPanelLayout.createSequentialGroup()
+                  .addComponent(fantasyScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addGap(18, 18, 18)
+                  .addComponent(arrowRight6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                  .addComponent(comedyScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addGap(18, 18, 18)
+                  .addComponent(arrowRight4))))))
         .addContainerGap())
     );
     homeScrollPanelLayout.setVerticalGroup(
@@ -616,7 +925,7 @@ public class HomeScreen extends javax.swing.JFrame {
               .addComponent(arrowLeft2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(arrowRight2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(36, 36, 36)))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+        .addGap(39, 39, 39)
         .addComponent(gapPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
@@ -630,7 +939,43 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGap(77, 77, 77))))
           .addGroup(homeScrollPanelLayout.createSequentialGroup()
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(dramaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addComponent(dramaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(gapPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(comedyScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGroup(homeScrollPanelLayout.createSequentialGroup()
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(arrowLeft4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(arrowRight4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(36, 36, 36)))
+        .addGap(37, 37, 37)
+        .addComponent(gapPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(horrorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addGroup(homeScrollPanelLayout.createSequentialGroup()
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(arrowLeft5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(arrowRight5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(36, 36, 36)))
+        .addGap(39, 39, 39)
+        .addComponent(gapPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(homeScrollPanelLayout.createSequentialGroup()
+            .addGap(134, 134, 134)
+            .addGroup(homeScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                .addComponent(arrowRight6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+              .addGroup(homeScrollPanelLayout.createSequentialGroup()
+                .addComponent(arrowLeft6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))))
+          .addGroup(homeScrollPanelLayout.createSequentialGroup()
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(fantasyScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     addRowScrollPanel1();
@@ -640,6 +985,12 @@ public class HomeScreen extends javax.swing.JFrame {
     homeScrollPanel.add(gapPanel3);
     homeScrollPanel.add(romanceScrollPane);
     addRowScrollPanel2();
+    addRowScrollPanel4();
+    homeScrollPanel.add(gapPanel4);
+    homeScrollPanel.add(comedyScrollPane);
+    addRowScrollPanel5();
+    homeScrollPanel.add(gapPanel5);
+    homeScrollPanel.add(horrorScrollPane);
 
     //homeScrollPanel.setLayout(new GridLayout(0, 1, 10, 0));
 
@@ -1189,17 +1540,12 @@ public class HomeScreen extends javax.swing.JFrame {
         homeIcnDefaultMouseClicked(evt);
       }
     });
-    sidebar.add(homeIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 89, -1, -1));
+    sidebar.add(homeIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
-    moviesIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieDefault.png"))); // NOI18N
-    moviesIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
-    moviesIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        moviesIcnDefaultMouseClicked(evt);
-      }
-    });
-    sidebar.add(moviesIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
+    homeIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    homeIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeSelected.png"))); // NOI18N
+    homeIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
+    sidebar.add(homeIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
     settingsIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     settingsIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
@@ -1209,21 +1555,12 @@ public class HomeScreen extends javax.swing.JFrame {
         settingsIcnDefaultMouseClicked(evt);
       }
     });
-    sidebar.add(settingsIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 60, -1));
-
-    homeIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    homeIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeSelected.png"))); // NOI18N
-    homeIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
-    sidebar.add(homeIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
-
-    moviesIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieSelected.png"))); // NOI18N
-    sidebar.add(moviesIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
+    sidebar.add(settingsIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 60, -1));
 
     settingsIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     settingsIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsSelected.png"))); // NOI18N
     settingsIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
-    sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, -1, -1));
+    sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
 
     getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
@@ -1458,24 +1795,131 @@ public class HomeScreen extends javax.swing.JFrame {
     this.dispose();
   }//GEN-LAST:event_changepwBtn1ActionPerformed
 
+  private void arrowLeft4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseClicked
+//    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
+    JScrollBar horizontalScrollBar = comedyScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+  }//GEN-LAST:event_arrowLeft4MouseClicked
+
+  private void arrowLeft4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseEntered
+    arrowLeft4.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftHover-01.png"));
+  }//GEN-LAST:event_arrowLeft4MouseEntered
+
+  private void arrowLeft4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseExited
+    arrowLeft4.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftDefault-01.png"));
+  }//GEN-LAST:event_arrowLeft4MouseExited
+
+  private void arrowLeft4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MousePressed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_arrowLeft4MousePressed
+
+  private void arrowRight4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight4MouseClicked
+//    arrowRight2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightClick-01.png"));
+    JScrollBar horizontalScrollBar = comedyScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() + SCROLL_INCREMENT_SPEED * 5);
+  }//GEN-LAST:event_arrowRight4MouseClicked
+
+  private void arrowRight4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight4MouseEntered
+    arrowRight4.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+  }//GEN-LAST:event_arrowRight4MouseEntered
+
+  private void arrowRight4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight4MouseExited
+    arrowRight4.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+  }//GEN-LAST:event_arrowRight4MouseExited
+
+  private void arrowLeft5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseClicked
+//    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
+    JScrollBar horizontalScrollBar = horrorScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+  }//GEN-LAST:event_arrowLeft5MouseClicked
+
+  private void arrowLeft5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseEntered
+    arrowLeft5.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftHover-01.png"));
+  }//GEN-LAST:event_arrowLeft5MouseEntered
+
+  private void arrowLeft5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseExited
+    arrowLeft5.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftDefault-01.png"));
+  }//GEN-LAST:event_arrowLeft5MouseExited
+
+  private void arrowLeft5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MousePressed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_arrowLeft5MousePressed
+
+  private void arrowRight5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight5MouseClicked
+//    arrowRight2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightClick-01.png"));
+    JScrollBar horizontalScrollBar = horrorScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() + SCROLL_INCREMENT_SPEED * 5);
+  }//GEN-LAST:event_arrowRight5MouseClicked
+
+  private void arrowRight5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight5MouseEntered
+    arrowRight5.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+  }//GEN-LAST:event_arrowRight5MouseEntered
+
+  private void arrowRight5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight5MouseExited
+    arrowRight5.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+  }//GEN-LAST:event_arrowRight5MouseExited
+
+  private void arrowLeft6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseClicked
+//    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
+    JScrollBar horizontalScrollBar = fantasyScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+  }//GEN-LAST:event_arrowLeft6MouseClicked
+
+  private void arrowLeft6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseEntered
+    arrowLeft6.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftHover-01.png"));
+  }//GEN-LAST:event_arrowLeft6MouseEntered
+
+  private void arrowLeft6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseExited
+    arrowLeft6.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftDefault-01.png"));
+  }//GEN-LAST:event_arrowLeft6MouseExited
+
+  private void arrowLeft6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MousePressed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_arrowLeft6MousePressed
+
+  private void arrowRight6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight6MouseClicked
+//    arrowRight2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightClick-01.png"));
+    JScrollBar horizontalScrollBar = fantasyScrollPane.getHorizontalScrollBar();
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() + SCROLL_INCREMENT_SPEED * 5);
+  }//GEN-LAST:event_arrowRight6MouseClicked
+
+  private void arrowRight6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight6MouseEntered
+    arrowRight6.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+  }//GEN-LAST:event_arrowRight6MouseEntered
+
+  private void arrowRight6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight6MouseExited
+    arrowRight6.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+  }//GEN-LAST:event_arrowRight6MouseExited
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JScrollPane actionScrollPane;
   private javax.swing.JLabel arrowLeft1;
   private javax.swing.JLabel arrowLeft2;
   private javax.swing.JLabel arrowLeft3;
+  private javax.swing.JLabel arrowLeft4;
+  private javax.swing.JLabel arrowLeft5;
+  private javax.swing.JLabel arrowLeft6;
   private javax.swing.JLabel arrowRight1;
   private javax.swing.JLabel arrowRight2;
   private javax.swing.JLabel arrowRight3;
+  private javax.swing.JLabel arrowRight4;
+  private javax.swing.JLabel arrowRight5;
+  private javax.swing.JLabel arrowRight6;
   private javax.swing.JLabel changePasswordLabel;
   private javax.swing.JButton changepwBtn;
   private javax.swing.JButton changepwBtn1;
   private javax.swing.JLabel changetxt;
+  private javax.swing.JScrollPane comedyScrollPane;
   private javax.swing.JScrollPane dramaScrollPane;
   private javax.swing.JLabel exitButton;
+  private javax.swing.JScrollPane fantasyScrollPane;
   private javax.swing.JPanel gapPanel1;
   private javax.swing.JPanel gapPanel2;
   private javax.swing.JPanel gapPanel3;
+  private javax.swing.JPanel gapPanel4;
+  private javax.swing.JPanel gapPanel5;
+  private javax.swing.JPanel gapPanel6;
   private javax.swing.JLabel hidenpw1;
   private javax.swing.JLabel hidenpw2;
   private javax.swing.JLabel homeIcnDefault;
@@ -1483,7 +1927,9 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JPanel homePanel;
   private javax.swing.JScrollPane homeScrollPane;
   private javax.swing.JPanel homeScrollPanel;
+  private javax.swing.JScrollPane horrorScrollPane;
   private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel11;
   private javax.swing.JLabel jLabel12;
   private javax.swing.JLabel jLabel13;
@@ -1506,6 +1952,8 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel5;
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
   private javax.swing.JLabel lblClick;
   private javax.swing.JLabel lblClick1;
   private javax.swing.JPanel mainPanel;
@@ -1523,6 +1971,9 @@ public class HomeScreen extends javax.swing.JFrame {
   private javax.swing.JPanel seperator2;
   private javax.swing.JPanel seperator3;
   private javax.swing.JPanel seperator4;
+  private javax.swing.JPanel seperator5;
+  private javax.swing.JPanel seperator6;
+  private javax.swing.JPanel seperator7;
   private javax.swing.JLabel settingsIcnDefault;
   private javax.swing.JLabel settingsIcnSelected;
   private javax.swing.JPanel settingsPanel;
@@ -1550,6 +2001,15 @@ public class HomeScreen extends javax.swing.JFrame {
 
   void addRowScrollPanel3() {
     romanceScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Romance));
+  }
+  void addRowScrollPanel4() {
+    comedyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Comedy));
+  }
+  void addRowScrollPanel5() {
+    horrorScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Horror));
+  }
+  void addRowScrollPanel6() {
+    fantasyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Fantasy));
   }
 
   private void setIcons(boolean home, boolean movies, boolean settings) {
