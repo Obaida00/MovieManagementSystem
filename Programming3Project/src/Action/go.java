@@ -38,6 +38,7 @@ public class go {
             System.out.println(className + ":" + objectID + " didn't save: File Not Found!");
         } catch (IOException e) {
             System.out.println(className + ":" + objectID + " didn't save: IOException!");
+            System.out.println(e.getMessage());
         }
     }
     public static void save(String className , Object object , String objectID){
@@ -212,7 +213,11 @@ public class go {
         return null;
     }
     private static User loadFromUserMap(String username){
-        return (User)load("User",(int)loadUserMap().get(username));
+        if(loadUserMap().get(username) == null){
+            return null;
+        }else{
+            return (User)load("User",(int)loadUserMap().get(username));
+        }
     }
     public static boolean checkName$Pass(String username , String password){
         User user = loadFromUserMap(username);
@@ -226,6 +231,15 @@ public class go {
         return false;
     }
 
+    public static boolean isUsernameTaken(String username){
+        HashMap map = loadUserMap();
+        if(map.get(username) == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     public static void saveCurrentUser(String userName){
         try{
             File file = new File("CurrentUser.txt");

@@ -27,7 +27,7 @@ public class User implements Serializable{
 
         userBookedTickets = new ArrayList<>();
 
-        this.image = go.makeImage("Default User Image .jpg");
+        this.image = go.makeImage("Default User Image.jpeg");
 
         userMap = go.loadUserMap();
         userMap.put(this.userName , this.userID);

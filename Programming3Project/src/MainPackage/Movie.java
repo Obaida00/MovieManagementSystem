@@ -30,6 +30,7 @@ public class Movie implements Serializable{
         movieIDInitializer++;
         go.saveInitializer("Movie");
 
+        movieShowTimesList = new ArrayList<>();
         for(int i = 1 ; i <= 3 ; i++ ) {
             movieShowTimesList.add(movieCinema.getShowTime(year , month , day , i , this.movieID));
         }
