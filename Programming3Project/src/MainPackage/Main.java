@@ -17,7 +17,7 @@ public class Main {
         LoadingScreen loadingScreen = new LoadingScreen();
     }
 
-  }
+  
 
 
     private static void mainInitialize(){
