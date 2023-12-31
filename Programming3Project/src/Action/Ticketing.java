@@ -7,6 +7,7 @@ import MainPackage.Ticket;
 import MainPackage.User;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Ticketing {
 
@@ -25,6 +26,7 @@ public class Ticketing {
         for(int i = 0 ; i < tickets.size() ; i++){
             tickets.get(i).setTicketSeatStatus(true);
             user.addBookedTicket(tickets.get(i));
+            JOptionPane.showMessageDialog(null, " Tickets Booked Successfully ");
         }
     }
 

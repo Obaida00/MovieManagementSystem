@@ -24,7 +24,7 @@ class MovieObjectPanel extends JPanel {
   private JButton moreButton;
   String name;
   ImageIcon img;
-  
+
   
 //public MovieObjectPanel(Movie m){
   //  this.name = m.getMovieTitle();
@@ -32,7 +32,7 @@ class MovieObjectPanel extends JPanel {
   public MovieObjectPanel(String name, ImageIcon img) {
     this.name = name;
     this.img = img;
-
+    
     this.setLayout(new BorderLayout());
     this.setBackground(new Color(0, 0, 0, 1));
     this.setBorder(null);

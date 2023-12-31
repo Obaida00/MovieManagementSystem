@@ -6,20 +6,77 @@
 package Interfaces;
 
 import Action.Ticketing;
+import Action.go;
+import MainPackage.Movie;
+import MainPackage.Ticket;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
  * @author gtx
  */
 public class booked_ticket_form extends javax.swing.JFrame {
-
+    public static int showtime;
+    private ImageIcon imageIconRed = new ImageIcon("src\\res\\seatRed.png");
+    private JLabel j=new JLabel(); 
+    private ArrayList<String> SeatIDs;
+    private boolean isRed = false;
+    private ArrayList<JLabel> labels;
+    private Movie movie = null;//Here we get the movie object which passed by the privious frame
     /**
      * Creates new form booked_ticket_form
      */
     public booked_ticket_form() {
         initComponents();
+        this.setVisible(true);
+        j.setIcon(imageIconRed);
+        SeatIDs = new ArrayList<>();
+        labels = new ArrayList<>();
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            A1.setName("A1");A2.setName("A2");A3.setName("A3");A4.setName("A4");A5.setName("A5");A6.setName("A6");A7.setName("A7");A8.setName("A8");A9.setName("A9");A10.setName("A10");
+            B1.setName("B1");B2.setName("B2");B3.setName("B3");B4.setName("B4");B5.setName("B5");B6.setName("B6");B7.setName("B7");B8.setName("B8");B9.setName("B9");B10.setName("B10");
+            C1.setName("C1");C2.setName("C2");C3.setName("C3");C4.setName("C4");C5.setName("C5");C6.setName("C6");C7.setName("C7");C8.setName("C8");C9.setName("C9");C10.setName("C10");
+            D1.setName("D1");D2.setName("D2");D3.setName("D3");D4.setName("D4");D5.setName("D5");D6.setName("D6");D7.setName("D7");D8.setName("D8");D9.setName("D9");D10.setName("D10");
+            E1.setName("E1");E2.setName("E2");E3.setName("E3");E4.setName("E4");E5.setName("E5");E6.setName("E6");E7.setName("E7");E8.setName("E8");E9.setName("E9");E10.setName("E10");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            labels.add(A1);labels.add(A2);labels.add(A3);labels.add(A4);labels.add(A5);labels.add(A6);labels.add(A7);labels.add(A8);labels.add(A9);labels.add(A10);
+            labels.add(B1);labels.add(B2);labels.add(B3);labels.add(B4);labels.add(B5);labels.add(B6);labels.add(B7);labels.add(B8);labels.add(B9);labels.add(B10);
+            labels.add(C1);labels.add(C2);labels.add(C3);labels.add(C4);labels.add(C5);labels.add(C6);labels.add(C7);labels.add(C8);labels.add(C9);labels.add(C10);
+            labels.add(D1);labels.add(D2);labels.add(D3);labels.add(D4);labels.add(D5);labels.add(D6);labels.add(D7);labels.add(D8);labels.add(D9);labels.add(D10);
+            labels.add(E1);labels.add(E2);labels.add(E3);labels.add(E4);labels.add(E5);labels.add(E6);labels.add(E7);labels.add(E8);labels.add(E9);labels.add(E10);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Thread t = new Thread(new Runnable(){
+            @Override
+            public void run(){
+                refreshSeatsStatus();
+            }
+        });
+    }
+    
+    public synchronized  void refreshSeatsStatus(){
+        ImageIcon imageIconBlack = new ImageIcon("src\\res\\seatBlack.png");
+        
+        for(int i = 0 ; i < labels.size() ; i++){
+            String s1 = labels.get(i).getName().substring(0 , 1);
+            String s2 = labels.get(i).getName().substring(1);
+            String seatID = s2+s1;
+            Ticket ticket = (Ticket)go.load("Movies",movie.getMovieTicketsMap().get(seatID));
+            if(ticket.getTicketSeatStatus()){
+                labels.get(i).setIcon(imageIconRed);
+            }else{
+                labels.get(i).setIcon(imageIconBlack);
+            }
+        }
+        try{
+            Thread.sleep(150);
+        }catch(InterruptedException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -33,56 +90,56 @@ public class booked_ticket_form extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        seat1 = new javax.swing.JLabel();
-        seat2 = new javax.swing.JLabel();
-        seat3 = new javax.swing.JLabel();
-        seat4 = new javax.swing.JLabel();
-        seat5 = new javax.swing.JLabel();
-        seat6 = new javax.swing.JLabel();
-        seat7 = new javax.swing.JLabel();
-        seat8 = new javax.swing.JLabel();
-        seat9 = new javax.swing.JLabel();
-        seat10 = new javax.swing.JLabel();
-        seat11 = new javax.swing.JLabel();
-        seat12 = new javax.swing.JLabel();
-        seat13 = new javax.swing.JLabel();
-        seat14 = new javax.swing.JLabel();
-        seat15 = new javax.swing.JLabel();
-        seat16 = new javax.swing.JLabel();
-        seat17 = new javax.swing.JLabel();
-        seat18 = new javax.swing.JLabel();
-        seat19 = new javax.swing.JLabel();
-        seat20 = new javax.swing.JLabel();
-        seat21 = new javax.swing.JLabel();
-        seat22 = new javax.swing.JLabel();
-        seat23 = new javax.swing.JLabel();
-        seat24 = new javax.swing.JLabel();
-        seat25 = new javax.swing.JLabel();
-        seat26 = new javax.swing.JLabel();
-        seat27 = new javax.swing.JLabel();
-        seat28 = new javax.swing.JLabel();
-        seat29 = new javax.swing.JLabel();
-        seat30 = new javax.swing.JLabel();
-        seat31 = new javax.swing.JLabel();
-        seat32 = new javax.swing.JLabel();
-        seat33 = new javax.swing.JLabel();
-        seat34 = new javax.swing.JLabel();
-        seat35 = new javax.swing.JLabel();
-        seat36 = new javax.swing.JLabel();
-        seat37 = new javax.swing.JLabel();
-        seat38 = new javax.swing.JLabel();
-        seat39 = new javax.swing.JLabel();
-        seat40 = new javax.swing.JLabel();
-        seat41 = new javax.swing.JLabel();
-        seat42 = new javax.swing.JLabel();
-        seat43 = new javax.swing.JLabel();
-        seat44 = new javax.swing.JLabel();
-        seat45 = new javax.swing.JLabel();
-        seat46 = new javax.swing.JLabel();
-        seat47 = new javax.swing.JLabel();
-        seat48 = new javax.swing.JLabel();
-        seat49 = new javax.swing.JLabel();
-        seat50 = new javax.swing.JLabel();
+        E1 = new javax.swing.JLabel();
+        D1 = new javax.swing.JLabel();
+        C1 = new javax.swing.JLabel();
+        B1 = new javax.swing.JLabel();
+        A1 = new javax.swing.JLabel();
+        E2 = new javax.swing.JLabel();
+        D2 = new javax.swing.JLabel();
+        C2 = new javax.swing.JLabel();
+        B2 = new javax.swing.JLabel();
+        A2 = new javax.swing.JLabel();
+        E3 = new javax.swing.JLabel();
+        D3 = new javax.swing.JLabel();
+        C3 = new javax.swing.JLabel();
+        B3 = new javax.swing.JLabel();
+        A3 = new javax.swing.JLabel();
+        E4 = new javax.swing.JLabel();
+        D4 = new javax.swing.JLabel();
+        C4 = new javax.swing.JLabel();
+        B4 = new javax.swing.JLabel();
+        A4 = new javax.swing.JLabel();
+        E5 = new javax.swing.JLabel();
+        D5 = new javax.swing.JLabel();
+        C5 = new javax.swing.JLabel();
+        B5 = new javax.swing.JLabel();
+        A5 = new javax.swing.JLabel();
+        E6 = new javax.swing.JLabel();
+        D6 = new javax.swing.JLabel();
+        C6 = new javax.swing.JLabel();
+        B6 = new javax.swing.JLabel();
+        A6 = new javax.swing.JLabel();
+        E7 = new javax.swing.JLabel();
+        D7 = new javax.swing.JLabel();
+        C7 = new javax.swing.JLabel();
+        B7 = new javax.swing.JLabel();
+        A7 = new javax.swing.JLabel();
+        E8 = new javax.swing.JLabel();
+        D8 = new javax.swing.JLabel();
+        C8 = new javax.swing.JLabel();
+        B8 = new javax.swing.JLabel();
+        A8 = new javax.swing.JLabel();
+        E9 = new javax.swing.JLabel();
+        D9 = new javax.swing.JLabel();
+        C9 = new javax.swing.JLabel();
+        B9 = new javax.swing.JLabel();
+        A9 = new javax.swing.JLabel();
+        E10 = new javax.swing.JLabel();
+        D10 = new javax.swing.JLabel();
+        C10 = new javax.swing.JLabel();
+        B10 = new javax.swing.JLabel();
+        A10 = new javax.swing.JLabel();
         panBook = new javax.swing.JPanel();
         lblBook = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,364 +151,367 @@ public class booked_ticket_form extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        seat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat1.addMouseListener(new java.awt.event.MouseAdapter() {
+        E1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat1MouseClicked(evt);
+                E1MouseClicked(evt);
             }
         });
 
-        seat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat2.addMouseListener(new java.awt.event.MouseAdapter() {
+        D1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat2MouseClicked(evt);
+                D1MouseClicked(evt);
             }
         });
 
-        seat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat3.addMouseListener(new java.awt.event.MouseAdapter() {
+        C1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat3MouseClicked(evt);
+                C1MouseClicked(evt);
             }
         });
 
-        seat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat4.addMouseListener(new java.awt.event.MouseAdapter() {
+        B1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat4MouseClicked(evt);
+                B1MouseClicked(evt);
             }
         });
 
-        seat5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat5.addMouseListener(new java.awt.event.MouseAdapter() {
+        A1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat5MouseClicked(evt);
+                A1MouseClicked(evt);
             }
         });
 
-        seat6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat6.addMouseListener(new java.awt.event.MouseAdapter() {
+        E2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat6MouseClicked(evt);
+                E2MouseClicked(evt);
             }
         });
 
-        seat7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat7.addMouseListener(new java.awt.event.MouseAdapter() {
+        D2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat7MouseClicked(evt);
+                D2MouseClicked(evt);
             }
         });
 
-        seat8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat8.addMouseListener(new java.awt.event.MouseAdapter() {
+        C2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat8MouseClicked(evt);
+                C2MouseClicked(evt);
             }
         });
 
-        seat9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat9.addMouseListener(new java.awt.event.MouseAdapter() {
+        B2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat9MouseClicked(evt);
+                B2MouseClicked(evt);
             }
         });
 
-        seat10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat10.addMouseListener(new java.awt.event.MouseAdapter() {
+        A2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat10MouseClicked(evt);
+                A2MouseClicked(evt);
             }
         });
 
-        seat11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat11.addMouseListener(new java.awt.event.MouseAdapter() {
+        E3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat11MouseClicked(evt);
+                E3MouseClicked(evt);
             }
         });
 
-        seat12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat12.addMouseListener(new java.awt.event.MouseAdapter() {
+        D3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat12MouseClicked(evt);
+                D3MouseClicked(evt);
             }
         });
 
-        seat13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat13.addMouseListener(new java.awt.event.MouseAdapter() {
+        C3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat13MouseClicked(evt);
+                C3MouseClicked(evt);
             }
         });
 
-        seat14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat14.addMouseListener(new java.awt.event.MouseAdapter() {
+        B3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat14MouseClicked(evt);
+                B3MouseClicked(evt);
             }
         });
 
-        seat15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat15.addMouseListener(new java.awt.event.MouseAdapter() {
+        A3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat15MouseClicked(evt);
+                A3MouseClicked(evt);
             }
         });
 
-        seat16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat16.addMouseListener(new java.awt.event.MouseAdapter() {
+        E4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat16MouseClicked(evt);
+                E4MouseClicked(evt);
             }
         });
 
-        seat17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat17.addMouseListener(new java.awt.event.MouseAdapter() {
+        D4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat17MouseClicked(evt);
+                D4MouseClicked(evt);
             }
         });
 
-        seat18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat18.addMouseListener(new java.awt.event.MouseAdapter() {
+        C4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat18MouseClicked(evt);
+                C4MouseClicked(evt);
             }
         });
 
-        seat19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat19.addMouseListener(new java.awt.event.MouseAdapter() {
+        B4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat19MouseClicked(evt);
+                B4MouseClicked(evt);
             }
         });
 
-        seat20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat20.addMouseListener(new java.awt.event.MouseAdapter() {
+        A4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat20MouseClicked(evt);
+                A4MouseClicked(evt);
             }
         });
 
-        seat21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat21.addMouseListener(new java.awt.event.MouseAdapter() {
+        E5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat21MouseClicked(evt);
+                E5MouseClicked(evt);
             }
         });
 
-        seat22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat22.addMouseListener(new java.awt.event.MouseAdapter() {
+        D5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat22MouseClicked(evt);
+                D5MouseClicked(evt);
             }
         });
 
-        seat23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat23.addMouseListener(new java.awt.event.MouseAdapter() {
+        C5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat23MouseClicked(evt);
+                C5MouseClicked(evt);
             }
         });
 
-        seat24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat24.addMouseListener(new java.awt.event.MouseAdapter() {
+        B5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat24MouseClicked(evt);
+                B5MouseClicked(evt);
             }
         });
 
-        seat25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat25.addMouseListener(new java.awt.event.MouseAdapter() {
+        A5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat25MouseClicked(evt);
+                A5MouseClicked(evt);
             }
         });
 
-        seat26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat26.addMouseListener(new java.awt.event.MouseAdapter() {
+        E6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat26MouseClicked(evt);
+                E6MouseClicked(evt);
             }
         });
 
-        seat27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat27.addMouseListener(new java.awt.event.MouseAdapter() {
+        D6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat27MouseClicked(evt);
+                D6MouseClicked(evt);
             }
         });
 
-        seat28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat28.addMouseListener(new java.awt.event.MouseAdapter() {
+        C6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat28MouseClicked(evt);
+                C6MouseClicked(evt);
             }
         });
 
-        seat29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat29.addMouseListener(new java.awt.event.MouseAdapter() {
+        B6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat29MouseClicked(evt);
+                B6MouseClicked(evt);
             }
         });
 
-        seat30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat30.addMouseListener(new java.awt.event.MouseAdapter() {
+        A6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat30MouseClicked(evt);
+                A6MouseClicked(evt);
             }
         });
 
-        seat31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat31.addMouseListener(new java.awt.event.MouseAdapter() {
+        E7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat31MouseClicked(evt);
+                E7MouseClicked(evt);
             }
         });
 
-        seat32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat32.addMouseListener(new java.awt.event.MouseAdapter() {
+        D7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat32MouseClicked(evt);
+                D7MouseClicked(evt);
             }
         });
 
-        seat33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat33.addMouseListener(new java.awt.event.MouseAdapter() {
+        C7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat33MouseClicked(evt);
+                C7MouseClicked(evt);
             }
         });
 
-        seat34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat34.addMouseListener(new java.awt.event.MouseAdapter() {
+        B7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat34MouseClicked(evt);
+                B7MouseClicked(evt);
             }
         });
 
-        seat35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat35.addMouseListener(new java.awt.event.MouseAdapter() {
+        A7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat35MouseClicked(evt);
+                A7MouseClicked(evt);
             }
         });
 
-        seat36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat36.addMouseListener(new java.awt.event.MouseAdapter() {
+        E8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat36MouseClicked(evt);
+                E8MouseClicked(evt);
             }
         });
 
-        seat37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat37.addMouseListener(new java.awt.event.MouseAdapter() {
+        D8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat37MouseClicked(evt);
+                D8MouseClicked(evt);
             }
         });
 
-        seat38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat38.addMouseListener(new java.awt.event.MouseAdapter() {
+        C8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat38MouseClicked(evt);
+                C8MouseClicked(evt);
             }
         });
 
-        seat39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat39.addMouseListener(new java.awt.event.MouseAdapter() {
+        B8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat39MouseClicked(evt);
+                B8MouseClicked(evt);
             }
         });
 
-        seat40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat40.addMouseListener(new java.awt.event.MouseAdapter() {
+        A8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat40MouseClicked(evt);
+                A8MouseClicked(evt);
             }
         });
 
-        seat41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat41.addMouseListener(new java.awt.event.MouseAdapter() {
+        E9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat41MouseClicked(evt);
+                E9MouseClicked(evt);
             }
         });
 
-        seat42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat42.addMouseListener(new java.awt.event.MouseAdapter() {
+        D9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat42MouseClicked(evt);
+                D9MouseClicked(evt);
             }
         });
 
-        seat43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat43.addMouseListener(new java.awt.event.MouseAdapter() {
+        C9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat43MouseClicked(evt);
+                C9MouseClicked(evt);
             }
         });
 
-        seat44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat44.addMouseListener(new java.awt.event.MouseAdapter() {
+        B9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat44MouseClicked(evt);
+                B9MouseClicked(evt);
             }
         });
 
-        seat45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat45.addMouseListener(new java.awt.event.MouseAdapter() {
+        A9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat45MouseClicked(evt);
+                A9MouseClicked(evt);
             }
         });
 
-        seat46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat46.addMouseListener(new java.awt.event.MouseAdapter() {
+        E10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        E10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat46MouseClicked(evt);
+                E10MouseClicked(evt);
             }
         });
 
-        seat47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat47.addMouseListener(new java.awt.event.MouseAdapter() {
+        D10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        D10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat47MouseClicked(evt);
+                D10MouseClicked(evt);
             }
         });
 
-        seat48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat48.addMouseListener(new java.awt.event.MouseAdapter() {
+        C10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        C10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat48MouseClicked(evt);
+                C10MouseClicked(evt);
             }
         });
 
-        seat49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat49.addMouseListener(new java.awt.event.MouseAdapter() {
+        B10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        B10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat49MouseClicked(evt);
+                B10MouseClicked(evt);
             }
         });
 
-        seat50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
-        seat50.addMouseListener(new java.awt.event.MouseAdapter() {
+        A10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
+        A10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seat50MouseClicked(evt);
+                A10MouseClicked(evt);
             }
         });
 
         panBook.setBackground(new java.awt.Color(255, 255, 255));
         panBook.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
         panBook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panBookMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panBookMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panBookMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panBookMouseEntered(evt);
             }
         });
 
@@ -543,85 +603,85 @@ public class booked_ticket_form extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seat5)
-                            .addComponent(seat4)
-                            .addComponent(seat3)
-                            .addComponent(seat2)
-                            .addComponent(seat1))
+                            .addComponent(A1)
+                            .addComponent(B1)
+                            .addComponent(C1)
+                            .addComponent(D1)
+                            .addComponent(E1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seat10)
-                            .addComponent(seat9)
-                            .addComponent(seat8)
-                            .addComponent(seat7)
-                            .addComponent(seat6))
+                            .addComponent(A2)
+                            .addComponent(B2)
+                            .addComponent(C2)
+                            .addComponent(D2)
+                            .addComponent(E2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seat15)
-                            .addComponent(seat14)
-                            .addComponent(seat13)
-                            .addComponent(seat12)
-                            .addComponent(seat11))
+                            .addComponent(A3)
+                            .addComponent(B3)
+                            .addComponent(C3)
+                            .addComponent(D3)
+                            .addComponent(E3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(seat20)
-                                    .addComponent(seat19)
-                                    .addComponent(seat18)
-                                    .addComponent(seat17)
-                                    .addComponent(seat16))
+                                    .addComponent(A4)
+                                    .addComponent(B4)
+                                    .addComponent(C4)
+                                    .addComponent(D4)
+                                    .addComponent(E4))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(seat25)
-                                    .addComponent(seat24)
-                                    .addComponent(seat23)
-                                    .addComponent(seat22)
-                                    .addComponent(seat21))
+                                    .addComponent(A5)
+                                    .addComponent(B5)
+                                    .addComponent(C5)
+                                    .addComponent(D5)
+                                    .addComponent(E5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(seat30)
-                                    .addComponent(seat29)
-                                    .addComponent(seat28)
-                                    .addComponent(seat27)
-                                    .addComponent(seat26))
+                                    .addComponent(A6)
+                                    .addComponent(B6)
+                                    .addComponent(C6)
+                                    .addComponent(D6)
+                                    .addComponent(E6))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(seat35)
-                                    .addComponent(seat34)
-                                    .addComponent(seat33)
-                                    .addComponent(seat32)
-                                    .addComponent(seat31)))
+                                    .addComponent(A7)
+                                    .addComponent(B7)
+                                    .addComponent(C7)
+                                    .addComponent(D7)
+                                    .addComponent(E7)))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seat40)
-                    .addComponent(seat39)
-                    .addComponent(seat38)
-                    .addComponent(seat37)
-                    .addComponent(seat36))
+                    .addComponent(A8)
+                    .addComponent(B8)
+                    .addComponent(C8)
+                    .addComponent(D8)
+                    .addComponent(E8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seat45)
-                    .addComponent(seat44)
-                    .addComponent(seat43)
-                    .addComponent(seat42)
-                    .addComponent(seat41))
+                    .addComponent(A9)
+                    .addComponent(B9)
+                    .addComponent(C9)
+                    .addComponent(D9)
+                    .addComponent(E9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seat50)
-                            .addComponent(seat49)
-                            .addComponent(seat48))
+                            .addComponent(A10)
+                            .addComponent(B10)
+                            .addComponent(C10))
                         .addContainerGap(173, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seat47)
-                            .addComponent(seat46))
+                            .addComponent(D10)
+                            .addComponent(E10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -633,107 +693,107 @@ public class booked_ticket_form extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat46)
+                                .addComponent(E10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat47)
+                                .addComponent(D10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat48)
+                                .addComponent(C10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat49)
+                                .addComponent(B10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat50))
+                                .addComponent(A10))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat41)
+                                .addComponent(E9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat42)
+                                .addComponent(D9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat43)
+                                .addComponent(C9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat44)
+                                .addComponent(B9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat45))
+                                .addComponent(A9))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat36)
+                                .addComponent(E8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat37)
+                                .addComponent(D8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat38)
+                                .addComponent(C8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat39)
+                                .addComponent(B8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat40))
+                                .addComponent(A8))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat31)
+                                .addComponent(E7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat32)
+                                .addComponent(D7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat33)
+                                .addComponent(C7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat34)
+                                .addComponent(B7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat35))
+                                .addComponent(A7))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat26)
+                                .addComponent(E6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat27)
+                                .addComponent(D6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat28)
+                                .addComponent(C6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat29)
+                                .addComponent(B6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat30))
+                                .addComponent(A6))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat21)
+                                .addComponent(E5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat22)
+                                .addComponent(D5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat23)
+                                .addComponent(C5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat24)
+                                .addComponent(B5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat25))
+                                .addComponent(A5))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat16)
+                                .addComponent(E4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat17)
+                                .addComponent(D4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat18)
+                                .addComponent(C4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat19)
+                                .addComponent(B4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat20))
+                                .addComponent(A4))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat11)
+                                .addComponent(E3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat12)
+                                .addComponent(D3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat13)
+                                .addComponent(C3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat14)
+                                .addComponent(B3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat15))
+                                .addComponent(A3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat6)
+                                .addComponent(E2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat7)
+                                .addComponent(D2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat8)
+                                .addComponent(C2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat9)
+                                .addComponent(B2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat10))
+                                .addComponent(A2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(seat1)
+                                .addComponent(E1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat2)
+                                .addComponent(D1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat3)
+                                .addComponent(C1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat4)
+                                .addComponent(B1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(seat5))))
+                                .addComponent(A1))))
                     .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(31, 31, 31)
                 .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -748,262 +808,322 @@ public class booked_ticket_form extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void seat1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat1.setIcon(imageIcon);
-    }//GEN-LAST:event_seat1MouseClicked
+    private void E1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E1MouseClicked
+        
+        ImageIcon imageIconBarble = new ImageIcon("src\\res\\seatBarble.png");
+        Object e1;
+        ImageIcon imageIconRed = new ImageIcon("src\\res\\seatRed.png"); 
+        boolean isEqual= E1.getIcon().equals(j.getIcon());
+        if(!isEqual){
+            E1.setIcon(imageIconBarble);
+            SeatIDs.add("E1");
+        }
+        
+    }//GEN-LAST:event_E1MouseClicked
 
-    private void seat2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat2.setIcon(imageIcon);
-    }//GEN-LAST:event_seat2MouseClicked
+    private void D1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D1MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D1.setIcon(imageIcon);
+        SeatIDs.add("D1");
+    }//GEN-LAST:event_D1MouseClicked
 
-    private void seat3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat3.setIcon(imageIcon);
-    }//GEN-LAST:event_seat3MouseClicked
+    private void C1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C1MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C1.setIcon(imageIcon);
+        SeatIDs.add("C1");
+    }//GEN-LAST:event_C1MouseClicked
 
-    private void seat4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat4.setIcon(imageIcon);
-    }//GEN-LAST:event_seat4MouseClicked
+    private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B1.setIcon(imageIcon);
+        SeatIDs.add("B1");
+    }//GEN-LAST:event_B1MouseClicked
 
-    private void seat5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat5.setIcon(imageIcon);
-    }//GEN-LAST:event_seat5MouseClicked
+    private void A1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A1MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A1.setIcon(imageIcon);
+        SeatIDs.add("A1");
+    }//GEN-LAST:event_A1MouseClicked
 
-    private void seat6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat6.setIcon(imageIcon);
-    }//GEN-LAST:event_seat6MouseClicked
+    private void E2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E2MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E2.setIcon(imageIcon);
+        SeatIDs.add("E2");
+    }//GEN-LAST:event_E2MouseClicked
 
-    private void seat7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat7.setIcon(imageIcon);
-    }//GEN-LAST:event_seat7MouseClicked
+    private void D2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D2MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D2.setIcon(imageIcon);
+        SeatIDs.add("D2");
+    }//GEN-LAST:event_D2MouseClicked
 
-    private void seat8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat8.setIcon(imageIcon);
-    }//GEN-LAST:event_seat8MouseClicked
+    private void C2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C2MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C2.setIcon(imageIcon);
+        SeatIDs.add("C2");
+    }//GEN-LAST:event_C2MouseClicked
 
-    private void seat9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat9.setIcon(imageIcon);
-    }//GEN-LAST:event_seat9MouseClicked
+    private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B2.setIcon(imageIcon);
+        SeatIDs.add("B2");
+    }//GEN-LAST:event_B2MouseClicked
 
-    private void seat10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat10.setIcon(imageIcon);
-    }//GEN-LAST:event_seat10MouseClicked
+    private void A2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A2MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A2.setIcon(imageIcon);
+        SeatIDs.add("A2");
+    }//GEN-LAST:event_A2MouseClicked
 
-    private void seat11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat11MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat11.setIcon(imageIcon);
-    }//GEN-LAST:event_seat11MouseClicked
+    private void E3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E3MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E3.setIcon(imageIcon);
+        SeatIDs.add("E3");
+    }//GEN-LAST:event_E3MouseClicked
 
-    private void seat12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat12MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat12.setIcon(imageIcon);
-    }//GEN-LAST:event_seat12MouseClicked
+    private void D3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D3MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D3.setIcon(imageIcon);
+        SeatIDs.add("D3");
+    }//GEN-LAST:event_D3MouseClicked
 
-    private void seat13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat13MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat13.setIcon(imageIcon);
-    }//GEN-LAST:event_seat13MouseClicked
+    private void C3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C3MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C3.setIcon(imageIcon);
+        SeatIDs.add("C3");
+    }//GEN-LAST:event_C3MouseClicked
 
-    private void seat14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat14MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat14.setIcon(imageIcon);
-    }//GEN-LAST:event_seat14MouseClicked
+    private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B3.setIcon(imageIcon);
+        SeatIDs.add("B3");
+    }//GEN-LAST:event_B3MouseClicked
 
-    private void seat15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat15MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat15.setIcon(imageIcon);
-    }//GEN-LAST:event_seat15MouseClicked
+    private void A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A3MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A3.setIcon(imageIcon);
+        SeatIDs.add("A3");
+    }//GEN-LAST:event_A3MouseClicked
 
-    private void seat16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat16MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat16.setIcon(imageIcon);
-    }//GEN-LAST:event_seat16MouseClicked
+    private void E4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E4MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E4.setIcon(imageIcon);
+        SeatIDs.add("E4");
+    }//GEN-LAST:event_E4MouseClicked
 
-    private void seat17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat17MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat17.setIcon(imageIcon);
-    }//GEN-LAST:event_seat17MouseClicked
+    private void D4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D4MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D4.setIcon(imageIcon);
+        SeatIDs.add("D4");
+    }//GEN-LAST:event_D4MouseClicked
 
-    private void seat18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat18MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat18.setIcon(imageIcon);
-    }//GEN-LAST:event_seat18MouseClicked
+    private void C4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C4MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C4.setIcon(imageIcon);
+        SeatIDs.add("C4");
+    }//GEN-LAST:event_C4MouseClicked
 
-    private void seat19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat19MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat19.setIcon(imageIcon);
-    }//GEN-LAST:event_seat19MouseClicked
+    private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B4.setIcon(imageIcon);
+        SeatIDs.add("B4");
+    }//GEN-LAST:event_B4MouseClicked
 
-    private void seat20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat20MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat20.setIcon(imageIcon);
-    }//GEN-LAST:event_seat20MouseClicked
+    private void A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A4MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A4.setIcon(imageIcon);
+        SeatIDs.add("A4");
+    }//GEN-LAST:event_A4MouseClicked
 
-    private void seat21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat21MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat21.setIcon(imageIcon);
-    }//GEN-LAST:event_seat21MouseClicked
+    private void E5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E5MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E5.setIcon(imageIcon);
+        SeatIDs.add("E5");
+    }//GEN-LAST:event_E5MouseClicked
 
-    private void seat22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat22MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat22.setIcon(imageIcon);
-    }//GEN-LAST:event_seat22MouseClicked
+    private void D5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D5MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D5.setIcon(imageIcon);
+        SeatIDs.add("D5");
+    }//GEN-LAST:event_D5MouseClicked
 
-    private void seat23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat23MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat23.setIcon(imageIcon);
-    }//GEN-LAST:event_seat23MouseClicked
+    private void C5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C5MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C5.setIcon(imageIcon);
+        SeatIDs.add("C5");
+    }//GEN-LAST:event_C5MouseClicked
 
-    private void seat24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat24MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat24.setIcon(imageIcon);
-    }//GEN-LAST:event_seat24MouseClicked
+    private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B5.setIcon(imageIcon);
+        SeatIDs.add("B5");
+    }//GEN-LAST:event_B5MouseClicked
 
-    private void seat25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat25MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat25.setIcon(imageIcon);
-    }//GEN-LAST:event_seat25MouseClicked
+    private void A5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A5MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A5.setIcon(imageIcon);
+        SeatIDs.add("A5");
+    }//GEN-LAST:event_A5MouseClicked
 
-    private void seat26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat26MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat26.setIcon(imageIcon);
-    }//GEN-LAST:event_seat26MouseClicked
+    private void E6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E6MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E6.setIcon(imageIcon);
+        SeatIDs.add("E6");
+    }//GEN-LAST:event_E6MouseClicked
 
-    private void seat27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat27MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat27.setIcon(imageIcon);
-    }//GEN-LAST:event_seat27MouseClicked
+    private void D6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D6MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D6.setIcon(imageIcon);
+        SeatIDs.add("D6");
+    }//GEN-LAST:event_D6MouseClicked
 
-    private void seat28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat28MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat28.setIcon(imageIcon);
-    }//GEN-LAST:event_seat28MouseClicked
+    private void C6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C6MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C6.setIcon(imageIcon);
+        SeatIDs.add("C6");
+    }//GEN-LAST:event_C6MouseClicked
 
-    private void seat29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat29MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat29.setIcon(imageIcon);
-    }//GEN-LAST:event_seat29MouseClicked
+    private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B6.setIcon(imageIcon);
+        SeatIDs.add("B6");
+    }//GEN-LAST:event_B6MouseClicked
 
-    private void seat30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat30MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat30.setIcon(imageIcon);
-    }//GEN-LAST:event_seat30MouseClicked
+    private void A6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A6.setIcon(imageIcon);
+        SeatIDs.add("A6");
+    }//GEN-LAST:event_A6MouseClicked
 
-    private void seat31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat31MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat31.setIcon(imageIcon);
-    }//GEN-LAST:event_seat31MouseClicked
+    private void E7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E7MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E7.setIcon(imageIcon);
+        SeatIDs.add("E7");
+    }//GEN-LAST:event_E7MouseClicked
 
-    private void seat32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat32MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat32.setIcon(imageIcon);
-    }//GEN-LAST:event_seat32MouseClicked
+    private void D7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D7MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D7.setIcon(imageIcon);
+        SeatIDs.add("D7");
+    }//GEN-LAST:event_D7MouseClicked
 
-    private void seat33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat33MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat33.setIcon(imageIcon);
-    }//GEN-LAST:event_seat33MouseClicked
+    private void C7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C7MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C7.setIcon(imageIcon);
+        SeatIDs.add("C7");
+    }//GEN-LAST:event_C7MouseClicked
 
-    private void seat34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat34MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat34.setIcon(imageIcon);
-    }//GEN-LAST:event_seat34MouseClicked
+    private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B7.setIcon(imageIcon);
+        SeatIDs.add("B7");
+    }//GEN-LAST:event_B7MouseClicked
 
-    private void seat35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat35MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat35.setIcon(imageIcon);
-    }//GEN-LAST:event_seat35MouseClicked
+    private void A7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A7MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A7.setIcon(imageIcon);
+        SeatIDs.add("A7");
+    }//GEN-LAST:event_A7MouseClicked
 
-    private void seat36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat36MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat36.setIcon(imageIcon);
-    }//GEN-LAST:event_seat36MouseClicked
+    private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E8.setIcon(imageIcon);
+        SeatIDs.add("E8");
+    }//GEN-LAST:event_E8MouseClicked
 
-    private void seat37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat37MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat37.setIcon(imageIcon);
-    }//GEN-LAST:event_seat37MouseClicked
+    private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D8.setIcon(imageIcon);
+        SeatIDs.add("D8");
+    }//GEN-LAST:event_D8MouseClicked
 
-    private void seat38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat38MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat38.setIcon(imageIcon);
-    }//GEN-LAST:event_seat38MouseClicked
+    private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C8.setIcon(imageIcon);
+        SeatIDs.add("C8");
+    }//GEN-LAST:event_C8MouseClicked
 
-    private void seat39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat39MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat39.setIcon(imageIcon);
-    }//GEN-LAST:event_seat39MouseClicked
+    private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B8.setIcon(imageIcon);
+        SeatIDs.add("B8");
+    }//GEN-LAST:event_B8MouseClicked
 
-    private void seat40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat40MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat40.setIcon(imageIcon);
-    }//GEN-LAST:event_seat40MouseClicked
+    private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A8.setIcon(imageIcon);
+        SeatIDs.add("A8");
+    }//GEN-LAST:event_A8MouseClicked
 
-    private void seat41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat41MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat41.setIcon(imageIcon);
-    }//GEN-LAST:event_seat41MouseClicked
+    private void E9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E9MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E9.setIcon(imageIcon);
+        SeatIDs.add("E9");
+    }//GEN-LAST:event_E9MouseClicked
 
-    private void seat42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat42MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat42.setIcon(imageIcon);
-    }//GEN-LAST:event_seat42MouseClicked
+    private void D9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D9MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D9.setIcon(imageIcon);
+        SeatIDs.add("D9");
+    }//GEN-LAST:event_D9MouseClicked
 
-    private void seat43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat43MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat43.setIcon(imageIcon);
-    }//GEN-LAST:event_seat43MouseClicked
+    private void C9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C9MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C9.setIcon(imageIcon);
+        SeatIDs.add("C9");
+    }//GEN-LAST:event_C9MouseClicked
 
-    private void seat44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat44MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat44.setIcon(imageIcon);
-    }//GEN-LAST:event_seat44MouseClicked
+    private void B9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B9MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B9.setIcon(imageIcon);
+        SeatIDs.add("B9");
+    }//GEN-LAST:event_B9MouseClicked
 
-    private void seat45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat45MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat45.setIcon(imageIcon);
-    }//GEN-LAST:event_seat45MouseClicked
+    private void A9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A9MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A9.setIcon(imageIcon);
+        SeatIDs.add("A9");
+    }//GEN-LAST:event_A9MouseClicked
 
-    private void seat46MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat46MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat46.setIcon(imageIcon);
-    }//GEN-LAST:event_seat46MouseClicked
+    private void E10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E10MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        E10.setIcon(imageIcon);
+        SeatIDs.add("E10");
+    }//GEN-LAST:event_E10MouseClicked
 
-    private void seat47MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat47MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat47.setIcon(imageIcon);
-    }//GEN-LAST:event_seat47MouseClicked
+    private void D10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D10MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        D10.setIcon(imageIcon);
+        SeatIDs.add("D10");
+    }//GEN-LAST:event_D10MouseClicked
 
-    private void seat48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat48MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat48.setIcon(imageIcon);
-    }//GEN-LAST:event_seat48MouseClicked
+    private void C10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C10MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        C10.setIcon(imageIcon);
+        SeatIDs.add("C10");
+    }//GEN-LAST:event_C10MouseClicked
 
-    private void seat49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat49MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat49.setIcon(imageIcon);
-    }//GEN-LAST:event_seat49MouseClicked
+    private void B10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B10MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        B10.setIcon(imageIcon);
+        SeatIDs.add("B10");
+    }//GEN-LAST:event_B10MouseClicked
 
-    private void seat50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat50MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
-        seat50.setIcon(imageIcon);
-    }//GEN-LAST:event_seat50MouseClicked
+    private void A10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A10MouseClicked
+        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+        A10.setIcon(imageIcon);
+        SeatIDs.add("A10");
+    }//GEN-LAST:event_A10MouseClicked
 
     private void panBookMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panBookMouseEntered
         panBook.setBackground(new Color (153,0,255));
@@ -1057,6 +1177,21 @@ public class booked_ticket_form extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblBookMouseClicked
 
+    private void panBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panBookMouseClicked
+         for(int i = 0 ; i < SeatIDs.size() ; i++){
+            String s1 = SeatIDs.get(i).substring(0 , 1);
+            String s2 = SeatIDs.get(i).substring(1);
+            SeatIDs.set(i, (s2+s1));
+        }
+        
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        for(int i = 0 ; i < SeatIDs.size() ; i++){
+            Ticket ticket = (Ticket)go.load("Ticket" , movie.getMovieTicketsMap().get(movie.getMovieShowTimesList().get(showtime)+SeatIDs.get(i)));
+            tickets.add(ticket);
+        }
+        Ticketing.bookTicket(tickets);
+    }//GEN-LAST:event_panBookMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1093,6 +1228,56 @@ public class booked_ticket_form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel A1;
+    private javax.swing.JLabel A10;
+    private javax.swing.JLabel A2;
+    private javax.swing.JLabel A3;
+    private javax.swing.JLabel A4;
+    private javax.swing.JLabel A5;
+    private javax.swing.JLabel A6;
+    private javax.swing.JLabel A7;
+    private javax.swing.JLabel A8;
+    private javax.swing.JLabel A9;
+    private javax.swing.JLabel B1;
+    private javax.swing.JLabel B10;
+    private javax.swing.JLabel B2;
+    private javax.swing.JLabel B3;
+    private javax.swing.JLabel B4;
+    private javax.swing.JLabel B5;
+    private javax.swing.JLabel B6;
+    private javax.swing.JLabel B7;
+    private javax.swing.JLabel B8;
+    private javax.swing.JLabel B9;
+    private javax.swing.JLabel C1;
+    private javax.swing.JLabel C10;
+    private javax.swing.JLabel C2;
+    private javax.swing.JLabel C3;
+    private javax.swing.JLabel C4;
+    private javax.swing.JLabel C5;
+    private javax.swing.JLabel C6;
+    private javax.swing.JLabel C7;
+    private javax.swing.JLabel C8;
+    private javax.swing.JLabel C9;
+    private javax.swing.JLabel D1;
+    private javax.swing.JLabel D10;
+    private javax.swing.JLabel D2;
+    private javax.swing.JLabel D3;
+    private javax.swing.JLabel D4;
+    private javax.swing.JLabel D5;
+    private javax.swing.JLabel D6;
+    private javax.swing.JLabel D7;
+    private javax.swing.JLabel D8;
+    private javax.swing.JLabel D9;
+    private javax.swing.JLabel E1;
+    private javax.swing.JLabel E10;
+    private javax.swing.JLabel E2;
+    private javax.swing.JLabel E3;
+    private javax.swing.JLabel E4;
+    private javax.swing.JLabel E5;
+    private javax.swing.JLabel E6;
+    private javax.swing.JLabel E7;
+    private javax.swing.JLabel E8;
+    private javax.swing.JLabel E9;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -1100,55 +1285,5 @@ public class booked_ticket_form extends javax.swing.JFrame {
     private javax.swing.JLabel lblExit;
     private javax.swing.JPanel panBook;
     private javax.swing.JPanel panExit;
-    private javax.swing.JLabel seat1;
-    private javax.swing.JLabel seat10;
-    private javax.swing.JLabel seat11;
-    private javax.swing.JLabel seat12;
-    private javax.swing.JLabel seat13;
-    private javax.swing.JLabel seat14;
-    private javax.swing.JLabel seat15;
-    private javax.swing.JLabel seat16;
-    private javax.swing.JLabel seat17;
-    private javax.swing.JLabel seat18;
-    private javax.swing.JLabel seat19;
-    private javax.swing.JLabel seat2;
-    private javax.swing.JLabel seat20;
-    private javax.swing.JLabel seat21;
-    private javax.swing.JLabel seat22;
-    private javax.swing.JLabel seat23;
-    private javax.swing.JLabel seat24;
-    private javax.swing.JLabel seat25;
-    private javax.swing.JLabel seat26;
-    private javax.swing.JLabel seat27;
-    private javax.swing.JLabel seat28;
-    private javax.swing.JLabel seat29;
-    private javax.swing.JLabel seat3;
-    private javax.swing.JLabel seat30;
-    private javax.swing.JLabel seat31;
-    private javax.swing.JLabel seat32;
-    private javax.swing.JLabel seat33;
-    private javax.swing.JLabel seat34;
-    private javax.swing.JLabel seat35;
-    private javax.swing.JLabel seat36;
-    private javax.swing.JLabel seat37;
-    private javax.swing.JLabel seat38;
-    private javax.swing.JLabel seat39;
-    private javax.swing.JLabel seat4;
-    private javax.swing.JLabel seat40;
-    private javax.swing.JLabel seat41;
-    private javax.swing.JLabel seat42;
-    private javax.swing.JLabel seat43;
-    private javax.swing.JLabel seat44;
-    private javax.swing.JLabel seat45;
-    private javax.swing.JLabel seat46;
-    private javax.swing.JLabel seat47;
-    private javax.swing.JLabel seat48;
-    private javax.swing.JLabel seat49;
-    private javax.swing.JLabel seat5;
-    private javax.swing.JLabel seat50;
-    private javax.swing.JLabel seat6;
-    private javax.swing.JLabel seat7;
-    private javax.swing.JLabel seat8;
-    private javax.swing.JLabel seat9;
     // End of variables declaration//GEN-END:variables
 }
