@@ -32,8 +32,9 @@ public class Ticket implements Serializable{
         if(ticketSeat.isBooked()){
             isBookedByte = 1;
         }
+        SimpleDateFormat s = new SimpleDateFormat("dd");
         String oldTicketID = ticketID;
-        ticketID = String.valueOf( ticketCinema.getCinemaID() ) + String.valueOf(ticketShowTime.getYear()) + String.valueOf(ticketShowTime.getMonth() + String.valueOf(ticketShowTime.getDay()) + String.valueOf(ticketShowTime.getHours()) + ticketShowTime.getMinutes()) + ticketSeat.getSeatID() + isBookedByte;
+        ticketID = String.valueOf( ticketCinema.getCinemaID() ) + String.valueOf(ticketShowTime.getYear()+1900) + String.valueOf((ticketShowTime.getMonth()+1) + s.format(ticketShowTime) + String.valueOf(ticketShowTime.getHours()) + ticketShowTime.getMinutes()) + ticketSeat.getSeatID() + isBookedByte;
         go.rename("Ticket" , oldTicketID , ticketID);
         go.save("Ticket" , ticketList);
     }

@@ -28,16 +28,20 @@ public class Ticketing {
         }
     }
 
-    public static void cancelTicket(String ticketID){
-        Ticket ticket = (Ticket)go.load("Ticket" , ticketID);
-        if(ticket == null){
+    public static boolean cancelTicket(String ticketID){
+        Object object = (Ticket)go.load("Ticket" , ticketID);
+        if(object == null){
             System.out.println("ticketID Not Found!");
+            return false;
         }else{
+            Ticket ticket = (Ticket)object;
             if(ticket.getTicketSeatStatus()){
                 ticket.setTicketSeatStatus(false);
                 System.out.println("ticket Have been canceled Successfully ");
+                return true;
             }else{
                 System.out.println("ticket is Not Booked!");
+                return false;
             }
         }
     }
