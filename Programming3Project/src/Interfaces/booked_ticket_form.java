@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import Action.Ticketing;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -457,11 +458,14 @@ public class booked_ticket_form extends javax.swing.JFrame {
         lblBook.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         lblBook.setText("book");
         lblBook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblBookMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBookMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblBookMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblBookMouseEntered(evt);
             }
         });
 
@@ -1048,6 +1052,10 @@ public class booked_ticket_form extends javax.swing.JFrame {
         panExit.setBackground(Color.WHITE);
         lblExit.setForeground(Color.BLACK);
     }//GEN-LAST:event_lblExitMouseExited
+
+    private void lblBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookMouseClicked
+        
+    }//GEN-LAST:event_lblBookMouseClicked
 
     /**
      * @param args the command line arguments

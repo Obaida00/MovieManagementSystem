@@ -1,5 +1,8 @@
 package Interfaces;
 
+
+import Action.go;
+import static Interfaces.HomeScreen.CATAGORY_LENGTH;
 import MainPackage.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -7,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
-import MainPackage.User;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -1431,12 +1433,21 @@ public class HomeScreen extends javax.swing.JFrame {
 
   private void changepwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtnActionPerformed
     String password = new String(txtpw1.getPassword());
-    if (!password.equals(new String(txtpw2.getPassword()))) {
+    String password2 = new String(txtpw2.getPassword());
+    if(password.isEmpty() || password2.isEmpty()){
+        //fields shouldn't be empty
+        changetxt.setForeground(new Color(255, 102, 102));
+        changetxt.setText("Please Don't Leave Empty Fields!");
+        return;
+    }
+    if(!password.equals(password2)){
       changetxt.setForeground(new Color(255, 102, 102));
       changetxt.setText("Your Password Confirm is incurrect");
       return;
     }
     //Call setPassword()
+    User user = go.getCurrentUser();
+    user.setUserPassword(password);
     changetxt.setForeground(new Color(51, 204, 0));
     changetxt.setText("Your password is successfuly changed");
   }//GEN-LAST:event_changepwBtnActionPerformed
@@ -1599,8 +1610,54 @@ class rowScrollPanel extends JPanel {
         MovieObjectPanel panel = new MovieObjectPanel(movie);
         this.add(panel);
     }
-    }catch(Exception e){
-      System.out.println(e);
+  }
+  
+// قراءة بيانات الأفلام من القائمة
+      private Map<String, ImageIcon> getMovies() {
+//        Map<String, ImageIcon> movies = new HashMap<>();
+        //ArrayList <Movie> total = Movie.getMovieList();
+        //test code remove and uncomment the next commented block 
+//        ImageIcon whatMenWant = new ImageIcon(getClass().getResource("/res/temp posters/What men want.jpg"));
+//        ImageIcon Emanc = new ImageIcon(getClass().getResource("/res/temp posters/Emancipation.jpg"));
+//        ImageIcon FFA = new ImageIcon(getClass().getResource("/res/temp posters/Five feet apart.jpg"));
+//        ImageIcon lucy = new ImageIcon(getClass().getResource("/res/temp posters/LUCY.jpg"));
+//        ImageIcon ad = new ImageIcon(getClass().getResource("/res/temp posters/AD astra.jpg"));
+//        ImageIcon tnbc = new ImageIcon(getClass().getResource("/res/temp posters/The Nightmare Before Cristmass.jpg"));
+//        ImageIcon ER = new ImageIcon(getClass().getResource("/res/temp posters/Escape room.jpg"));
+//        ImageIcon ninja = new ImageIcon(getClass().getResource("/res/temp posters/Ternet Ninja.jpg"));
+//        ImageIcon hell = new ImageIcon(getClass().getResource("/res/temp posters/HellBoy.jpg"));
+//        ImageIcon am = new ImageIcon(getClass().getResource("/res/temp posters/AboMinable.jpg"));
+//        ImageIcon pool = new ImageIcon(getClass().getResource("/res/temp posters/The Pool.jpg"));
+//        ImageIcon tpoh = new ImageIcon(getClass().getResource("/res/temp posters/The Pursuite of happyness.jpg"));
+//        for (int i = 0; i < HomeScreen.CATAGORY_LENGTH; i++) {
+//          movies.put("What Men Want" , whatMenWant);
+//          movies.put("Five Feet Apart" , FFA); movies.put("What Men Want" , whatMenWant)
+//          movies.put("Emancepation" , Emanc);
+//          movies.put("The  happyness" , tpoh);
+//          movies.put("LUCY" , lucy);
+//          movies.put("The   Cristmass" , tnbc);
+//          movies.put("Escape room" , ER);
+//          movies.put("AD astra" , ad);
+//          movies.put("Ternet Ninja" , ninja);
+//          movies.put("The happyness" , tpoh);
+//          movies.put("HellBoy" , hell);
+//          movies.put("AboMinable" , am);
+//          movies.put("The Pool" , pool);
+//          movies.put("The   happyness" , tpoh);
+//        }
+
+
+        Map<String, ImageIcon> movies = new HashMap<>();
+    
+        int i=0;
+        while(movies.size()<CATAGORY_LENGTH && i < Movie.getMovieList().size()){
+          if(Movie.getMovieList().get(i).getMovieType() == type){
+            movies.put(Movie.getMovieList().get(i).getMovieTitle(), Movie.getMovieList().get(i).getMovieImage());
+          }
+          i++;
+        }
+        
+        return movies;
     }
   }
 
