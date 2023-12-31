@@ -1610,10 +1610,12 @@ class rowScrollPanel extends JPanel {
         MovieObjectPanel panel = new MovieObjectPanel(movie);
         this.add(panel);
     }
+  }catch(Exception e){
+      System.out.println(e);
   }
-  
+  }
 // قراءة بيانات الأفلام من القائمة
-      private Map<String, ImageIcon> getMovies() {
+      private ArrayList<Movie> getMovies() {
 //        Map<String, ImageIcon> movies = new HashMap<>();
         //ArrayList <Movie> total = Movie.getMovieList();
         //test code remove and uncomment the next commented block 
@@ -1647,12 +1649,14 @@ class rowScrollPanel extends JPanel {
 //        }
 
 
-        Map<String, ImageIcon> movies = new HashMap<>();
+        ArrayList<Movie> movies = new ArrayList<>();
+        ArrayList<Movie> movieList = Movie.getMovieList();
     
         int i=0;
         while(movies.size()<CATAGORY_LENGTH && i < Movie.getMovieList().size()){
-          if(Movie.getMovieList().get(i).getMovieType() == type){
-            movies.put(Movie.getMovieList().get(i).getMovieTitle(), Movie.getMovieList().get(i).getMovieImage());
+          Movie movie = movieList.get(i);
+          if(movie.getMovieType() == type){
+            movies.add(movie);
           }
           i++;
         }
@@ -1660,27 +1664,27 @@ class rowScrollPanel extends JPanel {
         return movies;
     }
   }
-
-// قراءة بيانات الأفلام من القائمة
-  private ArrayList<Movie> getMovies() {
-
-    ArrayList<Movie> movies = new ArrayList<>();
-    ArrayList<Movie> total = Movie.getMovieList();
-    try {
-      int i = 0;
-      while (movies.size() < HomeScreen.CATAGORY_LENGTH && i < total.size()) {
-        Movie movie = total.get(i);
-        if (movie.getMovieType() == type) {
-          movies.add(movie);
-        }
-        i++;
-      }
-
-      return movies;
-    } catch(Exception e) {
-      System.out.println(e);
-    }finally{
-      return null;
-    }
-  }
-}
+//
+//// قراءة بيانات الأفلام من القائمة
+//  private ArrayList<Movie> getMovies() {
+//
+//    ArrayList<Movie> movies = new ArrayList<>();
+//    ArrayList<Movie> total = Movie.getMovieList();
+//    try {
+//      int i = 0;
+//      while (movies.size() < HomeScreen.CATAGORY_LENGTH && i < total.size()) {
+//        Movie movie = total.get(i);
+//        if (movie.getMovieType() == type) {
+//          movies.add(movie);
+//        }
+//        i++;
+//      }
+//
+//      return movies;
+//    } catch(Exception e) {
+//      System.out.println(e);
+//    }finally{
+//      return null;
+//    }
+//  }
+//}

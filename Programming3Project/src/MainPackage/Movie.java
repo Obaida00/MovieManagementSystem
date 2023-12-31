@@ -18,12 +18,12 @@ public class Movie implements Serializable{
     private static int movieIDInitializer;
     private static ArrayList<Movie> movieList;
 
-    public Movie(String movieTitle, Type movieType, int movieRating, ImageIcon movieImage, Cinema movieCinema
+    public Movie(String movieTitle, Type movieType, int movieRating, String movieImagePath, Cinema movieCinema
                 ,int year , int month , int day) {
         this.movieTitle = movieTitle;
         this.movieType = movieType;
         this.movieRating = movieRating;
-        this.movieImage = movieImage;
+        this.movieImage = new javax.swing.ImageIcon(getClass().getResource(movieImagePath));
         this.movieCinema = movieCinema;
         movieID = movieIDInitializer;
         movieIDInitializer++;

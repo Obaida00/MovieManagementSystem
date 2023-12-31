@@ -27,7 +27,6 @@ class MovieObjectPanel extends JPanel {
   
 public MovieObjectPanel(Movie movie){
   this.movie = movie;
-
     this.setLayout(new BorderLayout());
     this.setBackground(new Color(0, 0, 0, 1));
     this.setBorder(null);
@@ -57,7 +56,7 @@ public MovieObjectPanel(Movie movie){
 
   private void movieMouseClicked(java.awt.event.MouseEvent evt) {
     //this will be a pop up
-    new movie_form(movie);
+//    new movie_form(movie);//
     
   }
 }
