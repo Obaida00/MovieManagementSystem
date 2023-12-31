@@ -859,114 +859,114 @@ public class HomeScreen extends javax.swing.JFrame {
     AccountIDLbl.setText("192.175.1");
     userPanel.add(AccountIDLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 527, 183, 30));
 
-    pageCardPanel.add(userPanel, "CardUser");
+        pageCardPanel.add(userPanel, "CardUser");
 
-    settingsPanel.setBackground(new java.awt.Color(4, 15, 19));
+        settingsPanel.setBackground(new java.awt.Color(4, 15, 19));
 
-    changePasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-    changePasswordLabel.setForeground(new java.awt.Color(251, 251, 255));
-    changePasswordLabel.setText("Change Password...");
+        changePasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        changePasswordLabel.setForeground(new java.awt.Color(251, 251, 255));
+        changePasswordLabel.setText("Change Password...");
 
-    hidenpw1.setBackground(new Color(0,0,0,0));
-    hidenpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
-    hidenpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    hidenpw1.setOpaque(true);
-    hidenpw1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        hidenpw1MouseClicked(evt);
-      }
-    });
+        hidenpw1.setBackground(new Color(0,0,0,0));
+        hidenpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+        hidenpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hidenpw1.setOpaque(true);
+        hidenpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidenpw1MouseClicked(evt);
+            }
+        });
 
-    pwLable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    pwLable1.setForeground(new java.awt.Color(255, 255, 255));
-    pwLable1.setText("New Password");
+        pwLable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        pwLable1.setForeground(new java.awt.Color(255, 255, 255));
+        pwLable1.setText("New Password");
 
-    pwLine1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-    pwLine1.setForeground(new java.awt.Color(255, 255, 255));
-    pwLine1.setText("______________________________");
+        pwLine1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        pwLine1.setForeground(new java.awt.Color(255, 255, 255));
+        pwLine1.setText("______________________________");
 
-    txtpw1.setBackground(new Color(0,0,0,1));
-    txtpw1.setForeground(new java.awt.Color(255, 255, 255));
-    txtpw1.setBorder(null);
-    txtpw1.setCaretColor(new java.awt.Color(255, 255, 255));
-    txtpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtpw1.setBackground(new Color(0,0,0,1));
+        txtpw1.setForeground(new java.awt.Color(255, 255, 255));
+        txtpw1.setBorder(null);
+        txtpw1.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-    shownpw1.setVisible(false);
-    shownpw1.setEnabled(false);
-    hidenpw1.setVisible(true);
-    hidenpw1.setEnabled(true);
-    shownpw1.setBackground(new Color(0,0,0,0));
-    shownpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
-    shownpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    shownpw1.setOpaque(true);
-    shownpw1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        shownpw1MouseClicked(evt);
-      }
-    });
+        shownpw1.setVisible(false);
+        shownpw1.setEnabled(false);
+        hidenpw1.setVisible(true);
+        hidenpw1.setEnabled(true);
+        shownpw1.setBackground(new Color(0,0,0,0));
+        shownpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+        shownpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        shownpw1.setOpaque(true);
+        shownpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shownpw1MouseClicked(evt);
+            }
+        });
 
-    txtpw2.setBackground(new Color(0,0,0,1));
-    txtpw2.setForeground(new java.awt.Color(255, 255, 255));
-    txtpw2.setBorder(null);
-    txtpw2.setCaretColor(new java.awt.Color(255, 255, 255));
-    txtpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtpw2.setBackground(new Color(0,0,0,1));
+        txtpw2.setForeground(new java.awt.Color(255, 255, 255));
+        txtpw2.setBorder(null);
+        txtpw2.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-    shownpw2.setVisible(false);
-    shownpw2.setEnabled(false);
-    hidenpw2.setVisible(true);
-    hidenpw2.setEnabled(true);
-    hidenpw2.setBackground(new Color(0,0,0,0));
-    hidenpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
-    hidenpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    hidenpw2.setOpaque(true);
-    hidenpw2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        hidenpw2MouseClicked(evt);
-      }
-    });
+        shownpw2.setVisible(false);
+        shownpw2.setEnabled(false);
+        hidenpw2.setVisible(true);
+        hidenpw2.setEnabled(true);
+        hidenpw2.setBackground(new Color(0,0,0,0));
+        hidenpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+        hidenpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hidenpw2.setOpaque(true);
+        hidenpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidenpw2MouseClicked(evt);
+            }
+        });
 
-    pwLine2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-    pwLine2.setForeground(new java.awt.Color(255, 255, 255));
-    pwLine2.setText("______________________________");
+        pwLine2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        pwLine2.setForeground(new java.awt.Color(255, 255, 255));
+        pwLine2.setText("______________________________");
 
-    shownpw2.setBackground(new Color(0,0,0,0));
-    shownpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
-    shownpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    shownpw2.setOpaque(true);
-    shownpw2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        shownpw2MouseClicked(evt);
-      }
-    });
+        shownpw2.setBackground(new Color(0,0,0,0));
+        shownpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+        shownpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        shownpw2.setOpaque(true);
+        shownpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shownpw2MouseClicked(evt);
+            }
+        });
 
-    pwLable2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    pwLable2.setForeground(new java.awt.Color(255, 255, 255));
-    pwLable2.setText("Confirm Password");
+        pwLable2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        pwLable2.setForeground(new java.awt.Color(255, 255, 255));
+        pwLable2.setText("Confirm Password");
 
-    changepwBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    changepwBtn.setText(" Change Password");
-    changepwBtn.setBorder(null);
-    changepwBtn.setBorderPainted(false);
-    changepwBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    changepwBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    changepwBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        changepwBtnActionPerformed(evt);
-      }
-    });
+        changepwBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        changepwBtn.setText(" Change Password");
+        changepwBtn.setBorder(null);
+        changepwBtn.setBorderPainted(false);
+        changepwBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        changepwBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        changepwBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changepwBtnActionPerformed(evt);
+            }
+        });
 
-    changepwBtn1.setBackground(new java.awt.Color(255, 102, 102));
-    changepwBtn1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-    changepwBtn1.setText("Log out");
-    changepwBtn1.setBorder(null);
-    changepwBtn1.setBorderPainted(false);
-    changepwBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    changepwBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    changepwBtn1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        changepwBtn1ActionPerformed(evt);
-      }
-    });
+        changepwBtn1.setBackground(new java.awt.Color(255, 102, 102));
+        changepwBtn1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        changepwBtn1.setText("Log out");
+        changepwBtn1.setBorder(null);
+        changepwBtn1.setBorderPainted(false);
+        changepwBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        changepwBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        changepwBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changepwBtn1ActionPerformed(evt);
+            }
+        });
 
     javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
     settingsPanel.setLayout(settingsPanelLayout);
@@ -1054,76 +1054,76 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGap(53, 53, 53))
     );
 
-    pageCardPanel.add(settingsPanel, "CardSettings");
+        pageCardPanel.add(settingsPanel, "CardSettings");
 
-    mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
+        mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
 
-    getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
-    sidebar.setBackground(new java.awt.Color(251, 251, 255));
-    sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
-    sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sidebar.setBackground(new java.awt.Color(251, 251, 255));
+        sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
+        sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
-    userIcn.setPreferredSize(new java.awt.Dimension(60, 60));
-    userIcn.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        userIcnMouseClicked(evt);
-      }
-    });
-    sidebar.add(userIcn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
+        userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
+        userIcn.setPreferredSize(new java.awt.Dimension(60, 60));
+        userIcn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userIcnMouseClicked(evt);
+            }
+        });
+        sidebar.add(userIcn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
 
-    homeIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    homeIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
-    homeIcnDefault.setEnabled(false);
-    homeIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
-    homeIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        homeIcnDefaultMouseClicked(evt);
-      }
-    });
-    sidebar.add(homeIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 89, -1, -1));
+        homeIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
+        homeIcnDefault.setEnabled(false);
+        homeIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+        homeIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeIcnDefaultMouseClicked(evt);
+            }
+        });
+        sidebar.add(homeIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 89, -1, -1));
 
-    moviesIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieDefault.png"))); // NOI18N
-    moviesIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
-    moviesIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        moviesIcnDefaultMouseClicked(evt);
-      }
-    });
-    sidebar.add(moviesIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
+        moviesIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        moviesIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieDefault.png"))); // NOI18N
+        moviesIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+        moviesIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moviesIcnDefaultMouseClicked(evt);
+            }
+        });
+        sidebar.add(moviesIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
 
-    settingsIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    settingsIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
-    settingsIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
-    settingsIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        settingsIcnDefaultMouseClicked(evt);
-      }
-    });
-    sidebar.add(settingsIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 60, -1));
+        settingsIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        settingsIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsDefault.png"))); // NOI18N
+        settingsIcnDefault.setPreferredSize(new java.awt.Dimension(60, 40));
+        settingsIcnDefault.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsIcnDefaultMouseClicked(evt);
+            }
+        });
+        sidebar.add(settingsIcnDefault, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 60, -1));
 
-    homeIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    homeIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeSelected.png"))); // NOI18N
-    homeIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
-    sidebar.add(homeIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
+        homeIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeSelected.png"))); // NOI18N
+        homeIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
+        sidebar.add(homeIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
-    moviesIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    moviesIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieSelected.png"))); // NOI18N
-    sidebar.add(moviesIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
+        moviesIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        moviesIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/movieSelected.png"))); // NOI18N
+        sidebar.add(moviesIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 147, -1, -1));
 
-    settingsIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    settingsIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsSelected.png"))); // NOI18N
-    settingsIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
-    sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, -1, -1));
+        settingsIcnSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        settingsIcnSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/sittingsSelected.png"))); // NOI18N
+        settingsIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
+        sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, -1, -1));
 
-    getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
+        getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
-    setSize(new java.awt.Dimension(1301, 638));
-    setLocationRelativeTo(null);
-  }// </editor-fold>//GEN-END:initComponents
+        setSize(new java.awt.Dimension(1301, 638));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
 
   private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
     System.exit(0);
@@ -1185,11 +1185,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowRight3MouseClicked
 
   private void arrowRight3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight3MouseEntered
-    arrowRight3.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+    arrowRight3.setIcon(new ImageIcon("src\\res\\ArrowRightHover-01.png"));
   }//GEN-LAST:event_arrowRight3MouseEntered
 
   private void arrowRight3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight3MouseExited
-    arrowRight3.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+    arrowRight3.setIcon(new ImageIcon("src\\res\\ArrowRightDefault-01.png"));
   }//GEN-LAST:event_arrowRight3MouseExited
 
   private void arrowLeft1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MousePressed
@@ -1197,11 +1197,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowLeft1MousePressed
 
   private void arrowLeft1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseExited
-    arrowLeft1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftDefault-01.png"));
+    arrowLeft1.setIcon(new ImageIcon("src\\res\\ArrowLeftDefault-01.png"));
   }//GEN-LAST:event_arrowLeft1MouseExited
 
   private void arrowLeft1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseEntered
-    arrowLeft1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftHover-01.png"));
+    arrowLeft1.setIcon(new ImageIcon("src\\res\\ArrowLeftHover-01.png"));
   }//GEN-LAST:event_arrowLeft1MouseEntered
 
   private void arrowLeft1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseClicked
@@ -1211,11 +1211,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowLeft1MouseClicked
 
   private void arrowRight1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseExited
-    arrowRight1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+    arrowRight1.setIcon(new ImageIcon("src\\res\\ArrowRightDefault-01.png"));
   }//GEN-LAST:event_arrowRight1MouseExited
 
   private void arrowRight1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseEntered
-    arrowRight1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+    arrowRight1.setIcon(new ImageIcon("src\\res\\ArrowRightHover-01.png"));
   }//GEN-LAST:event_arrowRight1MouseEntered
 
   private void arrowRight1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseClicked
@@ -1345,7 +1345,7 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_changepwBtnActionPerformed
 
   private void panClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClickMouseClicked
-     new my_tickets_form();
+    new booked_ticket_form();
   }//GEN-LAST:event_panClickMouseClicked
 
   private void panClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClick1MouseClicked
@@ -1559,29 +1559,5 @@ class rowScrollPanel extends JPanel {
         }
         
         return movies;
-    }
-  }
-//
-//// قراءة بيانات الأفلام من القائمة
-//  private ArrayList<Movie> getMovies() {
-//
-//    ArrayList<Movie> movies = new ArrayList<>();
-//    ArrayList<Movie> total = Movie.getMovieList();
-//    try {
-//      int i = 0;
-//      while (movies.size() < HomeScreen.CATAGORY_LENGTH && i < total.size()) {
-//        Movie movie = total.get(i);
-//        if (movie.getMovieType() == type) {
-//          movies.add(movie);
-//        }
-//        i++;
-//      }
-//
-//      return movies;
-//    } catch(Exception e) {
-//      System.out.println(e);
-//    }finally{
-//      return null;
-//    }
-//  }
-//}
+    }  
+}

@@ -14,16 +14,12 @@ import javax.swing.ImageIcon;
 public class Main {
     public static void main(String[] args) {
         //if(go.loadUserMap() == null){
-//            mainInitialize();
+            //mainInitialize();
             //createMainData();
         //}
         LoadingScreen loadingScreen = new LoadingScreen();
-//        booked_ticket_form f=new booked_ticket_form();
-//        f.setVisible(true);
-       // my_tickets_form g =new my_tickets_form();
-      // new PaymentScreen();
-//       movie_form r=new movie_form();
-//       r.setVisible(true);
+        //booked_ticket_form f = new booked_ticket_form();
+        //f.setVisible(true);
     }
 
   

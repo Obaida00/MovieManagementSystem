@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 /**
- *
+ *c
  * @author Obaida
  */
 class MovieObjectPanel extends JPanel {
