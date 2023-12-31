@@ -5,8 +5,9 @@
  */
 package Interfaces;
 
-import Action.Ticketing;
+import MainPackage.Ticket;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,11 +16,16 @@ import javax.swing.ImageIcon;
  */
 public class booked_ticket_form extends javax.swing.JFrame {
 
+    public ArrayList<Ticket> a=new ArrayList<>();
+    public static int showtime;
     /**
      * Creates new form booked_ticket_form
      */
     public booked_ticket_form() {
         initComponents();
+        this.setVisible(rootPaneCheckingEnabled);
+        
+       
     }
 
     /**
@@ -93,6 +99,7 @@ public class booked_ticket_form extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         seat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
         seat1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -458,14 +465,11 @@ public class booked_ticket_form extends javax.swing.JFrame {
         lblBook.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         lblBook.setText("book");
         lblBook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBookMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblBookMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblBookMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblBookMouseEntered(evt);
             }
         });
 
@@ -617,7 +621,7 @@ public class booked_ticket_form extends javax.swing.JFrame {
                             .addComponent(seat50)
                             .addComponent(seat49)
                             .addComponent(seat48))
-                        .addContainerGap(173, Short.MAX_VALUE))
+                        .addContainerGap(171, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(seat47)
@@ -733,7 +737,7 @@ public class booked_ticket_form extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(seat5))))
                     .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(31, 31, 31)
                 .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -756,8 +760,17 @@ public class booked_ticket_form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seat1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarble.png");
+        
+        if(seat1.getIcon()==( new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBlack.png"))){
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBarbel.png");
         seat1.setIcon(imageIcon);
+        Object e=new Object();
+        e=seat1;
+        a.add((Ticket) e);
+        }else{
+           ImageIcon imageIcon = new ImageIcon("C:\\Users\\gtx\\Downloads\\Ali-GitHub1\\MovieManagementSystem\\Programming3Project\\src\\res\\seatBlack.png");
+           seat1.setIcon(imageIcon); 
+        }
     }//GEN-LAST:event_seat1MouseClicked
 
     private void seat2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seat2MouseClicked
@@ -1052,10 +1065,6 @@ public class booked_ticket_form extends javax.swing.JFrame {
         panExit.setBackground(Color.WHITE);
         lblExit.setForeground(Color.BLACK);
     }//GEN-LAST:event_lblExitMouseExited
-
-    private void lblBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookMouseClicked
-        
-    }//GEN-LAST:event_lblBookMouseClicked
 
     /**
      * @param args the command line arguments

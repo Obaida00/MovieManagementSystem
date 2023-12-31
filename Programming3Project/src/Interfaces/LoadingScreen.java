@@ -26,6 +26,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
+    
   }
 
   public void setting() {
