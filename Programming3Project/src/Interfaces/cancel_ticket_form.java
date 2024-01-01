@@ -310,13 +310,13 @@ public class cancel_ticket_form extends javax.swing.JFrame {
 
   private void lblClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClick1MouseClicked
     String ticketID = TicketIDTxt.getText();
-    String s= TicketIDTxt.getText();
-    if(cancelTicket(s)==false){
-        NotFoundTicketLbl.setForeground(Color.RED);
-        NotFoundTicketLbl.setText("The Ticket Not Found !");
-    }else{
-        cancelTicket(s);
-        this.dispose();
+    String s = TicketIDTxt.getText();
+    if (cancelTicket(s) == false) {
+      NotFoundTicketLbl.setForeground(Color.RED);
+      NotFoundTicketLbl.setText("The Ticket Not Found !");
+    } else {
+      cancelTicket(s);
+      this.dispose();
     }
   }//GEN-LAST:event_lblClick1MouseClicked
 

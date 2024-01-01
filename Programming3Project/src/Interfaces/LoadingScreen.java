@@ -26,7 +26,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
-    
+
   }
 
   public void setting() {
@@ -132,9 +132,9 @@ public class LoadingScreen extends javax.swing.JFrame {
     try {
       //Here we cn call loading tasks (preffered in threads)
       go.loadAll();
-      if(Cinema.getCinemaIDInitializer() == 1){
+      if (Cinema.getCinemaIDInitializer() == 1) {
         Main.createMainData();
-      }else{
+      } else {
         Thread.sleep(LOADINGTIME);
       }
     } catch (InterruptedException ex) {

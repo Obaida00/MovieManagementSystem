@@ -576,28 +576,28 @@ public class sign_up_form extends javax.swing.JFrame {
   private void panButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panButtonMouseClicked
     String password = new String(pwtxt.getPassword());
     String confirmPassword = new String(confirmpwtxt.getPassword());
-    if(untxt.getText().isEmpty() || adrtxt.getText().isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
-            //Fields Shouldn't be Empty
-            signintxt.setForeground(new Color(255, 102, 102));
-            signintxt.setText("Please Don't Leave Empty Fields!");
-    }else{
-        if (!password.equals(confirmPassword)){
-            //password should equals confirm password
-            signintxt.setForeground(new Color(255, 102, 102));
-            signintxt.setText("Your Password Confirm is incorrect");
-            return;
-        }else{
-            if(go.isUsernameTaken(untxt.getText())){
-                //username shouldn't be taken from other user
-                signintxt.setForeground(new Color(255, 102, 102));
-                signintxt.setText(untxt.getText() + " username is taken!");
-            }else{
-                //create an account
-                User user = new User(untxt.getText() , password , adrtxt.getText());
-                signintxt.setForeground(new Color(51, 204, 0));
-                signintxt.setText("Your account has been created");
-            }
+    if (untxt.getText().isEmpty() || adrtxt.getText().isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+      //Fields Shouldn't be Empty
+      signintxt.setForeground(new Color(255, 102, 102));
+      signintxt.setText("Please Don't Leave Empty Fields!");
+    } else {
+      if (!password.equals(confirmPassword)) {
+        //password should equals confirm password
+        signintxt.setForeground(new Color(255, 102, 102));
+        signintxt.setText("Your Password Confirm is incorrect");
+        return;
+      } else {
+        if (go.isUsernameTaken(untxt.getText())) {
+          //username shouldn't be taken from other user
+          signintxt.setForeground(new Color(255, 102, 102));
+          signintxt.setText(untxt.getText() + " username is taken!");
+        } else {
+          //create an account
+          User user = new User(untxt.getText(), password, adrtxt.getText());
+          signintxt.setForeground(new Color(51, 204, 0));
+          signintxt.setText("Your account has been created");
         }
+      }
     }
   }//GEN-LAST:event_panButtonMouseClicked
 
@@ -607,31 +607,31 @@ public class sign_up_form extends javax.swing.JFrame {
   }//GEN-LAST:event_lblClickHereMouseClicked
 
     private void lblButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonMouseClicked
-    String password = new String(pwtxt.getPassword());
-    String confirmPassword = new String(confirmpwtxt.getPassword());
-    if(untxt.getText().isEmpty() || adrtxt.getText().isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
-            //Fields Shouldn't be Empty
+      String password = new String(pwtxt.getPassword());
+      String confirmPassword = new String(confirmpwtxt.getPassword());
+      if (untxt.getText().isEmpty() || adrtxt.getText().isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        //Fields Shouldn't be Empty
+        signintxt.setForeground(new Color(255, 102, 102));
+        signintxt.setText("Please Don't Leave Empty Fields!");
+      } else {
+        if (!password.equals(confirmPassword)) {
+          //password should equals confirm password
+          signintxt.setForeground(new Color(255, 102, 102));
+          signintxt.setText("Your Password Confirm is incorrect");
+          return;
+        } else {
+          if (go.isUsernameTaken(untxt.getText())) {
+            //username shouldn't be taken from other user
             signintxt.setForeground(new Color(255, 102, 102));
-            signintxt.setText("Please Don't Leave Empty Fields!");
-    }else{
-        if (!password.equals(confirmPassword)){
-            //password should equals confirm password
-            signintxt.setForeground(new Color(255, 102, 102));
-            signintxt.setText("Your Password Confirm is incorrect");
-            return;
-        }else{
-            if(go.isUsernameTaken(untxt.getText())){
-                //username shouldn't be taken from other user
-                signintxt.setForeground(new Color(255, 102, 102));
-                signintxt.setText(untxt.getText() + " username is taken!");
-            }else{
-                //create an account
-                User user = new User(untxt.getText() , password , adrtxt.getText());
-                signintxt.setForeground(new Color(51, 204, 0));
-                signintxt.setText("Your account has been created");
-            }
+            signintxt.setText(untxt.getText() + " username is taken!");
+          } else {
+            //create an account
+            User user = new User(untxt.getText(), password, adrtxt.getText());
+            signintxt.setForeground(new Color(51, 204, 0));
+            signintxt.setText("Your account has been created");
+          }
         }
-    }
+      }
     }//GEN-LAST:event_lblButtonMouseClicked
 
     private void lblButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblButtonMouseEntered
@@ -645,31 +645,31 @@ public class sign_up_form extends javax.swing.JFrame {
     }//GEN-LAST:event_lblButtonMouseExited
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        System.exit(0);
+      System.exit(0);
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
-        panExit1.setBackground(new Color(153,0,255));
-        lblExit.setForeground(Color.WHITE);
+      panExit1.setBackground(new Color(153, 0, 255));
+      lblExit.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblExitMouseEntered
 
     private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
-        panExit1.setBackground(new Color(4,15,22));
-        lblExit.setForeground(Color.WHITE);
+      panExit1.setBackground(new Color(4, 15, 22));
+      lblExit.setForeground(Color.WHITE);
     }//GEN-LAST:event_lblExitMouseExited
 
     private void panExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExit1MouseClicked
-        System.exit(0);
+      System.exit(0);
     }//GEN-LAST:event_panExit1MouseClicked
 
     private void panExit1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExit1MouseEntered
-        panExit1.setBackground(new Color(153,0,255));
-        lblExit.setForeground(Color.WHITE);
+      panExit1.setBackground(new Color(153, 0, 255));
+      lblExit.setForeground(Color.WHITE);
     }//GEN-LAST:event_panExit1MouseEntered
 
     private void panExit1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExit1MouseExited
-        panExit1.setBackground(new Color(4,15,22));
-        lblExit.setForeground(Color.WHITE);
+      panExit1.setBackground(new Color(4, 15, 22));
+      lblExit.setForeground(Color.WHITE);
     }//GEN-LAST:event_panExit1MouseExited
 
 

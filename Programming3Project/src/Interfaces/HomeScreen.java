@@ -1,6 +1,5 @@
 package Interfaces;
 
-
 import Action.go;
 import static Interfaces.HomeScreen.CATAGORY_LENGTH;
 import static Action.go.getCurrentUser;
@@ -8,8 +7,6 @@ import MainPackage.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.*;
 
 /*
@@ -37,7 +34,7 @@ public class HomeScreen extends javax.swing.JFrame {
     this.setVisible(true);
     this.setIcons(true, false, false);
     cardLayout = (CardLayout) (pageCardPanel.getLayout());
-    
+
     this.setUserData();
   }
 
@@ -1663,13 +1660,13 @@ public class HomeScreen extends javax.swing.JFrame {
   private void changepwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtnActionPerformed
     String password = new String(txtpw1.getPassword());
     String password2 = new String(txtpw2.getPassword());
-    if(password.isEmpty() || password2.isEmpty()){
-        //fields shouldn't be empty
-        changetxt.setForeground(new Color(255, 102, 102));
-        changetxt.setText("Please Don't Leave Empty Fields!");
-        return;
+    if (password.isEmpty() || password2.isEmpty()) {
+      //fields shouldn't be empty
+      changetxt.setForeground(new Color(255, 102, 102));
+      changetxt.setText("Please Don't Leave Empty Fields!");
+      return;
     }
-    if(!password.equals(password2)){
+    if (!password.equals(password2)) {
       changetxt.setForeground(new Color(255, 102, 102));
       changetxt.setText("Your Password Confirm is incurrect");
       return;
@@ -1699,13 +1696,13 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_changepwBtn1ActionPerformed
 
     private void lblClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClickMouseClicked
-        new my_tickets_form();
+      new my_tickets_form();
     }//GEN-LAST:event_lblClickMouseClicked
 
   private void arrowLeft4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = comedyScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft4MouseClicked
 
   private void arrowLeft4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseEntered
@@ -1737,7 +1734,7 @@ public class HomeScreen extends javax.swing.JFrame {
   private void arrowLeft5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = horrorScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft5MouseClicked
 
   private void arrowLeft5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseEntered
@@ -1769,7 +1766,7 @@ public class HomeScreen extends javax.swing.JFrame {
   private void arrowLeft6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = fantasyScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft6MouseClicked
 
   private void arrowLeft6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseEntered
@@ -1911,12 +1908,15 @@ public class HomeScreen extends javax.swing.JFrame {
   void addRowScrollPanel3() {
     romanceScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Romance));
   }
+
   void addRowScrollPanel4() {
     comedyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Comedy));
   }
+
   void addRowScrollPanel5() {
     horrorScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Horror));
   }
+
   void addRowScrollPanel6() {
     fantasyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Fantasy));
   }
@@ -1939,10 +1939,10 @@ public class HomeScreen extends javax.swing.JFrame {
   }
 
   private void setUserData() {
-    User user =getCurrentUser();
+    User user = getCurrentUser();
     userNameLabel.setText(user.getUserName());
     AddressLbl.setText(user.getUserAddress());
-    AccountIDLbl.setText("192.175."+user.getUserID());
+    AccountIDLbl.setText("192.175." + user.getUserID());
     userTicketCount.setText(String.valueOf(user.getUserBookedTickets().size()));
   }
 }
@@ -1961,20 +1961,21 @@ class rowScrollPanel extends JPanel {
 
     ArrayList<Movie> movies = getMovies();
     // إنشاء لوحة لكل فيلم وإضافتها إلى الإطار
-    try{
+    try {
       for (Movie movie : movies) {
         MovieObjectPanel panel = new MovieObjectPanel(movie);
         this.add(panel);
-    }
-  }catch(Exception e){
+      }
+    } catch (Exception e) {
       System.out.println(e);
-  }
+    }
   }
 // قراءة بيانات الأفلام من القائمة
-      private ArrayList<Movie> getMovies() {
+
+  private ArrayList<Movie> getMovies() {
 //        Map<String, ImageIcon> movies = new HashMap<>();
-        //ArrayList <Movie> total = Movie.getMovieList();
-        //test code remove and uncomment the next commented block 
+    //ArrayList <Movie> total = Movie.getMovieList();
+    //test code remove and uncomment the next commented block 
 //        ImageIcon whatMenWant = new ImageIcon(getClass().getResource("/res/temp posters/What men want.jpg"));
 //        ImageIcon Emanc = new ImageIcon(getClass().getResource("/res/temp posters/Emancipation.jpg"));
 //        ImageIcon FFA = new ImageIcon(getClass().getResource("/res/temp posters/Five feet apart.jpg"));
@@ -2004,19 +2005,18 @@ class rowScrollPanel extends JPanel {
 //          movies.put("The   happyness" , tpoh);
 //        }
 
+    ArrayList<Movie> movies = new ArrayList<>();
+    ArrayList<Movie> movieList = Movie.getMovieList();
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        ArrayList<Movie> movieList = Movie.getMovieList();
-    
-        int i=0;
-        while(movies.size()<CATAGORY_LENGTH && i < Movie.getMovieList().size()){
-          Movie movie = movieList.get(i);
-          if(movie.getMovieType() == type){
-            movies.add(movie);
-          }
-          i++;
-        }
-        
-        return movies;
-    }  
+    int i = 0;
+    while (movies.size() < CATAGORY_LENGTH && i < Movie.getMovieList().size()) {
+      Movie movie = movieList.get(i);
+      if (movie.getMovieType() == type) {
+        movies.add(movie);
+      }
+      i++;
+    }
+
+    return movies;
+  }
 }
