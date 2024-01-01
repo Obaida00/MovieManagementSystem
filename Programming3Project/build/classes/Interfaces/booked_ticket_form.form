@@ -33,11 +33,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -47,6 +43,11 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
 
       <Layout>
@@ -55,106 +56,112 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="A1" min="-2" max="-2" attributes="0"/>
+                      <Component id="B1" min="-2" max="-2" attributes="0"/>
+                      <Component id="C1" min="-2" max="-2" attributes="0"/>
+                      <Component id="D1" min="-2" max="-2" attributes="0"/>
+                      <Component id="E1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="A2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="B2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="C2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="D2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="E2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="A3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="B3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="C3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="D3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="E3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="A1" min="-2" max="-2" attributes="0"/>
-                              <Component id="B1" min="-2" max="-2" attributes="0"/>
-                              <Component id="C1" min="-2" max="-2" attributes="0"/>
-                              <Component id="D1" min="-2" max="-2" attributes="0"/>
-                              <Component id="E1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel2" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <EmptySpace min="276" pref="276" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="panBook" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblresult" min="-2" pref="279" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="A4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E4" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="A2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="B2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="C2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="D2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="E2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="A5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="A3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="B3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="C3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="D3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="E3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="A6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="A7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="A8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="A9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="B9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="C9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="D9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="E9" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="A4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="B4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="C4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="E4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="A10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="B10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="C10" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="A5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="B5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="C5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="E5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="A6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="B6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="C6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="E6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="A7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="B7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="C7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="E7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace pref="171" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jLabel2" min="-2" pref="174" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="D10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="E10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="panExit" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                          <Component id="panBook" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="A8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="B8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="C8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="D8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="E8" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="A9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="B9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="C9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="D9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="E9" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="A10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="B10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="C10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="173" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="D10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="E10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="panExit" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -281,11 +288,14 @@
                       </Group>
                       <Component id="panExit" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="panBook" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="panBook" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblresult" min="-2" pref="16" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -901,12 +911,14 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblExitMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblExitMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblExitMouseExited"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblExitMouseEntered"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="lblresult">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

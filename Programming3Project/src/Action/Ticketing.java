@@ -26,12 +26,12 @@ public class Ticketing {
         for(int i = 0 ; i < tickets.size() ; i++){
             tickets.get(i).setTicketSeatStatus(true);
             user.addBookedTicket(tickets.get(i));
-            JOptionPane.showMessageDialog(null, " Tickets Booked Successfully ");
         }
+        JOptionPane.showMessageDialog(null, " Tickets Booked Successfully ");
     }
 
     public static boolean cancelTicket(String ticketID){
-        Object object = (Ticket)go.load("Ticket" , ticketID);
+        Object object = go.load("Ticket" , ticketID);
         if(object == null){
             System.out.println("ticketID Not Found!");
             return false;

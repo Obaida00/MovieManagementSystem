@@ -13,26 +13,31 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author gtx
  */
 public class booked_ticket_form extends javax.swing.JFrame {
-    public static int showtime;
-    private ImageIcon imageIconRed = new ImageIcon("src\\res\\seatRed.png");
     private JLabel j=new JLabel(); 
     private ArrayList<String> SeatIDs;
-    private boolean isRed = false;
     private ArrayList<JLabel> labels;
-    private Movie movie = null;//Here we get the movie object which passed by the privious frame
+    private Movie movie;
+    private int showtime;
+    private boolean[][] isPurble;
+    private boolean[][] isRed;
     /**
      * Creates new form booked_ticket_form
      */
-    public booked_ticket_form() {
+    public booked_ticket_form(int showtime , Movie movie){
         initComponents();
+        this.showtime = showtime;
+        this.movie  = movie;
         this.setVisible(true);
-        j.setIcon(imageIconRed);
+        isPurble = new boolean[5][10];
+        isRed = new boolean[5][10];
+        //j.setIcon(imageIconRed);
         SeatIDs = new ArrayList<>();
         labels = new ArrayList<>();
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,31 +54,71 @@ public class booked_ticket_form extends javax.swing.JFrame {
             labels.add(D1);labels.add(D2);labels.add(D3);labels.add(D4);labels.add(D5);labels.add(D6);labels.add(D7);labels.add(D8);labels.add(D9);labels.add(D10);
             labels.add(E1);labels.add(E2);labels.add(E3);labels.add(E4);labels.add(E5);labels.add(E6);labels.add(E7);labels.add(E8);labels.add(E9);labels.add(E10);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        Thread t = new Thread(new Runnable(){
-            @Override
-            public void run(){
-                refreshSeatsStatus();
+        for(int i = 0 ; i < 5 ; i++){
+            for(int j = 0 ; j < 10 ; j++){
+                isPurble[i][j] = false;
+                isRed[i][j] = false;
             }
-        });
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        initializeSeatsStatus();
+//        Thread t = new Thread(new Runnable(){
+//            @Override
+//            public void run(){
+//                while(true){
+//                    refreshSeatsStatus();
+//                }
+//            }
+//        });
+//        t.start();
     }
     
-    public synchronized  void refreshSeatsStatus(){
-        ImageIcon imageIconBlack = new ImageIcon("src\\res\\seatBlack.png");
-        
+    public void initializeSeatsStatus(){
+        ImageIcon RedSeat = new ImageIcon("src\\res\\seatRed.png");
+        ImageIcon BlackSeat = new ImageIcon("src\\res\\seatBlack.png");
+        String SHOWTIME = go.createShowtimeID(movie.getMovieShowTimesList().get(showtime));
         for(int i = 0 ; i < labels.size() ; i++){
             String s1 = labels.get(i).getName().substring(0 , 1);
             String s2 = labels.get(i).getName().substring(1);
             String seatID = s2+s1;
-            Ticket ticket = (Ticket)go.load("Movies",movie.getMovieTicketsMap().get(seatID));
+            Ticket ticket = (Ticket)go.load("Ticket",movie.getMovieTicketsMap().get(SHOWTIME+seatID));
+            int I = Integer.valueOf(s2) - 1 , J; 
+            if(s1.equals("A")){J=0;}else if(s1.equals("B")){J=1;}else if(s1.equals("C")){J=2;}else if(s1.equals("D")){J=3;}else{J=4;}
             if(ticket.getTicketSeatStatus()){
-                labels.get(i).setIcon(imageIconRed);
+                labels.get(i).setIcon(RedSeat);
+                isRed[J][I] = true;
             }else{
-                labels.get(i).setIcon(imageIconBlack);
+                labels.get(i).setIcon(BlackSeat);
+                isRed[J][I] = false;
+            }
+                
+        }
+    }
+    
+    public synchronized void refreshSeatsStatus(){
+        ImageIcon imageIconBlack = new ImageIcon("src\\res\\seatBlack.png");
+        String SHOWTIME = go.createShowtimeID(movie.getMovieShowTimesList().get(showtime));
+        for(int i = 0 ; i < labels.size() ; i++){
+            String s1 = labels.get(i).getName().substring(0 , 1);
+            String s2 = labels.get(i).getName().substring(1);
+            String seatID = s2+s1;
+            Object object = go.load("Ticket",movie.getMovieTicketsMap().get(SHOWTIME + seatID));
+            Ticket ticket = (Ticket)object;
+            if(ticket.getTicketSeatStatus()){
+                //labels.get(i).setIcon(imageIconRed);
+                int I = Integer.valueOf(s2) - 1 , J; 
+                if(s1.equals("A")){J=0;}else if(s1.equals("B")){J=1;}else if(s1.equals("C")){J=2;}else if(s1.equals("D")){J=3;}else{J=4;}
+                isRed[J][I] = true;
+            }else{
+                int I = Integer.valueOf(s2) - 1 , J; 
+                if(s1.equals("A")){J=0;}else if(s1.equals("B")){J=1;}else if(s1.equals("C")){J=2;}else if(s1.equals("D")){J=3;}else{J=4;}
+                if(!isPurble[J][I]){
+                    labels.get(i).setIcon(imageIconBlack);                    
+                }
             }
         }
         try{
-            Thread.sleep(150);
+            Thread.sleep(250);
         }catch(InterruptedException e){
             System.out.println(e.getMessage());
         }
@@ -145,11 +190,13 @@ public class booked_ticket_form extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         panExit = new javax.swing.JPanel();
         lblExit = new javax.swing.JLabel();
+        lblresult = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         E1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/seatBlack.png"))); // NOI18N
         E1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -570,11 +617,11 @@ public class booked_ticket_form extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblExitMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblExitMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblExitMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
             }
         });
 
@@ -601,89 +648,94 @@ public class booked_ticket_form extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A1)
+                    .addComponent(B1)
+                    .addComponent(C1)
+                    .addComponent(D1)
+                    .addComponent(E1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A2)
+                    .addComponent(B2)
+                    .addComponent(C2)
+                    .addComponent(D2)
+                    .addComponent(E2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(A3)
+                    .addComponent(B3)
+                    .addComponent(C3)
+                    .addComponent(D3)
+                    .addComponent(E3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A1)
-                            .addComponent(B1)
-                            .addComponent(C1)
-                            .addComponent(D1)
-                            .addComponent(E1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(276, 276, 276))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblresult, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(A4)
+                            .addComponent(B4)
+                            .addComponent(C4)
+                            .addComponent(D4)
+                            .addComponent(E4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A2)
-                            .addComponent(B2)
-                            .addComponent(C2)
-                            .addComponent(D2)
-                            .addComponent(E2))
+                            .addComponent(A5)
+                            .addComponent(B5)
+                            .addComponent(C5)
+                            .addComponent(D5)
+                            .addComponent(E5))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A3)
-                            .addComponent(B3)
-                            .addComponent(C3)
-                            .addComponent(D3)
-                            .addComponent(E3))
+                            .addComponent(A6)
+                            .addComponent(B6)
+                            .addComponent(C6)
+                            .addComponent(D6)
+                            .addComponent(E6))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(A7)
+                            .addComponent(B7)
+                            .addComponent(C7)
+                            .addComponent(D7)
+                            .addComponent(E7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(A8)
+                            .addComponent(B8)
+                            .addComponent(C8)
+                            .addComponent(D8)
+                            .addComponent(E8))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(A9)
+                            .addComponent(B9)
+                            .addComponent(C9)
+                            .addComponent(D9)
+                            .addComponent(E9))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(A4)
-                                    .addComponent(B4)
-                                    .addComponent(C4)
-                                    .addComponent(D4)
-                                    .addComponent(E4))
-                                .addGap(18, 18, 18)
+                                    .addComponent(A10)
+                                    .addComponent(B10)
+                                    .addComponent(C10))
+                                .addContainerGap(171, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(A5)
-                                    .addComponent(B5)
-                                    .addComponent(C5)
-                                    .addComponent(D5)
-                                    .addComponent(E5))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(A6)
-                                    .addComponent(B6)
-                                    .addComponent(C6)
-                                    .addComponent(D6)
-                                    .addComponent(E6))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(A7)
-                                    .addComponent(B7)
-                                    .addComponent(C7)
-                                    .addComponent(D7)
-                                    .addComponent(E7)))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(A8)
-                    .addComponent(B8)
-                    .addComponent(C8)
-                    .addComponent(D8)
-                    .addComponent(E8))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(A9)
-                    .addComponent(B9)
-                    .addComponent(C9)
-                    .addComponent(D9)
-                    .addComponent(E9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A10)
-                            .addComponent(B10)
-                            .addComponent(C10))
-                        .addContainerGap(173, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(D10)
-                            .addComponent(E10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(D10)
+                                    .addComponent(E10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -793,11 +845,13 @@ public class booked_ticket_form extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(A1))))
                     .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel2)
-                .addGap(31, 31, 31)
-                .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblresult, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -808,10 +862,7 @@ public class booked_ticket_form extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -819,310 +870,553 @@ public class booked_ticket_form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void E1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E1MouseClicked
-        
-        ImageIcon imageIconBarble = new ImageIcon("src\\res\\seatBarble.png");
-        Object e1;
-        ImageIcon imageIconRed = new ImageIcon("src\\res\\seatRed.png"); 
-        boolean isEqual= E1.getIcon().equals(j.getIcon());
-        if(!isEqual){
-            E1.setIcon(imageIconBarble);
-            SeatIDs.add("E1");
-        }
+        //4,0//
+//        ImageIcon imageIconBarble = new ImageIcon("src\\res\\seatBarble.png");
+//        Object e1;
+//        ImageIcon imageIconRed = new ImageIcon("src\\res\\seatRed.png"); 
+//        boolean isEqual= E1.getIcon().equals(j.getIcon());
+//        if(!isEqual){
+//            E1.setIcon(imageIconBarble);
+//            SeatIDs.add("E1");
+//        }
         
     }//GEN-LAST:event_E1MouseClicked
 
     private void D1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D1.setIcon(imageIcon);
-        SeatIDs.add("D1");
+        if(!isRed[3][0] && !isPurble[3][0]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D1.setIcon(imageIcon);
+            SeatIDs.add("D1");
+            isPurble[3][0] = true;
+        }
     }//GEN-LAST:event_D1MouseClicked
 
     private void C1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C1.setIcon(imageIcon);
-        SeatIDs.add("C1");
+        if(!isRed[2][0] && !isPurble[2][0]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C1.setIcon(imageIcon);
+            SeatIDs.add("C1");
+            isPurble[2][0] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C1MouseClicked
 
     private void B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B1.setIcon(imageIcon);
-        SeatIDs.add("B1");
+        if(!isRed[1][0] && !isPurble[1][0]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B1.setIcon(imageIcon);
+            SeatIDs.add("B1");
+            isPurble[1][0] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B1MouseClicked
 
     private void A1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A1MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A1.setIcon(imageIcon);
-        SeatIDs.add("A1");
+        if(!isRed[0][0] && !isPurble[0][0]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A1.setIcon(imageIcon);
+            SeatIDs.add("A1");
+            isPurble[0][0] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A1MouseClicked
 
     private void E2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E2.setIcon(imageIcon);
-        SeatIDs.add("E2");
+        if(!isRed[4][1] && !isPurble[4][1]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E2.setIcon(imageIcon);
+            SeatIDs.add("E2");
+            isPurble[4][1] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E2MouseClicked
 
     private void D2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D2.setIcon(imageIcon);
-        SeatIDs.add("D2");
+        if(!isRed[3][1] && !isPurble[3][1]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D2.setIcon(imageIcon);
+            SeatIDs.add("D2");
+            isPurble[3][1] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D2MouseClicked
 
     private void C2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C2.setIcon(imageIcon);
-        SeatIDs.add("C2");
+        if(!isRed[2][1] && !isPurble[2][1]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C2.setIcon(imageIcon);
+            SeatIDs.add("C2");
+            isPurble[2][1] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C2MouseClicked
 
     private void B2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B2.setIcon(imageIcon);
-        SeatIDs.add("B2");
+        if(!isRed[1][1] && !isPurble[1][1]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B2.setIcon(imageIcon);
+            SeatIDs.add("B2");
+            isPurble[1][1] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B2MouseClicked
 
     private void A2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A2MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A2.setIcon(imageIcon);
-        SeatIDs.add("A2");
+        if(!isRed[0][1] && !isPurble[0][1]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A2.setIcon(imageIcon);
+            SeatIDs.add("A2");
+            isPurble[0][1] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A2MouseClicked
 
     private void E3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E3.setIcon(imageIcon);
-        SeatIDs.add("E3");
+        if(!isRed[4][2] && !isPurble[4][2]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E3.setIcon(imageIcon);
+            SeatIDs.add("E3");
+            isPurble[4][2] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E3MouseClicked
 
     private void D3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D3.setIcon(imageIcon);
-        SeatIDs.add("D3");
+        if(!isRed[3][2] && !isPurble[3][2]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D3.setIcon(imageIcon);
+            SeatIDs.add("D3");
+            isPurble[3][2] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D3MouseClicked
 
     private void C3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C3.setIcon(imageIcon);
-        SeatIDs.add("C3");
+        if(!isRed[2][2] && !isPurble[2][2]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C3.setIcon(imageIcon);
+            SeatIDs.add("C3");
+            isPurble[2][2] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C3MouseClicked
 
     private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B3.setIcon(imageIcon);
-        SeatIDs.add("B3");
+        if(!isRed[1][2] && !isPurble[1][2]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B3.setIcon(imageIcon);
+            SeatIDs.add("B3");
+            isPurble[1][2] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B3MouseClicked
 
     private void A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A3MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A3.setIcon(imageIcon);
-        SeatIDs.add("A3");
+        if(!isRed[0][2] && !isPurble[0][2]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A3.setIcon(imageIcon);
+            SeatIDs.add("A3");
+            isPurble[0][2] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A3MouseClicked
 
     private void E4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E4.setIcon(imageIcon);
-        SeatIDs.add("E4");
+        if(!isRed[4][3] && !isPurble[4][3]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E4.setIcon(imageIcon);
+            SeatIDs.add("E4");
+            isPurble[4][3] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E4MouseClicked
 
     private void D4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D4.setIcon(imageIcon);
-        SeatIDs.add("D4");
+        if(!isRed[3][3] && !isPurble[3][3]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D4.setIcon(imageIcon);
+            SeatIDs.add("D4");
+            isPurble[3][3] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D4MouseClicked
 
     private void C4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C4.setIcon(imageIcon);
-        SeatIDs.add("C4");
+        if(!isRed[2][3] && !isPurble[2][3]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C4.setIcon(imageIcon);
+            SeatIDs.add("C4");
+            isPurble[2][3] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C4MouseClicked
 
     private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B4.setIcon(imageIcon);
-        SeatIDs.add("B4");
+        if(!isRed[1][3] && !isPurble[1][3]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B4.setIcon(imageIcon);
+            SeatIDs.add("B4");
+            isPurble[1][3] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B4MouseClicked
 
     private void A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A4MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A4.setIcon(imageIcon);
-        SeatIDs.add("A4");
+        if(!isRed[0][3] && !isPurble[0][3]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A4.setIcon(imageIcon);
+            SeatIDs.add("A4");
+            isPurble[0][3] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A4MouseClicked
 
     private void E5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E5.setIcon(imageIcon);
-        SeatIDs.add("E5");
+        if(!isRed[4][4] && !isPurble[4][4]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E5.setIcon(imageIcon);
+            SeatIDs.add("E5");
+            isPurble[4][4] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E5MouseClicked
 
     private void D5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D5.setIcon(imageIcon);
-        SeatIDs.add("D5");
+        if(!isRed[3][4] && !isPurble[3][4]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D5.setIcon(imageIcon);
+            SeatIDs.add("D5");
+            isPurble[3][4] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D5MouseClicked
 
     private void C5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C5.setIcon(imageIcon);
-        SeatIDs.add("C5");
+        if(!isRed[2][4] && !isPurble[2][4]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C5.setIcon(imageIcon);
+            SeatIDs.add("C5");
+            isPurble[2][4] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C5MouseClicked
 
     private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B5.setIcon(imageIcon);
-        SeatIDs.add("B5");
+        if(!isRed[1][4] && !isPurble[1][4]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B5.setIcon(imageIcon);
+            SeatIDs.add("B5");
+            isPurble[1][4] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B5MouseClicked
 
     private void A5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A5MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A5.setIcon(imageIcon);
-        SeatIDs.add("A5");
+        if(!isRed[0][4] && !isPurble[0][4]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A5.setIcon(imageIcon);
+            SeatIDs.add("A5");
+            isPurble[0][4] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A5MouseClicked
 
     private void E6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E6.setIcon(imageIcon);
-        SeatIDs.add("E6");
+        if(!isRed[4][5] && !isPurble[2][5]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E6.setIcon(imageIcon);
+            SeatIDs.add("E6");
+            isPurble[4][5] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E6MouseClicked
 
     private void D6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D6.setIcon(imageIcon);
-        SeatIDs.add("D6");
+        if(!isRed[3][5] && !isPurble[3][5]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D6.setIcon(imageIcon);
+            SeatIDs.add("D6");
+            isPurble[3][5] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D6MouseClicked
 
     private void C6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C6.setIcon(imageIcon);
-        SeatIDs.add("C6");
+        if(!isRed[2][5] && !isPurble[2][5]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C6.setIcon(imageIcon);
+            SeatIDs.add("C6");
+            isPurble[2][5] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C6MouseClicked
 
     private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B6.setIcon(imageIcon);
-        SeatIDs.add("B6");
+        if(!isRed[1][5] && !isPurble[1][5]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B6.setIcon(imageIcon);
+            SeatIDs.add("B6");
+            isPurble[1][5] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B6MouseClicked
 
     private void A6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A6MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A6.setIcon(imageIcon);
-        SeatIDs.add("A6");
+        if(!isRed[0][5] && !isPurble[0][5]){    
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A6.setIcon(imageIcon);
+            SeatIDs.add("A6");
+            isPurble[0][5] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A6MouseClicked
 
     private void E7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E7.setIcon(imageIcon);
-        SeatIDs.add("E7");
+        if(!isRed[4][6] && !isPurble[4][6]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E7.setIcon(imageIcon);
+            SeatIDs.add("E7");
+            isPurble[4][6] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E7MouseClicked
 
     private void D7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D7.setIcon(imageIcon);
-        SeatIDs.add("D7");
+        if(!isRed[3][6] && !isPurble[3][6]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D7.setIcon(imageIcon);
+            SeatIDs.add("D7");
+            isPurble[3][6] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D7MouseClicked
 
     private void C7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C7.setIcon(imageIcon);
-        SeatIDs.add("C7");
+        if(!isRed[2][6] && !isPurble[2][6]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C7.setIcon(imageIcon);
+            SeatIDs.add("C7");
+            isPurble[2][6] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C7MouseClicked
 
     private void B7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B7.setIcon(imageIcon);
-        SeatIDs.add("B7");
+        if(!isRed[1][6] && !isPurble[1][6]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B7.setIcon(imageIcon);
+            SeatIDs.add("B7");
+            isPurble[1][6] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B7MouseClicked
 
     private void A7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A7MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A7.setIcon(imageIcon);
-        SeatIDs.add("A7");
+        if(!isRed[0][6] && !isPurble[0][6]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A7.setIcon(imageIcon);
+            SeatIDs.add("A7");
+            isPurble[0][6] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A7MouseClicked
 
     private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E8.setIcon(imageIcon);
-        SeatIDs.add("E8");
+        if(!isRed[4][7] && !isPurble[4][7]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E8.setIcon(imageIcon);
+            SeatIDs.add("E8");
+            isPurble[4][7] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E8MouseClicked
 
     private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D8.setIcon(imageIcon);
-        SeatIDs.add("D8");
+        if(!isRed[3][7] && !isPurble[3][7]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D8.setIcon(imageIcon);
+            SeatIDs.add("D8");
+            isPurble[3][7] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D8MouseClicked
 
     private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C8.setIcon(imageIcon);
-        SeatIDs.add("C8");
+        if(!isRed[2][7] && !isPurble[2][7]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C8.setIcon(imageIcon);
+            SeatIDs.add("C8");
+            isPurble[2][7] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C8MouseClicked
 
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B8.setIcon(imageIcon);
-        SeatIDs.add("B8");
+        if(!isRed[1][7] && !isPurble[1][7]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B8.setIcon(imageIcon);
+            SeatIDs.add("B8");
+            isPurble[1][7] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B8MouseClicked
 
     private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A8.setIcon(imageIcon);
-        SeatIDs.add("A8");
+        if(!isRed[0][7] && !isPurble[0][7]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A8.setIcon(imageIcon);
+            SeatIDs.add("A8");
+            isPurble[0][7] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A8MouseClicked
 
     private void E9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E9.setIcon(imageIcon);
-        SeatIDs.add("E9");
+        if(!isRed[4][8] && !isPurble[4][8]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E9.setIcon(imageIcon);
+            SeatIDs.add("E9");
+            isPurble[4][8] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E9MouseClicked
 
     private void D9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D9.setIcon(imageIcon);
-        SeatIDs.add("D9");
+        if(!isRed[3][8] && !isPurble[3][8]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D9.setIcon(imageIcon);
+            SeatIDs.add("D9");
+            isPurble[3][8] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D9MouseClicked
 
     private void C9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C9.setIcon(imageIcon);
-        SeatIDs.add("C9");
+        if(!isRed[2][8] && !isPurble[2][8]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C9.setIcon(imageIcon);
+            SeatIDs.add("C9");
+            isPurble[2][8] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C9MouseClicked
 
     private void B9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B9.setIcon(imageIcon);
-        SeatIDs.add("B9");
+        if(!isRed[1][8] && !isPurble[1][8]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B9.setIcon(imageIcon);
+            SeatIDs.add("B9");
+            isPurble[1][8] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B9MouseClicked
 
     private void A9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A9MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A9.setIcon(imageIcon);
-        SeatIDs.add("A9");
+        if(!isRed[0][8] && !isPurble[0][8]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A9.setIcon(imageIcon);
+            SeatIDs.add("A9");
+            isPurble[0][8] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A9MouseClicked
 
     private void E10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        E10.setIcon(imageIcon);
-        SeatIDs.add("E10");
+        if(!isRed[4][9] && !isPurble[4][9]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            E10.setIcon(imageIcon);
+            SeatIDs.add("E10");
+            isPurble[4][9] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_E10MouseClicked
 
     private void D10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        D10.setIcon(imageIcon);
-        SeatIDs.add("D10");
+        if(!isRed[3][9] && !isPurble[3][9]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            D10.setIcon(imageIcon);
+            SeatIDs.add("D10");
+            isPurble[3][9] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_D10MouseClicked
 
     private void C10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        C10.setIcon(imageIcon);
-        SeatIDs.add("C10");
+        if(!isRed[2][9] && !isPurble[2][9]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            C10.setIcon(imageIcon);
+            SeatIDs.add("C10");
+            isPurble[2][9] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_C10MouseClicked
 
     private void B10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        B10.setIcon(imageIcon);
-        SeatIDs.add("B10");
+        if(!isRed[1][9] && !isPurble[1][9]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            B10.setIcon(imageIcon);
+            SeatIDs.add("B10");
+            isPurble[1][9] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_B10MouseClicked
 
     private void A10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A10MouseClicked
-        ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
-        A10.setIcon(imageIcon);
-        SeatIDs.add("A10");
+        if(!isRed[0][9] && !isPurble[0][9]){
+            ImageIcon imageIcon = new ImageIcon("src\\res\\seatBarble.png");
+            A10.setIcon(imageIcon);
+            SeatIDs.add("A10");
+            isPurble[0][9] = true;
+        }else{
+            
+        }
     }//GEN-LAST:event_A10MouseClicked
 
     private void panBookMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panBookMouseEntered
@@ -1151,11 +1445,11 @@ public class booked_ticket_form extends javax.swing.JFrame {
     }//GEN-LAST:event_panExitMouseEntered
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void panExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseClicked
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_panExitMouseClicked
 
     private void panExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseExited
@@ -1178,7 +1472,14 @@ public class booked_ticket_form extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBookMouseClicked
 
     private void panBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panBookMouseClicked
-         for(int i = 0 ; i < SeatIDs.size() ; i++){
+        if(SeatIDs.isEmpty()){
+            lblresult.setForeground(new Color(255,102,102));
+            lblresult.setText("Please Choose A Place To Book!");
+            return;
+        }
+        ArrayList<String> SeatsLabelsNames = SeatIDs;
+        String SHOWTIME = go.createShowtimeID(movie.getMovieShowTimesList().get(showtime));
+        for(int i = 0 ; i < SeatIDs.size() ; i++){
             String s1 = SeatIDs.get(i).substring(0 , 1);
             String s2 = SeatIDs.get(i).substring(1);
             SeatIDs.set(i, (s2+s1));
@@ -1186,46 +1487,64 @@ public class booked_ticket_form extends javax.swing.JFrame {
         
         ArrayList<Ticket> tickets = new ArrayList<>();
         for(int i = 0 ; i < SeatIDs.size() ; i++){
-            Ticket ticket = (Ticket)go.load("Ticket" , movie.getMovieTicketsMap().get(movie.getMovieShowTimesList().get(showtime)+SeatIDs.get(i)));
+            Ticket ticket = (Ticket)go.load("Ticket" , movie.getMovieTicketsMap().get(SHOWTIME + SeatIDs.get(i)));
             tickets.add(ticket);
         }
         Ticketing.bookTicket(tickets);
+        
+        ImageIcon RedSeat = new ImageIcon("src\\res\\seatRed.png");
+        for(int i = 0 ; i < SeatsLabelsNames.size() ; i++){
+            String s1 = SeatsLabelsNames.get(i).substring(0 , 1);
+            String s2 = SeatsLabelsNames.get(i).substring(1);
+            int I = Integer.valueOf(s2) - 1 , J; 
+            if(s1.equals("A")){J=0;}else if(s1.equals("B")){J=1;}else if(s1.equals("C")){J=2;}else if(s1.equals("D")){J=3;}else{J=4;}
+            isRed[J][I] = true;
+        }
+        for(int i = 0 ; i < labels.size() ; i++){
+            String ss1 = labels.get(i).getName().substring(0 , 1);
+            String ss2 = labels.get(i).getName().substring(1);
+            int II = Integer.valueOf(ss2) - 1 , JJ; 
+            if(ss1.equals("A")){JJ=0;}else if(ss1.equals("B")){JJ=1;}else if(ss1.equals("C")){JJ=2;}else if(ss1.equals("D")){JJ=3;}else{JJ=4;}
+                if(isRed[JJ][II]){
+                    labels.get(i).setIcon(RedSeat);
+                }
+        }
     }//GEN-LAST:event_panBookMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new booked_ticket_form().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(booked_ticket_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new booked_ticket_form().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel A1;
@@ -1283,6 +1602,7 @@ public class booked_ticket_form extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBook;
     private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblresult;
     private javax.swing.JPanel panBook;
     private javax.swing.JPanel panExit;
     // End of variables declaration//GEN-END:variables

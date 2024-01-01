@@ -64,6 +64,7 @@ public class PaymentScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Payment");
 
+        radiobtnPaypal.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnPaypal);
         radiobtnPaypal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnPaypal.setText("Paypal Card");
@@ -73,6 +74,7 @@ public class PaymentScreen extends javax.swing.JFrame {
             }
         });
 
+        radiobtnVisaCard.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnVisaCard);
         radiobtnVisaCard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnVisaCard.setText("Visa Card");
@@ -82,6 +84,7 @@ public class PaymentScreen extends javax.swing.JFrame {
             }
         });
 
+        radiobtnAmazonGiftCard.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnAmazonGiftCard);
         radiobtnAmazonGiftCard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnAmazonGiftCard.setText("Amazon Gift Card");

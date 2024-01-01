@@ -273,7 +273,7 @@ public class cancel_ticket_form extends javax.swing.JFrame {
     }//GEN-LAST:event_lblExitMouseExited
 
     private void panExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseClicked
-      System.exit(0);
+      this.dispose();
     }//GEN-LAST:event_panExitMouseClicked
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked

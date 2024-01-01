@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -75,6 +76,7 @@ public class go {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             Object object = ois.readObject();
             ois.close();
+            System.out.println(className + ":" + objectID + " loaded Successfully ");
             return object;
         }catch (FileNotFoundException e) {
             System.out.println(className + ":" + objectID + " didn't load: File Not Found!");
@@ -82,8 +84,6 @@ public class go {
             System.out.println(className + ":" + objectID + " didn't load: IOException!");
         }catch(ClassNotFoundException e) {
             System.out.println(className + ":" + objectID + " didn't load: Class Not Found!");
-        }finally {
-            System.out.println(className + ":" + objectID + " loaded Successfully ");
         }
         return null;
     }
@@ -93,6 +93,7 @@ public class go {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             Object object = ois.readObject();
             ois.close();
+            System.out.println(className + ":" + objectID + " loaded Successfully ");
             return object;
         }catch (FileNotFoundException e) {
             System.out.println(className + ":" + objectID + " didn't load: File Not Found!");
@@ -100,8 +101,6 @@ public class go {
             System.out.println(className + ":" + objectID + " didn't load: IOException!");
         }catch(ClassNotFoundException e) {
             System.out.println(className + ":" + objectID + " didn't load: Class Not Found!");
-        }finally {
-            System.out.println(className + ":" + objectID + " loaded Successfully ");
         }
         return null;
     }
@@ -111,6 +110,7 @@ public class go {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             ArrayList<Object> objects = (ArrayList<Object>) ois.readObject();
             ois.close();
+            System.out.println(className + "List loaded Successfully ");
             return objects;
         }catch (FileNotFoundException e) {
             System.out.println(className + "List didn't load: File Not Found!");
@@ -118,8 +118,6 @@ public class go {
             System.out.println(className + "List didn't load: IOException!");
         } catch (ClassNotFoundException e) {
             System.out.println(className + "List didn't load: Class Not Found!");
-        }finally {
-            System.out.println(className + "List loaded Successfully ");
         }
         return null;
     }
@@ -129,11 +127,10 @@ public class go {
             Scanner scan = new Scanner(file);
             int result = scan.nextInt();
             scan.close();
+            System.out.println(className + "IDInitializer loaded Successfully ");
             return result;
         }catch (FileNotFoundException e) {
             System.out.println(className + "IDInitializer didn't load: File Not Found!");
-        }finally{
-            System.out.println(className + "IDInitializer loaded Successfully ");
         }
         return -1;
     }
@@ -279,6 +276,15 @@ public class go {
         d = new Date(Year-1900,Month-1,Day,Hour,Minute);
         return d;
     }
+    
+    
+    public static String createShowtimeID(Date date){
+        SimpleDateFormat s = new SimpleDateFormat("dd");
+        String string = String.valueOf(date.getYear()+1900) + String.valueOf((date.getMonth()+1) + s.format(date) + String.valueOf(date.getHours()) + String.valueOf(date.getMinutes()));
+        return string;
+    }
+    
+    
     public static ImageIcon makeImage(String imagePath){
         try{
             File file = new File(imagePath);

@@ -39,15 +39,20 @@ public class User implements Serializable{
     }
 
     public void addBookedTicket(Ticket ticket) {
-        userBookedTickets.add(ticket);}
+        userBookedTickets.add(ticket);
+        go.save("User", this , this.userID);
+        go.saveCurrentUser(this.userName);
+    }
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
         go.save("User" , this , this.userID);
+        go.saveCurrentUser(this.userName);
     }
     public void setImage(ImageIcon image) {
         this.image = image;
         go.save("User" , this , this.userID);
+        go.saveCurrentUser(this.userName);
     }
     public static void setUserList(ArrayList<User> userList) {User.userList = userList;}
     public static void setUserIDInitializer(int userIDInitializer) {User.userIDInitializer = userIDInitializer;}

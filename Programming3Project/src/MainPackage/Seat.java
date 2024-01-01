@@ -17,7 +17,7 @@ public class Seat implements Serializable{
     }
 
     public void setBooked(boolean booked) {
-        Booked = booked;
+        this.Booked = booked;
     }
 
 
