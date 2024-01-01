@@ -10,24 +10,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Movie implements Serializable{
+  String IMAGE_FORMAT = ".jpg";
+  
     private String movieTitle;
+    private String moviePosterPath;
     private Cinema movieCinema;
     private Type movieType; //Enum
     private ArrayList<Date> movieShowTimesList; //FK
     private int movieRating;
-    private ImageIcon movieImage;
+    private ImageIcon moviePoster;
+    private ImageIcon movieThumbnail;
     private ArrayList<Ticket> movieTicketsList;
     private Map<String , String> movieTicketsMap;
     private int movieID; //PK
     private static int movieIDInitializer;
     private static ArrayList<Movie> movieList;
 
-    public Movie(String movieTitle, Type movieType, int movieRating, String movieImagePath, Cinema movieCinema
+    public Movie(String movieTitle, Type movieType, int movieRating, String moviePosterPath, String movieThumbnailPath, Cinema movieCinema
                 ,int year , int month , int day) {
         this.movieTitle = movieTitle;
+        this.moviePosterPath = moviePosterPath;
         this.movieType = movieType;
         this.movieRating = movieRating;
-        this.movieImage = new ImageIcon(getClass().getResource(movieImagePath));
+        this.moviePoster = new ImageIcon(getClass().getResource(moviePosterPath));
+        this.movieThumbnail = new ImageIcon(getClass().getResource(movieThumbnailPath));
         this.movieCinema = movieCinema;
         movieID = movieIDInitializer;
         movieIDInitializer++;
@@ -67,7 +73,8 @@ public class Movie implements Serializable{
     public Cinema getMovieCinema() {return movieCinema;}
     public Type getMovieType() {return movieType;}
     public int getMovieRating() {return movieRating;}
-    public ImageIcon getMovieImage() {return movieImage;}
+    public ImageIcon getMoviePoster() {return moviePoster;}
+    public ImageIcon getMovieThumbnail() {return movieThumbnail;}
     public ArrayList<Ticket> getMovieTicketsList() {return movieTicketsList;}
     public int getMovieID() {return movieID;}
     public static ArrayList<Movie> getMovieList() {return movieList;}
@@ -76,8 +83,5 @@ public class Movie implements Serializable{
 
     public ArrayList<Date> getMovieShowTimesList() {return movieShowTimesList;}
     public static int getMovieIDInitializer() {return movieIDInitializer;}
-
-
-
 
 }

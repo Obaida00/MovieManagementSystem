@@ -16,8 +16,6 @@ public class Main {
     //createMainData();
     //}
     LoadingScreen loadingScreen = new LoadingScreen();
-    //booked_ticket_form f = new booked_ticket_form();
-    //f.setVisible(true);
   }
 
   public static void createMainData() {
@@ -28,18 +26,11 @@ public class Main {
     try {
       Cinema cinema = new Cinema("Hall1", dailyShowTimeList, 50, 10000);
 
-      new Movie("What Men Want", Type.Action, 3, "/res/temp posters/What men want.jpg", cinema, 2024, 1, 26);
-      new Movie("Five Feet Apart", Type.Drama, 2, "/res/temp posters/Five feet apart.jpg", cinema, 2024, 1, 27);
-      new Movie("Emancepation", Type.Comedy, 4, "/res/temp posters/Emancipation.jpg", cinema, 2024, 1, 28);
-      new Movie("LUCY", Type.Romance, 3, "/res/temp posters/LUCY.jpg", cinema, 2024, 1, 29);
-      new Movie("The  happyness", Type.Fantasy, 2, "/res/temp posters/The Pursuite of happyness.jpg", cinema, 2024, 2, 20);
-      new Movie("The   Cristmass", Type.Horror, 4, "/res/temp posters/The Nightmare Before Cristmass.jpg", cinema, 2024, 2, 21);
-      new Movie("Escape room", Type.Mystery, 5, "/res/temp posters/Escape room.jpg", cinema, 2024, 2, 22);
-      new Movie("AD astra", Type.Western, 3, "/res/temp posters/AD astra.jpg", cinema, 2024, 2, 23);
-      new Movie("Ternet Ninja", Type.Thriller, 5, "/res/temp posters/Ternet Ninja.jpg", cinema, 2024, 2, 24);
-      new Movie("HellBoy", Type.Action, 5, "/res/temp posters/HellBoy.jpg", cinema, 2024, 2, 25);
-      new Movie("AboMinable", Type.Comedy, 4, "/res/temp posters/AboMinable.jpg", cinema, 2024, 3, 10);
-      new Movie("The Pool", Type.Drama, 3, "/res/temp posters/The Pool.jpg", cinema, 2024, 3, 12);
+      new Movie("Godzilla", Type.Action, 3, "/res/Posters/Godzilla.png", "/res/Posters/Thumbnails/Godzilla.png", cinema, 2024, 1, 26);
+//      new Movie("KGF", Type.Action, 3, "/res/Posters/KGF.png", "/res/Posters/Thumbnails/KGF.png", cinema, 2024, 1, 26);
+//      new Movie("Little Woman", Type.Action, 3, "/res/Posters/Little Woman.png", "/res/Posters/Thumbnails/Little Woman.png", cinema, 2024, 1, 26);
+//      new Movie("The Silence", Type.Action, 3, "/res/Posters/The Silence.png", "/res/Posters/Thumbnails/The Silence.png", cinema, 2024, 1, 26);
+
     } catch (CustomException ex) {
       System.out.println(ex.getMessage());
     }

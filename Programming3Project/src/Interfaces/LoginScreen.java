@@ -173,7 +173,6 @@ public class LoginScreen extends javax.swing.JFrame {
 
     loginButton.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
     loginButton.setText("LOGIN");
-    loginButton.setBorder(null);
     loginButton.setBorderPainted(false);
     // وال 3 تعليمات ال تاليين ضروريين مشان ما تظهر اي حواف او شي مزعج ع الزر
     loginButton.setFocusPainted(false);

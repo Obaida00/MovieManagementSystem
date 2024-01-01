@@ -32,7 +32,7 @@ class MovieObjectPanel extends JPanel {
     this.setBorder(null);
 
     String name = movie.getMovieTitle();
-    ImageIcon img = movie.getMovieImage();
+    ImageIcon img = movie.getMovieThumbnail();
 
     nameLabel = new JLabel(name, SwingConstants.CENTER);
     nameLabel.setForeground(Color.WHITE);

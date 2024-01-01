@@ -385,7 +385,7 @@ public class movie_form extends javax.swing.JFrame {
   // End of variables declaration//GEN-END:variables
 
   private void setMovieInfo() {
-    PhotoLbl.setIcon(movie.getMovieImage());// poster
+    PhotoLbl.setIcon(movie.getMoviePoster());// poster
     NameLbl.setText(movie.getMovieTitle());// name
     movieTypeLbl.setText(movie.getMovieType().toString());// type
     movieIDLbl.setText(String.valueOf(movie.getMovieID()));// ID
