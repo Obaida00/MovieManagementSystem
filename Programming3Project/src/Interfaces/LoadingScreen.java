@@ -1,5 +1,8 @@
 package Interfaces;
 
+import Action.go;
+import MainPackage.Cinema;
+import MainPackage.Main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +26,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
+
   }
 
   public void setting() {
@@ -127,7 +131,12 @@ public class LoadingScreen extends javax.swing.JFrame {
   private void loadingTask() {
     try {
       //Here we cn call loading tasks (preffered in threads)
-      Thread.sleep(LOADINGTIME);
+      go.loadAll();
+      if (Cinema.getCinemaIDInitializer() == 1) {
+        Main.createMainData();
+      } else {
+        Thread.sleep(LOADINGTIME);
+      }
     } catch (InterruptedException ex) {
       Logger.getLogger(LoadingScreen.class.getName()).log(Level.SEVERE, null, ex);
     }

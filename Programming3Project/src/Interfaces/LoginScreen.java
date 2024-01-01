@@ -1,5 +1,6 @@
 package Interfaces;
 
+import Action.go;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
@@ -234,7 +235,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
     wrongLogin.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
     wrongLogin.setForeground(new java.awt.Color(255, 102, 102));
-    loginPanel.add(wrongLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, 30));
+    loginPanel.add(wrongLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 160, 30));
 
     signupLabel.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
     signupLabel.setForeground(new java.awt.Color(251, 251, 255));
@@ -326,7 +327,8 @@ public class LoginScreen extends javax.swing.JFrame {
     String username = txtun.getText();
     String password = new String(txtpw.getPassword());
     //Call checkpassword() in the if statement here
-    if (true) {
+    if (go.checkName$Pass(username, password)) {
+      go.saveCurrentUser(username);
       new HomeScreen();
       this.dispose();
     } else {

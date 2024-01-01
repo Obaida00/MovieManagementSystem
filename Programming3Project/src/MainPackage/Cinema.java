@@ -28,13 +28,17 @@ public class Cinema implements Serializable{
 
 
             cinemaSeatsList = new ArrayList<>();
+            for(int i = 0 ; i < cinemaSeatNumber ; i++){cinemaSeatsList.add(new Seat());}
+            
             double price = theSeatAPrice;
             int character = 65 ;
+            int k = 0;
             for(int j = 0 ; j < (cinemaSeatNumber/10) ; j++){
-                for (int i = 0; i < cinemaSeatNumber; i++){
-                    this.cinemaSeatsList.get(i).setSeatID(String.valueOf(i + 1) + (char) character);
-                    this.cinemaSeatsList.get(i).setSeatPrice(price);
-                    this.cinemaSeatsList.get(i).setBooked(false);
+                for (int i = 0 ; i < 10; i++){
+                    this.cinemaSeatsList.get(k).setSeatID(String.valueOf(i + 1) + (char) character);
+                    this.cinemaSeatsList.get(k).setSeatPrice(price);
+                    this.cinemaSeatsList.get(k).setBooked(false);
+                    k++;
                 }
                 price -= 500;
                 character++;
@@ -53,15 +57,15 @@ public class Cinema implements Serializable{
 
 
     public Date getShowTime(int year , int month , int day , int i , int movieID){
-        if(i != 1 || i != 2 || i != 3){
+        if(i != 1 && i != 2 && i != 3){
             System.out.println("(i) Must Be (1-3) !");
         }else{
             File file = new File("Tickets/" + (String.valueOf(this.cinemaID)+String.valueOf(year)+String.valueOf(month)+String.valueOf(day)+this.cinemaDailyShowTimesList.get(i-1)+"0A11") + ".txt");
             if(file.exists()){
                 System.out.println("Sorry! : There is another movie show at the same time in this cinema!!");
             }else{
-                String hours = this.cinemaDailyShowTimesList.get(i-1).substring(0,1);
-                String minutes = this.cinemaDailyShowTimesList.get(i-1).substring(2,3);
+                String hours = this.cinemaDailyShowTimesList.get(i-1).substring(0,2);
+                String minutes = this.cinemaDailyShowTimesList.get(i-1).substring(2,4);
                 Date d = go.mDate(year , month , day , Integer.valueOf(hours) , Integer.valueOf(minutes));
                 return d;
             }

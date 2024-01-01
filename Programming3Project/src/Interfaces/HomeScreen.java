@@ -1,13 +1,13 @@
 package Interfaces;
 
+import Action.go;
+import static Interfaces.HomeScreen.CATAGORY_LENGTH;
+import static Action.go.getCurrentUser;
 import MainPackage.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.*;
-import MainPackage.User;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +21,7 @@ import MainPackage.User;
 public class HomeScreen extends javax.swing.JFrame {
 
   public static int SCROLL_INCREMENT_SPEED = 16;
-  public static int CATAGORY_LENGTH = 1;
+  public static int CATAGORY_LENGTH = 10;
   public static int MOVIE_SAPERATOR = 30;
   public CardLayout cardLayout;
 
@@ -32,9 +32,9 @@ public class HomeScreen extends javax.swing.JFrame {
     setting();
     initComponents();
     this.setVisible(true);
-
     this.setIcons(true, false, false);
     cardLayout = (CardLayout) (pageCardPanel.getLayout());
+
     this.setUserData();
   }
 
@@ -148,6 +148,8 @@ public class HomeScreen extends javax.swing.JFrame {
     jLabel26 = new javax.swing.JLabel();
     jLabel27 = new javax.swing.JLabel();
     jLabel28 = new javax.swing.JLabel();
+    AddressLbl = new javax.swing.JLabel();
+    AccountIDLbl = new javax.swing.JLabel();
     settingsPanel = new javax.swing.JPanel();
     changePasswordLabel = new javax.swing.JLabel();
     hidenpw1 = new javax.swing.JLabel();
@@ -1013,20 +1015,25 @@ public class HomeScreen extends javax.swing.JFrame {
 
     userPanel.setBackground(new java.awt.Color(4, 15, 22));
     userPanel.setPreferredSize(new java.awt.Dimension(1241, 608));
+    userPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
     jLabel1.setForeground(new java.awt.Color(251, 251, 255));
     jLabel1.setText("Address :");
+    userPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 468, -1, 38));
 
     jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
     jLabel5.setForeground(new java.awt.Color(251, 251, 255));
     jLabel5.setText("Booked Tickets");
+    userPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 420, -1, 38));
 
     jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
     jLabel6.setForeground(new java.awt.Color(251, 251, 255));
     jLabel6.setText("Account ID  :");
+    userPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, 38));
 
     jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Ali UserImage3.png"))); // NOI18N
+    userPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 39, -1, -1));
 
     panClick.setBackground(new java.awt.Color(251, 251, 255));
     panClick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
@@ -1046,6 +1053,9 @@ public class HomeScreen extends javax.swing.JFrame {
     lblClick.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
     lblClick.setText("View My Tickets ");
     lblClick.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        lblClickMouseClicked(evt);
+      }
       public void mouseEntered(java.awt.event.MouseEvent evt) {
         lblClickMouseEntered(evt);
       }
@@ -1071,19 +1081,26 @@ public class HomeScreen extends javax.swing.JFrame {
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
+    userPanel.add(panClick, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 460, -1, -1));
+
     userTicketCount.setFont(new java.awt.Font("Stencil", 1, 100)); // NOI18N
     userTicketCount.setForeground(new java.awt.Color(251, 251, 255));
     userTicketCount.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+    userTicketCount.setText("5");
+    userPanel.add(userTicketCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 112, 91));
 
     userAddressLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
     userAddressLabel.setForeground(new java.awt.Color(251, 251, 255));
+    userPanel.add(userAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 380, -1, 38));
 
     userNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
     userNameLabel.setForeground(new java.awt.Color(251, 251, 255));
     userNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    userPanel.add(userNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 357, 247, 38));
 
     userIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
     userIdLabel.setForeground(new java.awt.Color(251, 251, 255));
+    userPanel.add(userIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 468, -1, 38));
 
     panClick1.setBackground(new java.awt.Color(251, 251, 255));
     panClick1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 3));
@@ -1118,364 +1135,238 @@ public class HomeScreen extends javax.swing.JFrame {
     panClick1.setLayout(panClick1Layout);
     panClick1Layout.setHorizontalGroup(
       panClick1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(lblClick1, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panClick1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(lblClick1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addContainerGap())
     );
     panClick1Layout.setVerticalGroup(
       panClick1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addComponent(lblClick1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
     );
 
+    userPanel.add(panClick1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 530, -1, -1));
+
     jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape1.png"))); // NOI18N
+    userPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 73, 107, 47));
 
     jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/filming1.png"))); // NOI18N
+    userPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 63, 78, 57));
 
     jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/glasses.png"))); // NOI18N
+    userPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 61, 90, 47));
 
     jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/drink.png"))); // NOI18N
+    userPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(848, 143, 70, 49));
 
     jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tablet.png"))); // NOI18N
+    userPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1148, 61, 70, 42));
 
     jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape2.png"))); // NOI18N
+    userPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 325, 68, 63));
 
     jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/filming3.png"))); // NOI18N
+    userPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(796, 11, 77, 44));
 
     jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape1.png"))); // NOI18N
+    userPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 245, -1, 39));
 
     jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Popcorn.png"))); // NOI18N
     jLabel20.setText("jLabel19");
+    userPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1062, 297, 97, 80));
 
     jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tablet.png"))); // NOI18N
+    userPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 198, 98, 79));
 
     jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/filming2.png"))); // NOI18N
+    userPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 320, 75, 47));
 
     jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape2.png"))); // NOI18N
+    userPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(846, 323, 68, 63));
 
     jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/filming2.png"))); // NOI18N
     jLabel25.setText("jLabel19");
+    userPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 167, 76, 80));
 
     jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Popcorn.png"))); // NOI18N
+    userPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 11, 75, 78));
 
     jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/clipart1.png"))); // NOI18N
+    userPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 126, 104, -1));
 
     jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/tape2.png"))); // NOI18N
+    userPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 530, 66, 43));
 
-    javax.swing.GroupLayout userPanelLayout = new javax.swing.GroupLayout(userPanel);
-    userPanel.setLayout(userPanelLayout);
-    userPanelLayout.setHorizontalGroup(
-      userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-        .addGap(48, 48, 48)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabel6)
-              .addComponent(jLabel1))
-            .addGap(52, 52, 52)
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addComponent(userAddressLabel)
-                .addGap(105, 105, 105)
-                .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-              .addComponent(userIdLabel)))
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(4, 4, 4)
-            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(640, 640, Short.MAX_VALUE))
-      .addGroup(userPanelLayout.createSequentialGroup()
-        .addGap(196, 196, 196)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(124, 124, 124))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-            .addGap(40, 40, 40)))
-        .addComponent(jLabel7)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(0, 245, Short.MAX_VALUE)
-            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(89, 89, 89)
-            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(23, 23, 23))
-          .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jLabel19))
-              .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(userPanelLayout.createSequentialGroup()
-                    .addComponent(userTicketCount, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addGroup(userPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5))
-                      .addGroup(userPanelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(panClick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                  .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGap(0, 143, Short.MAX_VALUE))
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(124, 124, 124)
-            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(55, 55, 55))
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(122, 122, 122)
-            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(82, 82, 82))))
-      .addGroup(userPanelLayout.createSequentialGroup()
-        .addGap(23, 23, 23)
-        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, Short.MAX_VALUE))
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(201, 201, 201))
-    );
-    userPanelLayout.setVerticalGroup(
-      userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(userPanelLayout.createSequentialGroup()
-        .addGap(73, 73, 73)
-        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(userAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(50, 50, 50)
-            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addComponent(userIdLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addGap(223, 223, 223))
-      .addGroup(userPanelLayout.createSequentialGroup()
-        .addGap(63, 63, 63)
-        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jLabel27)
-        .addGap(503, 503, 503))
-      .addGroup(userPanelLayout.createSequentialGroup()
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(61, 61, 61)
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(22, 22, 22)
-            .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(userTicketCount, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addGroup(userPanelLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panClick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-          .addGroup(userPanelLayout.createSequentialGroup()
-            .addGap(39, 39, 39)
-            .addComponent(jLabel7)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(userPanelLayout.createSequentialGroup()
-              .addGap(198, 198, 198)
-              .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addGap(48, 48, 48)
-              .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userPanelLayout.createSequentialGroup()
-              .addContainerGap()
-              .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addGroup(userPanelLayout.createSequentialGroup()
-                  .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGap(19, 19, 19))
-                .addGroup(userPanelLayout.createSequentialGroup()
-                  .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGap(88, 88, 88)
-                  .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGap(53, 53, 53)
-                  .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addGap(39, 39, 39)
-                  .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-        .addGap(18, 18, 18)
-        .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
+    AddressLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+    AddressLbl.setForeground(new java.awt.Color(255, 255, 255));
+    AddressLbl.setText("jaramana");
+    userPanel.add(AddressLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 467, 183, 40));
 
-    pageCardPanel.add(userPanel, "CardUser");
+    AccountIDLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+    AccountIDLbl.setForeground(new java.awt.Color(255, 255, 255));
+    AccountIDLbl.setText("192.175.1");
+    userPanel.add(AccountIDLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 527, 183, 30));
 
-    settingsPanel.setBackground(new java.awt.Color(4, 15, 19));
+        pageCardPanel.add(userPanel, "CardUser");
 
-    changePasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-    changePasswordLabel.setForeground(new java.awt.Color(251, 251, 255));
-    changePasswordLabel.setText("Change Password...");
+        settingsPanel.setBackground(new java.awt.Color(4, 15, 19));
 
-    hidenpw1.setBackground(new Color(0,0,0,0));
-    hidenpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
-    hidenpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    hidenpw1.setOpaque(true);
-    hidenpw1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        hidenpw1MouseClicked(evt);
-      }
-    });
+        changePasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        changePasswordLabel.setForeground(new java.awt.Color(251, 251, 255));
+        changePasswordLabel.setText("Change Password...");
 
-    pwLable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    pwLable1.setForeground(new java.awt.Color(255, 255, 255));
-    pwLable1.setText("New Password");
+        hidenpw1.setBackground(new Color(0,0,0,0));
+        hidenpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+        hidenpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hidenpw1.setOpaque(true);
+        hidenpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidenpw1MouseClicked(evt);
+            }
+        });
 
-    pwLine1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-    pwLine1.setForeground(new java.awt.Color(255, 255, 255));
-    pwLine1.setText("______________________________");
+        pwLable1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        pwLable1.setForeground(new java.awt.Color(255, 255, 255));
+        pwLable1.setText("New Password");
 
-    txtpw1.setBackground(new Color(0,0,0,1));
-    txtpw1.setForeground(new java.awt.Color(255, 255, 255));
-    txtpw1.setBorder(null);
-    txtpw1.setCaretColor(new java.awt.Color(255, 255, 255));
-    txtpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        pwLine1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        pwLine1.setForeground(new java.awt.Color(255, 255, 255));
+        pwLine1.setText("______________________________");
 
-    shownpw1.setVisible(false);
-    shownpw1.setEnabled(false);
-    hidenpw1.setVisible(true);
-    hidenpw1.setEnabled(true);
-    shownpw1.setBackground(new Color(0,0,0,0));
-    shownpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
-    shownpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    shownpw1.setOpaque(true);
-    shownpw1.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        shownpw1MouseClicked(evt);
-      }
-    });
+        txtpw1.setBackground(new Color(0,0,0,1));
+        txtpw1.setForeground(new java.awt.Color(255, 255, 255));
+        txtpw1.setBorder(null);
+        txtpw1.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-    txtpw2.setBackground(new Color(0,0,0,1));
-    txtpw2.setForeground(new java.awt.Color(255, 255, 255));
-    txtpw2.setBorder(null);
-    txtpw2.setCaretColor(new java.awt.Color(255, 255, 255));
-    txtpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        shownpw1.setVisible(false);
+        shownpw1.setEnabled(false);
+        hidenpw1.setVisible(true);
+        hidenpw1.setEnabled(true);
+        shownpw1.setBackground(new Color(0,0,0,0));
+        shownpw1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+        shownpw1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        shownpw1.setOpaque(true);
+        shownpw1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shownpw1MouseClicked(evt);
+            }
+        });
 
-    shownpw2.setVisible(false);
-    shownpw2.setEnabled(false);
-    hidenpw2.setVisible(true);
-    hidenpw2.setEnabled(true);
-    hidenpw2.setBackground(new Color(0,0,0,0));
-    hidenpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
-    hidenpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    hidenpw2.setOpaque(true);
-    hidenpw2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        hidenpw2MouseClicked(evt);
-      }
-    });
+        txtpw2.setBackground(new Color(0,0,0,1));
+        txtpw2.setForeground(new java.awt.Color(255, 255, 255));
+        txtpw2.setBorder(null);
+        txtpw2.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-    pwLine2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-    pwLine2.setForeground(new java.awt.Color(255, 255, 255));
-    pwLine2.setText("______________________________");
+        shownpw2.setVisible(false);
+        shownpw2.setEnabled(false);
+        hidenpw2.setVisible(true);
+        hidenpw2.setEnabled(true);
+        hidenpw2.setBackground(new Color(0,0,0,0));
+        hidenpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeHide.png"))); // NOI18N
+        hidenpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        hidenpw2.setOpaque(true);
+        hidenpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidenpw2MouseClicked(evt);
+            }
+        });
 
-    shownpw2.setBackground(new Color(0,0,0,0));
-    shownpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
-    shownpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    shownpw2.setOpaque(true);
-    shownpw2.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        shownpw2MouseClicked(evt);
-      }
-    });
+        pwLine2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        pwLine2.setForeground(new java.awt.Color(255, 255, 255));
+        pwLine2.setText("______________________________");
 
-    pwLable2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    pwLable2.setForeground(new java.awt.Color(255, 255, 255));
-    pwLable2.setText("Confirm Password");
+        shownpw2.setBackground(new Color(0,0,0,0));
+        shownpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/EyeShow.png"))); // NOI18N
+        shownpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        shownpw2.setOpaque(true);
+        shownpw2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shownpw2MouseClicked(evt);
+            }
+        });
 
-    changepwBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-    changepwBtn.setText(" Change Password");
-    changepwBtn.setBorder(null);
-    changepwBtn.setBorderPainted(false);
-    changepwBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    changepwBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    changepwBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        changepwBtnActionPerformed(evt);
-      }
-    });
+        pwLable2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        pwLable2.setForeground(new java.awt.Color(255, 255, 255));
+        pwLable2.setText("Confirm Password");
 
-    changepwBtn1.setBackground(new java.awt.Color(255, 102, 102));
-    changepwBtn1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-    changepwBtn1.setText("Log out");
-    changepwBtn1.setBorder(null);
-    changepwBtn1.setBorderPainted(false);
-    changepwBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    changepwBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    changepwBtn1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        changepwBtn1ActionPerformed(evt);
-      }
-    });
+        changepwBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        changepwBtn.setText(" Change Password");
+        changepwBtn.setBorder(null);
+        changepwBtn.setBorderPainted(false);
+        changepwBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        changepwBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        changepwBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changepwBtnActionPerformed(evt);
+            }
+        });
+
+        changepwBtn1.setBackground(new java.awt.Color(255, 102, 102));
+        changepwBtn1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        changepwBtn1.setText("Log out");
+        changepwBtn1.setBorder(null);
+        changepwBtn1.setBorderPainted(false);
+        changepwBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        changepwBtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        changepwBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changepwBtn1ActionPerformed(evt);
+            }
+        });
 
     javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
     settingsPanel.setLayout(settingsPanelLayout);
     settingsPanelLayout.setHorizontalGroup(
       settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(settingsPanelLayout.createSequentialGroup()
-        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addComponent(changetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(settingsPanelLayout.createSequentialGroup()
-              .addGap(110, 110, 110)
-              .addComponent(changePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(settingsPanelLayout.createSequentialGroup()
-              .addGap(222, 222, 222)
-              .addComponent(pwLable1))
-            .addGroup(settingsPanelLayout.createSequentialGroup()
-              .addGap(222, 222, 222)
-              .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addGroup(settingsPanelLayout.createSequentialGroup()
-                    .addGap(17, 17, 17)
-                    .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(pwLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addGroup(settingsPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(30, 30, 30)
-                    .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                      .addComponent(hidenpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                      .addComponent(shownpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                  .addComponent(pwLable2))
-                .addGroup(settingsPanelLayout.createSequentialGroup()
-                  .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pwLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(settingsPanelLayout.createSequentialGroup()
-                      .addGap(10, 10, 10)
-                      .addComponent(txtpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                  .addGap(30, 30, 30)
-                  .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hidenpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(shownpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addGroup(settingsPanelLayout.createSequentialGroup()
-              .addGap(448, 448, 448)
-              .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        .addContainerGap(631, Short.MAX_VALUE))
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, settingsPanelLayout.createSequentialGroup()
         .addGap(0, 0, Short.MAX_VALUE)
         .addComponent(changepwBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(60, 60, 60))
+      .addGroup(settingsPanelLayout.createSequentialGroup()
+        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(changetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+              .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(settingsPanelLayout.createSequentialGroup()
+                  .addGap(110, 110, 110)
+                  .addComponent(changePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(settingsPanelLayout.createSequentialGroup()
+                  .addGap(222, 222, 222)
+                  .addComponent(pwLable1))
+                .addGroup(settingsPanelLayout.createSequentialGroup()
+                  .addGap(222, 222, 222)
+                  .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                      .addGroup(settingsPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                          .addComponent(pwLine2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                          .addGroup(settingsPanelLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(txtpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                          .addComponent(hidenpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                          .addComponent(shownpw2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                      .addComponent(pwLable2))
+                    .addGroup(settingsPanelLayout.createSequentialGroup()
+                      .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pwLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(settingsPanelLayout.createSequentialGroup()
+                          .addGap(10, 10, 10)
+                          .addComponent(txtpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                      .addGap(30, 30, 30)
+                      .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(hidenpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(shownpw1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+              .addGap(96, 96, 96)))
+          .addGroup(settingsPanelLayout.createSequentialGroup()
+            .addGap(512, 512, 512)
+            .addComponent(changepwBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addContainerGap(567, Short.MAX_VALUE))
     );
     settingsPanelLayout.setVerticalGroup(
       settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1511,25 +1402,25 @@ public class HomeScreen extends javax.swing.JFrame {
         .addGap(53, 53, 53))
     );
 
-    pageCardPanel.add(settingsPanel, "CardSettings");
+        pageCardPanel.add(settingsPanel, "CardSettings");
 
-    mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
+        mainPanel.add(pageCardPanel, java.awt.BorderLayout.PAGE_END);
 
-    getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
-    sidebar.setBackground(new java.awt.Color(251, 251, 255));
-    sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
-    sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sidebar.setBackground(new java.awt.Color(251, 251, 255));
+        sidebar.setPreferredSize(new java.awt.Dimension(60, 371));
+        sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-    userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
-    userIcn.setPreferredSize(new java.awt.Dimension(60, 60));
-    userIcn.addMouseListener(new java.awt.event.MouseAdapter() {
-      public void mouseClicked(java.awt.event.MouseEvent evt) {
-        userIcnMouseClicked(evt);
-      }
-    });
-    sidebar.add(userIcn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
+        userIcn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userIcn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/userDefault.png"))); // NOI18N
+        userIcn.setPreferredSize(new java.awt.Dimension(60, 60));
+        userIcn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userIcnMouseClicked(evt);
+            }
+        });
+        sidebar.add(userIcn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
 
     homeIcnDefault.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     homeIcnDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/homeDefault.png"))); // NOI18N
@@ -1562,11 +1453,11 @@ public class HomeScreen extends javax.swing.JFrame {
     settingsIcnSelected.setPreferredSize(new java.awt.Dimension(60, 40));
     sidebar.add(settingsIcnSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
 
-    getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
+        getContentPane().add(sidebar, java.awt.BorderLayout.WEST);
 
-    setSize(new java.awt.Dimension(1301, 638));
-    setLocationRelativeTo(null);
-  }// </editor-fold>//GEN-END:initComponents
+        setSize(new java.awt.Dimension(1301, 638));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
 
   private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
     System.exit(0);
@@ -1628,11 +1519,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowRight3MouseClicked
 
   private void arrowRight3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight3MouseEntered
-    arrowRight3.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+    arrowRight3.setIcon(new ImageIcon("src\\res\\ArrowRightHover-01.png"));
   }//GEN-LAST:event_arrowRight3MouseEntered
 
   private void arrowRight3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight3MouseExited
-    arrowRight3.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+    arrowRight3.setIcon(new ImageIcon("src\\res\\ArrowRightDefault-01.png"));
   }//GEN-LAST:event_arrowRight3MouseExited
 
   private void arrowLeft1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MousePressed
@@ -1640,11 +1531,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowLeft1MousePressed
 
   private void arrowLeft1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseExited
-    arrowLeft1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftDefault-01.png"));
+    arrowLeft1.setIcon(new ImageIcon("src\\res\\ArrowLeftDefault-01.png"));
   }//GEN-LAST:event_arrowLeft1MouseExited
 
   private void arrowLeft1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseEntered
-    arrowLeft1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftHover-01.png"));
+    arrowLeft1.setIcon(new ImageIcon("src\\res\\ArrowLeftHover-01.png"));
   }//GEN-LAST:event_arrowLeft1MouseEntered
 
   private void arrowLeft1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft1MouseClicked
@@ -1654,11 +1545,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }//GEN-LAST:event_arrowLeft1MouseClicked
 
   private void arrowRight1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseExited
-    arrowRight1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightDefault-01.png"));
+    arrowRight1.setIcon(new ImageIcon("src\\res\\ArrowRightDefault-01.png"));
   }//GEN-LAST:event_arrowRight1MouseExited
 
   private void arrowRight1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseEntered
-    arrowRight1.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowRightHover-01.png"));
+    arrowRight1.setIcon(new ImageIcon("src\\res\\ArrowRightHover-01.png"));
   }//GEN-LAST:event_arrowRight1MouseEntered
 
   private void arrowRight1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowRight1MouseClicked
@@ -1768,18 +1659,27 @@ public class HomeScreen extends javax.swing.JFrame {
 
   private void changepwBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepwBtnActionPerformed
     String password = new String(txtpw1.getPassword());
-    if (!password.equals(new String(txtpw2.getPassword()))) {
+    String password2 = new String(txtpw2.getPassword());
+    if (password.isEmpty() || password2.isEmpty()) {
+      //fields shouldn't be empty
+      changetxt.setForeground(new Color(255, 102, 102));
+      changetxt.setText("Please Don't Leave Empty Fields!");
+      return;
+    }
+    if (!password.equals(password2)) {
       changetxt.setForeground(new Color(255, 102, 102));
       changetxt.setText("Your Password Confirm is incurrect");
       return;
     }
     //Call setPassword()
+    User user = go.getCurrentUser();
+    user.setUserPassword(password);
     changetxt.setForeground(new Color(51, 204, 0));
     changetxt.setText("Your password is successfuly changed");
   }//GEN-LAST:event_changepwBtnActionPerformed
 
   private void panClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClickMouseClicked
-    new my_tickets_form();
+    new booked_ticket_form();
   }//GEN-LAST:event_panClickMouseClicked
 
   private void panClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panClick1MouseClicked
@@ -1795,10 +1695,14 @@ public class HomeScreen extends javax.swing.JFrame {
     this.dispose();
   }//GEN-LAST:event_changepwBtn1ActionPerformed
 
+    private void lblClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClickMouseClicked
+      new my_tickets_form();
+    }//GEN-LAST:event_lblClickMouseClicked
+
   private void arrowLeft4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = comedyScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft4MouseClicked
 
   private void arrowLeft4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft4MouseEntered
@@ -1830,7 +1734,7 @@ public class HomeScreen extends javax.swing.JFrame {
   private void arrowLeft5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = horrorScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft5MouseClicked
 
   private void arrowLeft5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft5MouseEntered
@@ -1862,7 +1766,7 @@ public class HomeScreen extends javax.swing.JFrame {
   private void arrowLeft6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseClicked
 //    arrowLeft2.setIcon(new ImageIcon("F:\\REPO\\MovieManagementSystem\\Programming3Project\\src\\res\\ArrowLeftClick-01.png"));
     JScrollBar horizontalScrollBar = fantasyScrollPane.getHorizontalScrollBar();
-    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED*5);
+    horizontalScrollBar.setValue(horizontalScrollBar.getValue() - SCROLL_INCREMENT_SPEED * 5);
   }//GEN-LAST:event_arrowLeft6MouseClicked
 
   private void arrowLeft6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowLeft6MouseEntered
@@ -1893,6 +1797,8 @@ public class HomeScreen extends javax.swing.JFrame {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JLabel AccountIDLbl;
+  private javax.swing.JLabel AddressLbl;
   private javax.swing.JScrollPane actionScrollPane;
   private javax.swing.JLabel arrowLeft1;
   private javax.swing.JLabel arrowLeft2;
@@ -2002,12 +1908,15 @@ public class HomeScreen extends javax.swing.JFrame {
   void addRowScrollPanel3() {
     romanceScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Romance));
   }
+
   void addRowScrollPanel4() {
     comedyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Comedy));
   }
+
   void addRowScrollPanel5() {
     horrorScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Horror));
   }
+
   void addRowScrollPanel6() {
     fantasyScrollPane.setViewportView(new rowScrollPanel(MainPackage.Type.Fantasy));
   }
@@ -2030,13 +1939,11 @@ public class HomeScreen extends javax.swing.JFrame {
   }
 
   private void setUserData() {
-    // here we need to get the active user so we can display his info
-    //User user = getActiveUser();
-
-//    userNameLabel.setText(user.getUserName());
-//    userAddressLabel.setText(user.getUserAddress());
-//    userIdLabel.setText(Integer.toString(user.getUserID()));
-//    userTicketCount.setText(Integer.toString(user.getUserBookedTickets().size()));
+    User user = getCurrentUser();
+    userNameLabel.setText(user.getUserName());
+    AddressLbl.setText(user.getUserAddress());
+    AccountIDLbl.setText("192.175." + user.getUserID());
+    userTicketCount.setText(String.valueOf(user.getUserBookedTickets().size()));
   }
 }
 
@@ -2054,36 +1961,62 @@ class rowScrollPanel extends JPanel {
 
     ArrayList<Movie> movies = getMovies();
     // إنشاء لوحة لكل فيلم وإضافتها إلى الإطار
-    try{
+    try {
       for (Movie movie : movies) {
         MovieObjectPanel panel = new MovieObjectPanel(movie);
         this.add(panel);
-    }
-    }catch(Exception e){
+      }
+    } catch (Exception e) {
       System.out.println(e);
     }
   }
-
 // قراءة بيانات الأفلام من القائمة
+
   private ArrayList<Movie> getMovies() {
+//        Map<String, ImageIcon> movies = new HashMap<>();
+    //ArrayList <Movie> total = Movie.getMovieList();
+    //test code remove and uncomment the next commented block 
+//        ImageIcon whatMenWant = new ImageIcon(getClass().getResource("/res/temp posters/What men want.jpg"));
+//        ImageIcon Emanc = new ImageIcon(getClass().getResource("/res/temp posters/Emancipation.jpg"));
+//        ImageIcon FFA = new ImageIcon(getClass().getResource("/res/temp posters/Five feet apart.jpg"));
+//        ImageIcon lucy = new ImageIcon(getClass().getResource("/res/temp posters/LUCY.jpg"));
+//        ImageIcon ad = new ImageIcon(getClass().getResource("/res/temp posters/AD astra.jpg"));
+//        ImageIcon tnbc = new ImageIcon(getClass().getResource("/res/temp posters/The Nightmare Before Cristmass.jpg"));
+//        ImageIcon ER = new ImageIcon(getClass().getResource("/res/temp posters/Escape room.jpg"));
+//        ImageIcon ninja = new ImageIcon(getClass().getResource("/res/temp posters/Ternet Ninja.jpg"));
+//        ImageIcon hell = new ImageIcon(getClass().getResource("/res/temp posters/HellBoy.jpg"));
+//        ImageIcon am = new ImageIcon(getClass().getResource("/res/temp posters/AboMinable.jpg"));
+//        ImageIcon pool = new ImageIcon(getClass().getResource("/res/temp posters/The Pool.jpg"));
+//        ImageIcon tpoh = new ImageIcon(getClass().getResource("/res/temp posters/The Pursuite of happyness.jpg"));
+//        for (int i = 0; i < HomeScreen.CATAGORY_LENGTH; i++) {
+//          movies.put("What Men Want" , whatMenWant);
+//          movies.put("Five Feet Apart" , FFA); movies.put("What Men Want" , whatMenWant)
+//          movies.put("Emancepation" , Emanc);
+//          movies.put("The  happyness" , tpoh);
+//          movies.put("LUCY" , lucy);
+//          movies.put("The   Cristmass" , tnbc);
+//          movies.put("Escape room" , ER);
+//          movies.put("AD astra" , ad);
+//          movies.put("Ternet Ninja" , ninja);
+//          movies.put("The happyness" , tpoh);
+//          movies.put("HellBoy" , hell);
+//          movies.put("AboMinable" , am);
+//          movies.put("The Pool" , pool);
+//          movies.put("The   happyness" , tpoh);
+//        }
 
     ArrayList<Movie> movies = new ArrayList<>();
-    ArrayList<Movie> total = Movie.getMovieList();
-    try {
-      int i = 0;
-      while (movies.size() < HomeScreen.CATAGORY_LENGTH && i < total.size()) {
-        Movie movie = total.get(i);
-        if (movie.getMovieType() == type) {
-          movies.add(movie);
-        }
-        i++;
-      }
+    ArrayList<Movie> movieList = Movie.getMovieList();
 
-      return movies;
-    } catch(Exception e) {
-      System.out.println(e);
-    }finally{
-      return null;
+    int i = 0;
+    while (movies.size() < CATAGORY_LENGTH && i < Movie.getMovieList().size()) {
+      Movie movie = movieList.get(i);
+      if (movie.getMovieType() == type) {
+        movies.add(movie);
+      }
+      i++;
     }
+
+    return movies;
   }
 }
