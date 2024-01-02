@@ -122,11 +122,11 @@ public class cancel_ticket_form extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblExitMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblExitMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblExitMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
             }
         });
 
@@ -192,7 +192,6 @@ public class cancel_ticket_form extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(27, 27, 27)
@@ -208,6 +207,9 @@ public class cancel_ticket_form extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(panClick1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +275,7 @@ public class cancel_ticket_form extends javax.swing.JFrame {
     }//GEN-LAST:event_lblExitMouseExited
 
     private void panExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panExitMouseClicked
-      System.exit(0);
+      this.dispose();
     }//GEN-LAST:event_panExitMouseClicked
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
@@ -310,19 +312,20 @@ public class cancel_ticket_form extends javax.swing.JFrame {
 
   private void lblClick1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClick1MouseClicked
     String ticketID = TicketIDTxt.getText();
-    String s = TicketIDTxt.getText();
-    if (cancelTicket(s) == false) {
+    if (cancelTicket(ticketID) == false) {
       NotFoundTicketLbl.setForeground(Color.RED);
       NotFoundTicketLbl.setText("The Ticket Not Found !");
     } else {
-      cancelTicket(s);
+      cancelTicket(ticketID);
+      
+      HomeScreen.setUserData();
       this.dispose();
     }
   }//GEN-LAST:event_lblClick1MouseClicked
 
   private void lblClickHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClickHereMouseClicked
-    //display user ID ticket /Whatever that is
-    //displayIdTicket();
+      new my_tickets_form();
+      this.dispose();
   }//GEN-LAST:event_lblClickHereMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

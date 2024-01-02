@@ -8,7 +8,7 @@ package interfaces;
 import Interfaces.booked_ticket_form;
 import MainPackage.*;
 import java.awt.Color;
-import javax.swing.ImageIcon;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -348,18 +348,15 @@ public class movie_form extends javax.swing.JFrame {
     }//GEN-LAST:event_lblExitMouseClicked
 
     private void lblTime1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTime1MouseClicked
-//        booked_ticket_form.showtime = 0;
-//        new booked_ticket_form();
+        new booked_ticket_form(0 , movie);
     }//GEN-LAST:event_lblTime1MouseClicked
 
   private void lblTime2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTime2MouseClicked
-//        booked_ticket_form.showtime = 1;
-//        new booked_ticket_form();
+        new booked_ticket_form(1 , movie);
   }//GEN-LAST:event_lblTime2MouseClicked
 
   private void lblTime3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTime3MouseClicked
-//        booked_ticket_form.showtime = 2;
-//        new booked_ticket_form();
+        new booked_ticket_form(2 , movie);
   }//GEN-LAST:event_lblTime3MouseClicked
 
 
@@ -390,8 +387,10 @@ public class movie_form extends javax.swing.JFrame {
     movieTypeLbl.setText(movie.getMovieType().toString());// type
     movieIDLbl.setText(String.valueOf(movie.getMovieID()));// ID
     RatingLbl.setText(String.valueOf(movie.getMovieRating()));// rating
-    lblTime1.setText(String.valueOf(movie.getMovieShowTimesList().get(0))); // time1
-    lblTime2.setText(String.valueOf(movie.getMovieShowTimesList().get(1))); // time2
-    lblTime3.setText(String.valueOf(movie.getMovieShowTimesList().get(2)));// time3
+    
+    SimpleDateFormat s = new SimpleDateFormat("EEEE yyyy/MM/dd  hh:mm ");
+    lblTime1.setText(s.format(movie.getMovieShowTimesList().get(0))); // time1
+    lblTime2.setText(s.format(movie.getMovieShowTimesList().get(1))); // time2
+    lblTime3.setText(s.format(movie.getMovieShowTimesList().get(2)));// time3
   }
 }

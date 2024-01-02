@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -170,8 +171,9 @@ public class go {
 
 
     public static void rename(String className , String oldName , String newName){
-        File file = new File(className + "s/" + oldName + ".txt");
-        file.renameTo(new File(className + "s/" + newName + ".txt"));
+        File oldFile = new File(className + "s/" + oldName + ".txt");
+        File newFile = new File(oldFile.getParent() , className + "s/" + newName + ".txt");
+        oldFile.renameTo(newFile);
     }
 
 
@@ -279,6 +281,15 @@ public class go {
         d = new Date(Year-1900,Month-1,Day,Hour,Minute);
         return d;
     }
+    
+    
+    public static String createShowtimeID(Date date){
+        SimpleDateFormat s = new SimpleDateFormat("dd");
+        String string = String.valueOf(date.getYear()+1900) + String.valueOf((date.getMonth()+1) + s.format(date) + String.valueOf(date.getHours()) + String.valueOf(date.getMinutes()));
+        return string;
+    }
+    
+    
     public static ImageIcon makeImage(String imagePath){
         try{
             File file = new File(imagePath);

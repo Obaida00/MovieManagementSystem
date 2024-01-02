@@ -1,5 +1,6 @@
 package MainPackage;
 
+import Action.go;
 import Interfaces.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,12 +13,14 @@ public class Main {
 
   public static void main(String[] args) {
     //if(go.loadUserMap() == null){
-//            mainInitialize();
-    //createMainData();
+           //mainInitialize();
+            //createMainData();
     //}
     LoadingScreen loadingScreen = new LoadingScreen();
     //booked_ticket_form f = new booked_ticket_form();
     //f.setVisible(true);
+//    User user = go.getCurrentUser();
+//    System.out.print(user.getUserBookedTickets().size());
   }
 
   public static void createMainData() {

@@ -7,12 +7,14 @@ package Interfaces;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Marouf.At
  */
 public class PaymentScreen extends javax.swing.JFrame {
+    public static boolean isOk;
 
     /**
      * Creates new form PaymentScreen
@@ -22,6 +24,8 @@ public class PaymentScreen extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        isOk = false;
         lblphoto.setVisible(false);
         lblPaypalAccount1.setVisible(false);
         lblPaypalPassword.setVisible(false);
@@ -64,6 +68,7 @@ public class PaymentScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Payment");
 
+        radiobtnPaypal.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnPaypal);
         radiobtnPaypal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnPaypal.setText("Paypal Card");
@@ -73,6 +78,7 @@ public class PaymentScreen extends javax.swing.JFrame {
             }
         });
 
+        radiobtnVisaCard.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnVisaCard);
         radiobtnVisaCard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnVisaCard.setText("Visa Card");
@@ -82,6 +88,7 @@ public class PaymentScreen extends javax.swing.JFrame {
             }
         });
 
+        radiobtnAmazonGiftCard.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup.add(radiobtnAmazonGiftCard);
         radiobtnAmazonGiftCard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radiobtnAmazonGiftCard.setText("Amazon Gift Card");
@@ -219,12 +226,17 @@ public class PaymentScreen extends javax.swing.JFrame {
         if(txtAccount.getText().isEmpty() || txtPassword.getText().isEmpty()){
             lblOkLabel.setForeground(new Color(255, 102, 102));
             lblOkLabel.setText("Please Dont Leave Empty Fields!");
+            isOk = false;
         }else{
             lblOkLabel.setForeground(new Color(51, 204, 0));
             lblOkLabel.setText("                               Done!");
             lblOkLabel.setVisible(true);
+            isOk = true;
         }
         lblOkLabel.setVisible(true);
+        if(isOk){
+            this.dispose();
+        }
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**

@@ -4,6 +4,7 @@ import Action.go;
 import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class User implements Serializable{
@@ -12,6 +13,7 @@ public class User implements Serializable{
     private String userAddress;
     private ArrayList<Ticket> userBookedTickets;//FK
     private ImageIcon image;
+    private Map<String , Integer> userTicketsMap;
     private int userID;//pk
     private static int userIDInitializer;
     private static ArrayList<User> userList ;
@@ -26,7 +28,8 @@ public class User implements Serializable{
         go.saveInitializer("User");
 
         userBookedTickets = new ArrayList<>();
-
+        userTicketsMap = new HashMap<>();
+        
         this.image = go.makeImage("Default User Image.jpeg");
 
         userMap = go.loadUserMap();
@@ -39,15 +42,28 @@ public class User implements Serializable{
     }
 
     public void addBookedTicket(Ticket ticket) {
-        userBookedTickets.add(ticket);}
+        userBookedTickets.add(ticket);
+        userTicketsMap.put(ticket.getTicketID() , userBookedTickets.indexOf(ticket));
+        go.save("User", this , this.userID);
+        go.saveCurrentUser(this.userName);
+    }
+    public void removeBookedTicket(int Index){
+        String ticketID = userBookedTickets.get(Index).getTicketID();
+        userBookedTickets.remove(Index);
+        userTicketsMap.remove(ticketID , Index);
+        go.save("User", this , this.userID);
+        go.saveCurrentUser(this.userName);
+    }
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
         go.save("User" , this , this.userID);
+        go.saveCurrentUser(this.userName);
     }
     public void setImage(ImageIcon image) {
         this.image = image;
         go.save("User" , this , this.userID);
+        go.saveCurrentUser(this.userName);
     }
     public static void setUserList(ArrayList<User> userList) {User.userList = userList;}
     public static void setUserIDInitializer(int userIDInitializer) {User.userIDInitializer = userIDInitializer;}
@@ -56,6 +72,7 @@ public class User implements Serializable{
     public String getUserPassword() {return userPassword;}
     public String getUserAddress() {return userAddress;}
     public ImageIcon getImage() {return image;}
+    public Map<String, Integer> getUserTicketsMap(){return userTicketsMap;}
     public int getUserID() {return userID;}
     public ArrayList<Ticket> getUserBookedTickets() {return userBookedTickets;}
     public static Map<String, Integer> getUserMap() {return userMap;}
